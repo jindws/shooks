@@ -1,6 +1,13 @@
 {
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "preact"
-  }
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "strict": true,
+    "noImplicitAny": true
+  },
+  "include": [
+    "src/**/*"
+  ]
 }

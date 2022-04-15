@@ -1,1 +1,0 @@
-{"mappings":";;;;;AAAO,SAAS,yCAAG,CAAC,CAAC,EAAE,CAAC,EAAE;IACtB,OAAO,CAAC,GAAG,CAAC,CAAC;CAChB","sources":["Desktop/work/zhooks/src/index.js"],"sourcesContent":["export function add(a, b) {\n    return a + b;\n}"],"names":[],"version":3,"file":"main.js.map"}
