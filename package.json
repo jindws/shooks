@@ -1,9 +1,9 @@
 {
-  "name": "z-hooks",
-  "version": "1.0.0",
+  "name": "shooks",
+  "version": "0.0.1-beta",
   "description": "",
   "source": "src/index.ts",
-  "main": "dist/index.js",
+  "main": "dist/shooks.js",
   "scripts": {
     "build": "webpack --config webpack.config.js"
   },

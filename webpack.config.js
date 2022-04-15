@@ -4,12 +4,11 @@ const path = require("path");
 
 module.exports = {
   mode: "production",
-  entry: {
-    index: "./src/index.ts",
-  },
+  entry:  "./src/index.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "[name].js",
+    filename: "shooks.js",
+    library: "shooks",
   },
   module: {
     rules: [
