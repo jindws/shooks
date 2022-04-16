@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     "target": "es5",
     "jsx": "preserve",
+    "jsxImportSource": "react",
 
     /* Modules */
     "module": "commonjs",

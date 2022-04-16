@@ -1,3 +1,4 @@
 import useMap from "./hooks/useMap";
+import useSet from "./hooks/useSet";
 
-export { useMap };
+export default { useMap ,useSet};
