@@ -141,7 +141,7 @@ var $994ff314909f83f5$export$2e2bcd8739ae039 = $994ff314909f83f5$var$useBoolean;
 
 
 
-function $8c8dfaefed926d3a$var$useStorage(type, key, options) {
+function $1ed12b17764f4877$var$useStorage(type, key, options) {
     var init = $c7J86$useMemo(function() {
         var localData = type[key];
         var _a = options || {}, force = _a.force, defaultValue = _a.defaultValue;
@@ -176,18 +176,18 @@ function $8c8dfaefed926d3a$var$useStorage(type, key, options) {
         actions
     ];
 }
-var $8c8dfaefed926d3a$export$2e2bcd8739ae039 = $8c8dfaefed926d3a$var$useStorage;
+var $1ed12b17764f4877$export$2e2bcd8739ae039 = $1ed12b17764f4877$var$useStorage;
 
 
 function $717fd9294a8176d4$var$useLocalStorage(key, options) {
-    return $8c8dfaefed926d3a$export$2e2bcd8739ae039(localStorage, key, options);
+    return $1ed12b17764f4877$export$2e2bcd8739ae039(localStorage, key, options);
 }
 var $717fd9294a8176d4$export$2e2bcd8739ae039 = $717fd9294a8176d4$var$useLocalStorage;
 
 
 
 function $9571cf3dfe01e6c0$var$useSessionStorage(key, options) {
-    return $8c8dfaefed926d3a$export$2e2bcd8739ae039(sessionStorage, key, options);
+    return $1ed12b17764f4877$export$2e2bcd8739ae039(sessionStorage, key, options);
 }
 var $9571cf3dfe01e6c0$export$2e2bcd8739ae039 = $9571cf3dfe01e6c0$var$useSessionStorage;
 
@@ -278,6 +278,46 @@ function $ed974ba9f6cef09e$var$useThrottleValue(init, wait) {
 var $ed974ba9f6cef09e$export$2e2bcd8739ae039 = $ed974ba9f6cef09e$var$useThrottleValue;
 
 
+
+function $837ea68df79e1827$var$useTitle(title) {
+    $c7J86$useEffect(function() {
+        document.title = title;
+    }, []);
+}
+var $837ea68df79e1827$export$2e2bcd8739ae039 = $837ea68df79e1827$var$useTitle;
+
+
+
+function $a59b9f750e292331$var$useSize(ref) {
+    var _a1 = $c7J86$useState([
+        0,
+        0
+    ]), data1 = _a1[0], setData = _a1[1];
+    $c7J86$useEffect(function() {
+        var dom;
+        if (!ref) return;
+        else if ("current" in ref) {
+            if (!ref.current) return;
+            dom = ref.current;
+        } else dom = ref;
+        var resizeObserver = new ResizeObserver(function(data) {
+            var _a = data[0].contentRect, width = _a.width, height = _a.height;
+            setData([
+                width,
+                height
+            ]);
+        });
+        console.log("don", dom);
+        resizeObserver.observe(dom);
+        return function() {
+            return resizeObserver.unobserve(dom);
+        };
+    }, []);
+    return data1;
+}
+var $a59b9f750e292331$export$2e2bcd8739ae039 = $a59b9f750e292331$var$useSize;
+
+
 var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useMap: $37148af75344f418$export$2e2bcd8739ae039,
     useSet: $b0c9ddc93a9d9080$export$2e2bcd8739ae039,
@@ -287,9 +327,11 @@ var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useDebounce: $80a4feb8db8b4d99$export$2e2bcd8739ae039,
     useDebounceValue: $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039,
     useThrottle: $b3cada967fbdc80a$export$2e2bcd8739ae039,
-    useThrottleValue: $ed974ba9f6cef09e$export$2e2bcd8739ae039
+    useThrottleValue: $ed974ba9f6cef09e$export$2e2bcd8739ae039,
+    useTitle: $837ea68df79e1827$export$2e2bcd8739ae039,
+    useSize: $a59b9f750e292331$export$2e2bcd8739ae039
 };
 
 
-export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce, $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039 as useDebounceValue, $b3cada967fbdc80a$export$2e2bcd8739ae039 as useThrottle, $ed974ba9f6cef09e$export$2e2bcd8739ae039 as useThrottleValue};
+export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce, $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039 as useDebounceValue, $b3cada967fbdc80a$export$2e2bcd8739ae039 as useThrottle, $ed974ba9f6cef09e$export$2e2bcd8739ae039 as useThrottleValue, $837ea68df79e1827$export$2e2bcd8739ae039 as useTitle, $a59b9f750e292331$export$2e2bcd8739ae039 as useSize};
 //# sourceMappingURL=shooks.module.js.map

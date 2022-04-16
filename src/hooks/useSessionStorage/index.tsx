@@ -1,4 +1,4 @@
-import useStorage from "../useStorage";
+import useStorage from "../base/useStorage";
 
 export interface Actions {
   reset: () => void;

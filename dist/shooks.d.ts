@@ -1,3 +1,4 @@
+import { MutableRefObject } from "react";
 export function useMap<K, V>(init?: any): (Map<any, any> | {
     set: (key: K, value: V) => void;
     remove: (key: K) => void;
@@ -50,6 +51,10 @@ export function useThrottle<T>(init: T | undefined, wait?: number): [T | undefin
 export default useThrottle;
 export function useThrottleValue<T>(init: T | undefined, wait?: number): T | undefined;
 export default useThrottleValue;
+export function useTitle(title: string): void;
+export default useTitle;
+export function useSize(ref: MutableRefObject<HTMLElement | null> | HTMLElement | null): [number, number];
+export default useSize;
 declare const _default: {
     useMap: typeof useMap;
     useSet: typeof useSet;
@@ -60,6 +65,8 @@ declare const _default: {
     useDebounceValue: typeof useDebounceValue;
     useThrottle: typeof useThrottle;
     useThrottleValue: typeof useThrottleValue;
+    useTitle: typeof useTitle;
+    useSize: typeof useSize;
 };
 export default _default;
 

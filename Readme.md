@@ -2,6 +2,35 @@
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
 
+### useSize
+- 基于ResizeObserver
+- 初始化参数
+  - ref/Element
+- @return
+  - [width,height]
+```typescript
+const ref = useRef()
+const [width,height] = useSize(ref)//正常的ref
+
+const refNull = useRef()
+const [wNull] = useSize(refNull)//空ref 返回0
+
+const [wApp] = useSize(document.getElementById('app'))// document
+const [nullApp] = useSize(document.getElementById('app1'))// 不存在的DOM 返回0
+
+return <>
+    <div ref={ref}>{width}</div>
+    <div>{wNull}</div>
+    <div>{wApp}</div>
+    <div>{nullApp}</div>
+</>
+```
+### useTitle
+- 修改title
+```typescript
+useTitle('shooks')
+```
+
 ### useDebounceValue 值防抖
 - 数值改变后nms后响应
 - 初始化参数

@@ -1,6 +1,6 @@
 {
   "name": "shooks",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "react 自定义hooks",
   "source": "src/index.ts",
   "main": "dist/shooks.main.js",
@@ -21,7 +21,7 @@
     "type": "git",
     "url": "git+https://github.com/jindws/shooks.git"
   },
-  "author": "",
+  "author": "jindw",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/jindws/shooks/issues"
@@ -49,8 +49,5 @@
     "> 0.5%",
     "last 2 versions",
     "not dead"
-  ],
-  "publishConfig": {
-    "registry":"https://www.npmjs.com/package/shooks"
-  }
+  ]
 }

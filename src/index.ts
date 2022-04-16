@@ -7,6 +7,8 @@ import useDebounce from "./hooks/useDebounce";
 import useDebounceValue from "./hooks/useDebounceValue";
 import useThrottle from "./hooks/useThrottle";
 import useThrottleValue from "./hooks/useThrottleValue";
+import useTitle from "./hooks/useTitle";
+import useSize from "./hooks/useSize";
 
 export default {
   useMap,
@@ -18,6 +20,8 @@ export default {
   useDebounceValue,
   useThrottle,
   useThrottleValue,
+  useTitle,
+  useSize,
 };
 export {
   useMap,
@@ -29,4 +33,6 @@ export {
   useDebounceValue,
   useThrottle,
   useThrottleValue,
+  useTitle,
+  useSize,
 };

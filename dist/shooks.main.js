@@ -19,6 +19,8 @@ $parcel$export(module.exports, "useDebounce", function () { return $637db389d5c4
 $parcel$export(module.exports, "useDebounceValue", function () { return $5c27c88268695acc$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useThrottle", function () { return $786fe0237ee350ed$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useThrottleValue", function () { return $c221a08f1f5807f4$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useTitle", function () { return $16e370a6f136a2fd$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useSize", function () { return $bd20d58749bb379c$export$2e2bcd8739ae039; });
 
 function $80e8dff17c106379$var$useMap(init) {
     var intiData = $8M2gN$react.useMemo(function() {
@@ -160,7 +162,7 @@ var $a58f74a897fd5b17$export$2e2bcd8739ae039 = $a58f74a897fd5b17$var$useBoolean;
 
 
 
-function $bd0b3e1cb8ea5209$var$useStorage(type, key, options) {
+function $fb39d5ffc0b58506$var$useStorage(type, key, options) {
     var init = $8M2gN$react.useMemo(function() {
         var localData = type[key];
         var _a = options || {}, force = _a.force, defaultValue = _a.defaultValue;
@@ -195,18 +197,18 @@ function $bd0b3e1cb8ea5209$var$useStorage(type, key, options) {
         actions
     ];
 }
-var $bd0b3e1cb8ea5209$export$2e2bcd8739ae039 = $bd0b3e1cb8ea5209$var$useStorage;
+var $fb39d5ffc0b58506$export$2e2bcd8739ae039 = $fb39d5ffc0b58506$var$useStorage;
 
 
 function $2047587efc98bb27$var$useLocalStorage(key, options) {
-    return $bd0b3e1cb8ea5209$export$2e2bcd8739ae039(localStorage, key, options);
+    return $fb39d5ffc0b58506$export$2e2bcd8739ae039(localStorage, key, options);
 }
 var $2047587efc98bb27$export$2e2bcd8739ae039 = $2047587efc98bb27$var$useLocalStorage;
 
 
 
 function $33b1bdcef4bd88f3$var$useSessionStorage(key, options) {
-    return $bd0b3e1cb8ea5209$export$2e2bcd8739ae039(sessionStorage, key, options);
+    return $fb39d5ffc0b58506$export$2e2bcd8739ae039(sessionStorage, key, options);
 }
 var $33b1bdcef4bd88f3$export$2e2bcd8739ae039 = $33b1bdcef4bd88f3$var$useSessionStorage;
 
@@ -297,6 +299,46 @@ function $c221a08f1f5807f4$var$useThrottleValue(init, wait) {
 var $c221a08f1f5807f4$export$2e2bcd8739ae039 = $c221a08f1f5807f4$var$useThrottleValue;
 
 
+
+function $16e370a6f136a2fd$var$useTitle(title) {
+    $8M2gN$react.useEffect(function() {
+        document.title = title;
+    }, []);
+}
+var $16e370a6f136a2fd$export$2e2bcd8739ae039 = $16e370a6f136a2fd$var$useTitle;
+
+
+
+function $bd20d58749bb379c$var$useSize(ref) {
+    var _a1 = $8M2gN$react.useState([
+        0,
+        0
+    ]), data1 = _a1[0], setData = _a1[1];
+    $8M2gN$react.useEffect(function() {
+        var dom;
+        if (!ref) return;
+        else if ("current" in ref) {
+            if (!ref.current) return;
+            dom = ref.current;
+        } else dom = ref;
+        var resizeObserver = new ResizeObserver(function(data) {
+            var _a = data[0].contentRect, width = _a.width, height = _a.height;
+            setData([
+                width,
+                height
+            ]);
+        });
+        console.log("don", dom);
+        resizeObserver.observe(dom);
+        return function() {
+            return resizeObserver.unobserve(dom);
+        };
+    }, []);
+    return data1;
+}
+var $bd20d58749bb379c$export$2e2bcd8739ae039 = $bd20d58749bb379c$var$useSize;
+
+
 var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useMap: $80e8dff17c106379$export$2e2bcd8739ae039,
     useSet: $d0040752fbf3c017$export$2e2bcd8739ae039,
@@ -306,7 +348,9 @@ var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useDebounce: $637db389d5c4f3e8$export$2e2bcd8739ae039,
     useDebounceValue: $5c27c88268695acc$export$2e2bcd8739ae039,
     useThrottle: $786fe0237ee350ed$export$2e2bcd8739ae039,
-    useThrottleValue: $c221a08f1f5807f4$export$2e2bcd8739ae039
+    useThrottleValue: $c221a08f1f5807f4$export$2e2bcd8739ae039,
+    useTitle: $16e370a6f136a2fd$export$2e2bcd8739ae039,
+    useSize: $bd20d58749bb379c$export$2e2bcd8739ae039
 };
 
 
