@@ -50,4 +50,5 @@ function useMap<K, V>(init?: any) {
     },
   ];
 }
+
 export default useMap;

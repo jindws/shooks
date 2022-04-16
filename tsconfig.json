@@ -1,13 +1,24 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
     "target": "es5",
-    "jsx": "react",
+    "jsx": "preserve",
+
+    /* Modules */
+    "module": "commonjs",
+
+    /* Interop Constraints */
+    "isolatedModules": true,
     "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Type Checking */
     "strict": true,
-    "noImplicitAny": true
-  },
-  "include": [
-    "src/**/*"
-  ]
+    "skipLibCheck": true,
+    "lib": [
+      "dom",
+      "es5",
+      "scripthost",
+      "es2015"
+    ]
+  }
 }
