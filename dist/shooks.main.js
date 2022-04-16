@@ -17,6 +17,7 @@ $parcel$export(module.exports, "useLocalStorage", function () { return $2047587e
 $parcel$export(module.exports, "useSessionStorage", function () { return $33b1bdcef4bd88f3$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useDebounce", function () { return $637db389d5c4f3e8$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useDebounceValue", function () { return $5c27c88268695acc$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useThrottle", function () { return $786fe0237ee350ed$export$2e2bcd8739ae039; });
 
 function $80e8dff17c106379$var$useMap(init) {
     var intiData = $8M2gN$react.useMemo(function() {
@@ -253,6 +254,26 @@ function $5c27c88268695acc$var$useDebounceValue(init, wait) {
 var $5c27c88268695acc$export$2e2bcd8739ae039 = $5c27c88268695acc$var$useDebounceValue;
 
 
+
+function $786fe0237ee350ed$var$useThrottle(init, wait) {
+    if (wait === void 0) wait = 1000;
+    var _a = $8M2gN$react.useState(init), value = _a[0], setValue = _a[1];
+    var update = $8M2gN$react.useMemo(function() {
+        var time = Date.now();
+        return function(newValue) {
+            if (Date.now() - time < wait) return;
+            setValue(newValue);
+            time = Date.now();
+        };
+    }, []);
+    return [
+        value,
+        update
+    ];
+}
+var $786fe0237ee350ed$export$2e2bcd8739ae039 = $786fe0237ee350ed$var$useThrottle;
+
+
 var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useMap: $80e8dff17c106379$export$2e2bcd8739ae039,
     useSet: $d0040752fbf3c017$export$2e2bcd8739ae039,
@@ -260,7 +281,8 @@ var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useLocalStorage: $2047587efc98bb27$export$2e2bcd8739ae039,
     useSessionStorage: $33b1bdcef4bd88f3$export$2e2bcd8739ae039,
     useDebounce: $637db389d5c4f3e8$export$2e2bcd8739ae039,
-    useDebounceValue: $5c27c88268695acc$export$2e2bcd8739ae039
+    useDebounceValue: $5c27c88268695acc$export$2e2bcd8739ae039,
+    useThrottle: $786fe0237ee350ed$export$2e2bcd8739ae039
 };
 
 

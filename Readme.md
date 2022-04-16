@@ -43,6 +43,8 @@
       <div>{age}</div>
   </>
 ```
+### useThrottle 节流
+- 用法同useDebounce,获得节流效果
 
 ### useLocalStorage
 - 参数
