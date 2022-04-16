@@ -6,6 +6,7 @@ import useSessionStorage from "./hooks/useSessionStorage";
 import useDebounce from "./hooks/useDebounce";
 import useDebounceValue from "./hooks/useDebounceValue";
 import useThrottle from "./hooks/useThrottle";
+import useThrottleValue from "./hooks/useThrottleValue";
 
 export default {
   useMap,
@@ -16,6 +17,7 @@ export default {
   useDebounce,
   useDebounceValue,
   useThrottle,
+  useThrottleValue,
 };
 export {
   useMap,
@@ -26,4 +28,5 @@ export {
   useDebounce,
   useDebounceValue,
   useThrottle,
+  useThrottleValue,
 };

@@ -48,6 +48,8 @@ export function useDebounceValue<T>(init: T | undefined, wait?: number): T | und
 export default useDebounceValue;
 export function useThrottle<T>(init: T | undefined, wait?: number): [T | undefined, (value: T) => void];
 export default useThrottle;
+export function useThrottleValue<T>(init: T | undefined, wait?: number): T | undefined;
+export default useThrottleValue;
 declare const _default: {
     useMap: typeof useMap;
     useSet: typeof useSet;
@@ -57,6 +59,7 @@ declare const _default: {
     useDebounce: typeof useDebounce;
     useDebounceValue: typeof useDebounceValue;
     useThrottle: typeof useThrottle;
+    useThrottleValue: typeof useThrottleValue;
 };
 export default _default;
 

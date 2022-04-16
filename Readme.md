@@ -22,7 +22,8 @@
       <div>{value}</div>
   </>
 ```
-
+### useThrottleValue 值节流
+> useDebounceValue,获得节流效果
 ### useDebounce 防抖
 - 初始化参数
   - 初始化的值
@@ -44,7 +45,7 @@
   </>
 ```
 ### useThrottle 节流
-- 用法同useDebounce,获得节流效果
+> 用法同useDebounce,获得节流效果
 
 ### useLocalStorage
 - 参数

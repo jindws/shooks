@@ -49,5 +49,8 @@
     "> 0.5%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "publishConfig": {
+    "registry":"https://www.npmjs.com/package/shooks"
+  }
 }

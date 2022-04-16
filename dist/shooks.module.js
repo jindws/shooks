@@ -256,6 +256,28 @@ function $b3cada967fbdc80a$var$useThrottle(init, wait) {
 var $b3cada967fbdc80a$export$2e2bcd8739ae039 = $b3cada967fbdc80a$var$useThrottle;
 
 
+
+function $ed974ba9f6cef09e$var$useThrottleValue(init, wait) {
+    if (wait === void 0) wait = 1000;
+    var _a = $c7J86$useState(init), value = _a[0], setValue = _a[1];
+    $c7J86$useEffect(function() {
+        update(init);
+    }, [
+        init
+    ]);
+    var update = $c7J86$useMemo(function() {
+        var time = Date.now();
+        return function(newValue) {
+            if (Date.now() - time < wait) return;
+            setValue(newValue);
+            time = Date.now();
+        };
+    }, []);
+    return value;
+}
+var $ed974ba9f6cef09e$export$2e2bcd8739ae039 = $ed974ba9f6cef09e$var$useThrottleValue;
+
+
 var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useMap: $37148af75344f418$export$2e2bcd8739ae039,
     useSet: $b0c9ddc93a9d9080$export$2e2bcd8739ae039,
@@ -264,9 +286,10 @@ var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useSessionStorage: $9571cf3dfe01e6c0$export$2e2bcd8739ae039,
     useDebounce: $80a4feb8db8b4d99$export$2e2bcd8739ae039,
     useDebounceValue: $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039,
-    useThrottle: $b3cada967fbdc80a$export$2e2bcd8739ae039
+    useThrottle: $b3cada967fbdc80a$export$2e2bcd8739ae039,
+    useThrottleValue: $ed974ba9f6cef09e$export$2e2bcd8739ae039
 };
 
 
-export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce, $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039 as useDebounceValue, $b3cada967fbdc80a$export$2e2bcd8739ae039 as useThrottle};
+export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce, $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039 as useDebounceValue, $b3cada967fbdc80a$export$2e2bcd8739ae039 as useThrottle, $ed974ba9f6cef09e$export$2e2bcd8739ae039 as useThrottleValue};
 //# sourceMappingURL=shooks.module.js.map
