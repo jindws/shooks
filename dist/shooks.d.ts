@@ -44,6 +44,8 @@ export function useSessionStorage(key: string, options?: {
 export default useSessionStorage;
 export function useDebounce<T>(init: T | undefined, wait?: number): [T | undefined, (value: T) => void];
 export default useDebounce;
+export function useDebounceValue<T>(init: T | undefined, wait?: number): T | undefined;
+export default useDebounceValue;
 declare const _default: {
     useMap: typeof useMap;
     useSet: typeof useSet;
@@ -51,6 +53,7 @@ declare const _default: {
     useLocalStorage: typeof useLocalStorage;
     useSessionStorage: typeof useSessionStorage;
     useDebounce: typeof useDebounce;
+    useDebounceValue: typeof useDebounceValue;
 };
 export default _default;
 

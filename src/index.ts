@@ -4,6 +4,7 @@ import useBoolean from "./hooks/useBoolean";
 import useLocalStorage from "./hooks/useLocalStorage";
 import useSessionStorage from "./hooks/useSessionStorage";
 import useDebounce from "./hooks/useDebounce";
+import useDebounceValue from "./hooks/useDebounceValue";
 
 export default {
   useMap,
@@ -12,6 +13,7 @@ export default {
   useLocalStorage,
   useSessionStorage,
   useDebounce,
+  useDebounceValue,
 };
 export {
   useMap,
@@ -20,4 +22,5 @@ export {
   useLocalStorage,
   useSessionStorage,
   useDebounce,
+  useDebounceValue,
 };

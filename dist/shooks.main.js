@@ -16,6 +16,7 @@ $parcel$export(module.exports, "useBoolean", function () { return $a58f74a897fd5
 $parcel$export(module.exports, "useLocalStorage", function () { return $2047587efc98bb27$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useSessionStorage", function () { return $33b1bdcef4bd88f3$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useDebounce", function () { return $637db389d5c4f3e8$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useDebounceValue", function () { return $5c27c88268695acc$export$2e2bcd8739ae039; });
 
 function $80e8dff17c106379$var$useMap(init) {
     var intiData = $8M2gN$react.useMemo(function() {
@@ -229,13 +230,37 @@ function $637db389d5c4f3e8$var$useDebounce(init, wait) {
 var $637db389d5c4f3e8$export$2e2bcd8739ae039 = $637db389d5c4f3e8$var$useDebounce;
 
 
+
+function $5c27c88268695acc$var$useDebounceValue(init, wait) {
+    if (wait === void 0) wait = 1000;
+    var _a = $8M2gN$react.useState(init), value = _a[0], setValue = _a[1];
+    $8M2gN$react.useEffect(function() {
+        update(init);
+    }, [
+        init
+    ]);
+    var update = $8M2gN$react.useMemo(function() {
+        var last;
+        return function(newValue) {
+            clearTimeout(last);
+            last = setTimeout(function() {
+                setValue(newValue);
+            }, wait);
+        };
+    }, []);
+    return value;
+}
+var $5c27c88268695acc$export$2e2bcd8739ae039 = $5c27c88268695acc$var$useDebounceValue;
+
+
 var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useMap: $80e8dff17c106379$export$2e2bcd8739ae039,
     useSet: $d0040752fbf3c017$export$2e2bcd8739ae039,
     useBoolean: $a58f74a897fd5b17$export$2e2bcd8739ae039,
     useLocalStorage: $2047587efc98bb27$export$2e2bcd8739ae039,
     useSessionStorage: $33b1bdcef4bd88f3$export$2e2bcd8739ae039,
-    useDebounce: $637db389d5c4f3e8$export$2e2bcd8739ae039
+    useDebounce: $637db389d5c4f3e8$export$2e2bcd8739ae039,
+    useDebounceValue: $5c27c88268695acc$export$2e2bcd8739ae039
 };
 
 

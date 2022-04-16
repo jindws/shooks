@@ -1,7 +1,7 @@
 {
   "name": "shooks",
-  "version": "0.1.2",
-  "description": "",
+  "version": "0.1.3",
+  "description": "react 自定义hooks",
   "source": "src/index.ts",
   "main": "dist/shooks.main.js",
   "module": "dist/shooks.module.js",
@@ -19,14 +19,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jindws/zhooks.git"
+    "url": "git+https://github.com/jindws/shooks.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jindws/zhooks/issues"
+    "url": "https://github.com/jindws/shooks/issues"
   },
-  "homepage": "https://github.com/jindws/zhooks#readme",
+  "homepage": "https://github.com/jindws/shooks#readme",
   "peerDependencies": {
     "react": "^16.11.0 || ^17.0.0 || ^18.0.0"
   },

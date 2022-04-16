@@ -1,4 +1,27 @@
-## ZHooks
+## SHooks
+- yarn add shooks -S
+- import { useDebounce } from 'shooks'
+
+### useDebounceValue 值防抖
+- 数值改变后nms后响应
+- 初始化参数
+  - 初始化的值
+  - timeout:number,防抖数值 默认1000ms
+- @return
+  - value:最新的值
+
+```typescript
+  const [num,setNum] = useState(1)
+  const value = useDebounceValue(num)
+
+  function add(){
+      setNum(num+1)
+  }
+  return <>
+      <div onClick={add}>{num}</div>
+      <div>{value}</div>
+  </>
+```
 
 ### useDebounce 防抖
 - 初始化参数
