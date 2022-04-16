@@ -21,6 +21,7 @@ $parcel$export(module.exports, "useThrottle", function () { return $786fe0237ee3
 $parcel$export(module.exports, "useThrottleValue", function () { return $c221a08f1f5807f4$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useTitle", function () { return $16e370a6f136a2fd$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useSize", function () { return $bd20d58749bb379c$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useScroll", function () { return $ef2b4bda0936676f$export$2e2bcd8739ae039; });
 
 function $80e8dff17c106379$var$useMap(init) {
     var intiData = $8M2gN$react.useMemo(function() {
@@ -314,6 +315,7 @@ function $bd20d58749bb379c$var$useSize(ref) {
         0,
         0
     ]), data1 = _a1[0], setData = _a1[1];
+    if (!window.ResizeObserver) return data1;
     $8M2gN$react.useEffect(function() {
         var dom;
         if (!ref) return;
@@ -339,6 +341,32 @@ function $bd20d58749bb379c$var$useSize(ref) {
 var $bd20d58749bb379c$export$2e2bcd8739ae039 = $bd20d58749bb379c$var$useSize;
 
 
+
+function $ef2b4bda0936676f$var$useScroll(ref) {
+    var _a1 = $8M2gN$react.useState(0), left = _a1[0], setLeft = _a1[1];
+    var _b = $8M2gN$react.useState(0), top = _b[0], setTop = _b[1];
+    var isRef = $8M2gN$react.useMemo(function() {
+        return "current" in ref;
+    }, []);
+    $8M2gN$react.useEffect(function() {
+        var dom = isRef ? ref.current : ref;
+        if (!dom) return;
+        dom.onscroll = function() {
+            var ele = dom;
+            if (!isRef) ele = ele.scrollingElement;
+            var _a = ele, scrollLeft = _a.scrollLeft, scrollTop = _a.scrollTop;
+            setLeft(scrollLeft);
+            setTop(scrollTop);
+        };
+    }, []);
+    return [
+        left,
+        top
+    ];
+}
+var $ef2b4bda0936676f$export$2e2bcd8739ae039 = $ef2b4bda0936676f$var$useScroll;
+
+
 var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useMap: $80e8dff17c106379$export$2e2bcd8739ae039,
     useSet: $d0040752fbf3c017$export$2e2bcd8739ae039,
@@ -350,7 +378,8 @@ var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useThrottle: $786fe0237ee350ed$export$2e2bcd8739ae039,
     useThrottleValue: $c221a08f1f5807f4$export$2e2bcd8739ae039,
     useTitle: $16e370a6f136a2fd$export$2e2bcd8739ae039,
-    useSize: $bd20d58749bb379c$export$2e2bcd8739ae039
+    useSize: $bd20d58749bb379c$export$2e2bcd8739ae039,
+    useScroll: $ef2b4bda0936676f$export$2e2bcd8739ae039
 };
 
 

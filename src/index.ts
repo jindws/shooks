@@ -9,6 +9,7 @@ import useThrottle from "./hooks/useThrottle";
 import useThrottleValue from "./hooks/useThrottleValue";
 import useTitle from "./hooks/useTitle";
 import useSize from "./hooks/useSize";
+import useScroll from "./hooks/useScroll";
 
 export default {
   useMap,
@@ -22,6 +23,7 @@ export default {
   useThrottleValue,
   useTitle,
   useSize,
+  useScroll,
 };
 export {
   useMap,
@@ -35,4 +37,5 @@ export {
   useThrottleValue,
   useTitle,
   useSize,
+  useScroll,
 };

@@ -293,6 +293,7 @@ function $a59b9f750e292331$var$useSize(ref) {
         0,
         0
     ]), data1 = _a1[0], setData = _a1[1];
+    if (!window.ResizeObserver) return data1;
     $c7J86$useEffect(function() {
         var dom;
         if (!ref) return;
@@ -318,6 +319,32 @@ function $a59b9f750e292331$var$useSize(ref) {
 var $a59b9f750e292331$export$2e2bcd8739ae039 = $a59b9f750e292331$var$useSize;
 
 
+
+function $9b8a6b4a37073e24$var$useScroll(ref) {
+    var _a1 = $c7J86$useState(0), left = _a1[0], setLeft = _a1[1];
+    var _b = $c7J86$useState(0), top = _b[0], setTop = _b[1];
+    var isRef = $c7J86$useMemo(function() {
+        return "current" in ref;
+    }, []);
+    $c7J86$useEffect(function() {
+        var dom = isRef ? ref.current : ref;
+        if (!dom) return;
+        dom.onscroll = function() {
+            var ele = dom;
+            if (!isRef) ele = ele.scrollingElement;
+            var _a = ele, scrollLeft = _a.scrollLeft, scrollTop = _a.scrollTop;
+            setLeft(scrollLeft);
+            setTop(scrollTop);
+        };
+    }, []);
+    return [
+        left,
+        top
+    ];
+}
+var $9b8a6b4a37073e24$export$2e2bcd8739ae039 = $9b8a6b4a37073e24$var$useScroll;
+
+
 var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useMap: $37148af75344f418$export$2e2bcd8739ae039,
     useSet: $b0c9ddc93a9d9080$export$2e2bcd8739ae039,
@@ -329,9 +356,10 @@ var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useThrottle: $b3cada967fbdc80a$export$2e2bcd8739ae039,
     useThrottleValue: $ed974ba9f6cef09e$export$2e2bcd8739ae039,
     useTitle: $837ea68df79e1827$export$2e2bcd8739ae039,
-    useSize: $a59b9f750e292331$export$2e2bcd8739ae039
+    useSize: $a59b9f750e292331$export$2e2bcd8739ae039,
+    useScroll: $9b8a6b4a37073e24$export$2e2bcd8739ae039
 };
 
 
-export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce, $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039 as useDebounceValue, $b3cada967fbdc80a$export$2e2bcd8739ae039 as useThrottle, $ed974ba9f6cef09e$export$2e2bcd8739ae039 as useThrottleValue, $837ea68df79e1827$export$2e2bcd8739ae039 as useTitle, $a59b9f750e292331$export$2e2bcd8739ae039 as useSize};
+export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce, $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039 as useDebounceValue, $b3cada967fbdc80a$export$2e2bcd8739ae039 as useThrottle, $ed974ba9f6cef09e$export$2e2bcd8739ae039 as useThrottleValue, $837ea68df79e1827$export$2e2bcd8739ae039 as useTitle, $a59b9f750e292331$export$2e2bcd8739ae039 as useSize, $9b8a6b4a37073e24$export$2e2bcd8739ae039 as useScroll};
 //# sourceMappingURL=shooks.module.js.map

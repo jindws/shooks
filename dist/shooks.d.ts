@@ -55,6 +55,8 @@ export function useTitle(title: string): void;
 export default useTitle;
 export function useSize(ref: MutableRefObject<HTMLElement | null> | HTMLElement | null): [number, number];
 export default useSize;
+export function useScroll(ref: MutableRefObject<HTMLElement | null> | Document): [number, number];
+export default useScroll;
 declare const _default: {
     useMap: typeof useMap;
     useSet: typeof useSet;
@@ -67,6 +69,7 @@ declare const _default: {
     useThrottleValue: typeof useThrottleValue;
     useTitle: typeof useTitle;
     useSize: typeof useSize;
+    useScroll: typeof useScroll;
 };
 export default _default;
 
