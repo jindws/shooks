@@ -57,6 +57,16 @@ export function useSize(ref: MutableRefObject<HTMLElement | null> | HTMLElement 
 export default useSize;
 export function useScroll(ref: MutableRefObject<HTMLElement | null> | Document): [number, number];
 export default useScroll;
+interface IAction {
+    start: () => void;
+    wait: () => void;
+    stop: () => void;
+}
+export function useCountDown(time: number, options?: {
+    interval?: number;
+    callback?: Function;
+}): [number, IAction];
+export default useCountDown;
 declare const _default: {
     useMap: typeof useMap;
     useSet: typeof useSet;
@@ -70,6 +80,7 @@ declare const _default: {
     useTitle: typeof useTitle;
     useSize: typeof useSize;
     useScroll: typeof useScroll;
+    useCountDown: typeof useCountDown;
 };
 export default _default;
 

@@ -22,6 +22,7 @@ $parcel$export(module.exports, "useThrottleValue", function () { return $c221a08
 $parcel$export(module.exports, "useTitle", function () { return $16e370a6f136a2fd$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useSize", function () { return $bd20d58749bb379c$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useScroll", function () { return $ef2b4bda0936676f$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useCountDown", function () { return $15242d4563fbadf0$export$2e2bcd8739ae039; });
 
 function $80e8dff17c106379$var$useMap(init) {
     var intiData = $8M2gN$react.useMemo(function() {
@@ -367,6 +368,65 @@ function $ef2b4bda0936676f$var$useScroll(ref) {
 var $ef2b4bda0936676f$export$2e2bcd8739ae039 = $ef2b4bda0936676f$var$useScroll;
 
 
+
+function $15242d4563fbadf0$var$useCountDown(time, options) {
+    if (options === void 0) options = {};
+    var _a = $8M2gN$react.useState(Math.max(time, 0)), remain = _a[0], setRemain = _a[1];
+    var _remain = $8M2gN$react.useRef(remain);
+    var _interval = $8M2gN$react.useMemo(function() {
+        return Math.min(Math.max(1, Math.floor(options.interval || 1)), time);
+    }, []);
+    $8M2gN$react.useEffect(function() {
+        _remain.current = remain;
+    }, [
+        remain
+    ]);
+    var _b = $8M2gN$react.useState(false), running = _b[0], setRunning = _b[1];
+    $8M2gN$react.useEffect(function() {
+        action.start();
+    }, []);
+    var action = $8M2gN$react.useMemo(function() {
+        var si;
+        return function() {
+            var start = function start() {
+                if (running) return;
+                if (!_remain.current) setRemain(time);
+                si = setInterval(function() {
+                    setRemain(function(prevState) {
+                        var result = prevState - _interval;
+                        if (result <= 0) {
+                            clearInterval(si);
+                            setRunning(false);
+                            options.callback && options.callback();
+                        }
+                        return result;
+                    });
+                }, Math.min(_interval, _remain.current || 1) * 1000);
+            };
+            var wait = function wait() {
+                clearInterval(si);
+                setRunning(false);
+            };
+            var stop = function stop() {
+                clearInterval(si);
+                setRemain(time);
+                setRunning(false);
+            };
+            return {
+                start: start,
+                wait: wait,
+                stop: stop
+            };
+        }();
+    }, []);
+    return [
+        remain,
+        action
+    ];
+}
+var $15242d4563fbadf0$export$2e2bcd8739ae039 = $15242d4563fbadf0$var$useCountDown;
+
+
 var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useMap: $80e8dff17c106379$export$2e2bcd8739ae039,
     useSet: $d0040752fbf3c017$export$2e2bcd8739ae039,
@@ -379,7 +439,8 @@ var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useThrottleValue: $c221a08f1f5807f4$export$2e2bcd8739ae039,
     useTitle: $16e370a6f136a2fd$export$2e2bcd8739ae039,
     useSize: $bd20d58749bb379c$export$2e2bcd8739ae039,
-    useScroll: $ef2b4bda0936676f$export$2e2bcd8739ae039
+    useScroll: $ef2b4bda0936676f$export$2e2bcd8739ae039,
+    useCountDown: $15242d4563fbadf0$export$2e2bcd8739ae039
 };
 
 

@@ -1,4 +1,4 @@
-import {useMemo as $c7J86$useMemo, useState as $c7J86$useState, useEffect as $c7J86$useEffect} from "react";
+import {useMemo as $c7J86$useMemo, useState as $c7J86$useState, useEffect as $c7J86$useEffect, useRef as $c7J86$useRef} from "react";
 
 
 function $37148af75344f418$var$useMap(init) {
@@ -345,6 +345,65 @@ function $9b8a6b4a37073e24$var$useScroll(ref) {
 var $9b8a6b4a37073e24$export$2e2bcd8739ae039 = $9b8a6b4a37073e24$var$useScroll;
 
 
+
+function $8b344e2b60a44e70$var$useCountDown(time, options) {
+    if (options === void 0) options = {};
+    var _a = $c7J86$useState(Math.max(time, 0)), remain = _a[0], setRemain = _a[1];
+    var _remain = $c7J86$useRef(remain);
+    var _interval = $c7J86$useMemo(function() {
+        return Math.min(Math.max(1, Math.floor(options.interval || 1)), time);
+    }, []);
+    $c7J86$useEffect(function() {
+        _remain.current = remain;
+    }, [
+        remain
+    ]);
+    var _b = $c7J86$useState(false), running = _b[0], setRunning = _b[1];
+    $c7J86$useEffect(function() {
+        action.start();
+    }, []);
+    var action = $c7J86$useMemo(function() {
+        var si;
+        return function() {
+            var start = function() {
+                if (running) return;
+                if (!_remain.current) setRemain(time);
+                si = setInterval(function() {
+                    setRemain(function(prevState) {
+                        var result = prevState - _interval;
+                        if (result <= 0) {
+                            clearInterval(si);
+                            setRunning(false);
+                            options.callback && options.callback();
+                        }
+                        return result;
+                    });
+                }, Math.min(_interval, _remain.current || 1) * 1000);
+            };
+            var wait = function() {
+                clearInterval(si);
+                setRunning(false);
+            };
+            var stop = function() {
+                clearInterval(si);
+                setRemain(time);
+                setRunning(false);
+            };
+            return {
+                start: start,
+                wait: wait,
+                stop: stop
+            };
+        }();
+    }, []);
+    return [
+        remain,
+        action
+    ];
+}
+var $8b344e2b60a44e70$export$2e2bcd8739ae039 = $8b344e2b60a44e70$var$useCountDown;
+
+
 var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useMap: $37148af75344f418$export$2e2bcd8739ae039,
     useSet: $b0c9ddc93a9d9080$export$2e2bcd8739ae039,
@@ -357,9 +416,10 @@ var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useThrottleValue: $ed974ba9f6cef09e$export$2e2bcd8739ae039,
     useTitle: $837ea68df79e1827$export$2e2bcd8739ae039,
     useSize: $a59b9f750e292331$export$2e2bcd8739ae039,
-    useScroll: $9b8a6b4a37073e24$export$2e2bcd8739ae039
+    useScroll: $9b8a6b4a37073e24$export$2e2bcd8739ae039,
+    useCountDown: $8b344e2b60a44e70$export$2e2bcd8739ae039
 };
 
 
-export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce, $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039 as useDebounceValue, $b3cada967fbdc80a$export$2e2bcd8739ae039 as useThrottle, $ed974ba9f6cef09e$export$2e2bcd8739ae039 as useThrottleValue, $837ea68df79e1827$export$2e2bcd8739ae039 as useTitle, $a59b9f750e292331$export$2e2bcd8739ae039 as useSize, $9b8a6b4a37073e24$export$2e2bcd8739ae039 as useScroll};
+export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce, $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039 as useDebounceValue, $b3cada967fbdc80a$export$2e2bcd8739ae039 as useThrottle, $ed974ba9f6cef09e$export$2e2bcd8739ae039 as useThrottleValue, $837ea68df79e1827$export$2e2bcd8739ae039 as useTitle, $a59b9f750e292331$export$2e2bcd8739ae039 as useSize, $9b8a6b4a37073e24$export$2e2bcd8739ae039 as useScroll, $8b344e2b60a44e70$export$2e2bcd8739ae039 as useCountDown};
 //# sourceMappingURL=shooks.module.js.map

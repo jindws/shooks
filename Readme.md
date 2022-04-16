@@ -1,6 +1,39 @@
 ## SHooks
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
+### useCountDown 标准时间倒计时
+- 以秒为单位的倒计时
+- 参数 [time,options:{interval,callback}]
+  - time:number,倒计时(s)
+  - options
+    - interval?:number,可选,触发间隔,单位秒
+    - callback?:function,可选,倒计时归0后触发
+  - @return [remain,{stop,wait,start}]
+    - remain 剩余时间,单位秒
+    - stop 停止
+    - wait 暂停
+    - start 开始/继续
+
+```typescript
+ const [remain,{
+      stop,
+      wait,
+      start
+  }] = useCountDown(10,{
+      interval:2,
+      callback:()=>{
+          console.log('done')
+      }
+  })
+
+  return <>
+      <div>{remain}</div>
+      <span onClick={wait}>wait</span>
+      <span onClick={stop}>stop</span>
+      <span onClick={start}>start</span>
+  </>
+```
+
 ### useScroll
 - 监听元素的滚动位置
   - 支持ref,未绑定返回0
