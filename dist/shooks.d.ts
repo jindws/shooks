@@ -71,6 +71,9 @@ export function useAdd(...nums: (number | string)[]): [string | number, (num: nu
 export default useAdd;
 export function useRandom(...data: unknown[]): [unknown, () => void];
 export default useRandom;
+type TData<T> = ((data: T) => T) | Record<string, unknown>;
+export function useSetState<T extends Record<string, unknown>>(data: Partial<T>): [Partial<T>, (newData: TData<Partial<T>>) => void];
+export default useSetState;
 declare const _default: {
     useMap: typeof useMap;
     useSet: typeof useSet;
@@ -87,6 +90,7 @@ declare const _default: {
     useCountDown: typeof useCountDown;
     useAdd: typeof useAdd;
     useRandom: typeof useRandom;
+    useSetState: typeof useSetState;
 };
 export default _default;
 

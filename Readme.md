@@ -1,7 +1,21 @@
 ## SHooks
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
-
+### useSetState useState
+- 参数 object
+- @return [state,setState]
+  - state 最新的对象
+  - setState 更新,类似Class的
+```tsx
+const [state,setState] = useSetState({a:1,b:2})
+return <>
+    <div onClick={()=>setState({a:state.a+1})}>{JSON.stringify(state)}</div>
+    <div onClick={()=>setState({c:1})}>add c</div>
+    <div onClick={()=>setState(prev=>({
+        a:prev.a-1
+    }))}>update</div>
+</>
+```
 ### useRandom 随机获取
 - 参数 [...args]
   - args:任意参数

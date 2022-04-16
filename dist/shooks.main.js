@@ -25,6 +25,7 @@ $parcel$export(module.exports, "useScroll", function () { return $ef2b4bda093667
 $parcel$export(module.exports, "useCountDown", function () { return $15242d4563fbadf0$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useAdd", function () { return $d8b411e60558e886$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useRandom", function () { return $96e0015d93f0bcde$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useSetState", function () { return $a8dce27bd42932c7$exports.default; });
 
 function $80e8dff17c106379$var$useMap(init) {
     var intiData = $8M2gN$react.useMemo(function() {
@@ -505,6 +506,36 @@ function $96e0015d93f0bcde$var$useRandom() {
 var $96e0015d93f0bcde$export$2e2bcd8739ae039 = $96e0015d93f0bcde$var$useRandom;
 
 
+var $a8dce27bd42932c7$exports = {};
+
+$parcel$export($a8dce27bd42932c7$exports, "default", function () { return $a8dce27bd42932c7$export$2e2bcd8739ae039; }, function (v) { return $a8dce27bd42932c7$export$2e2bcd8739ae039 = v; });
+
+var $a8dce27bd42932c7$var$__assign = undefined && undefined.__assign || function() {
+    $a8dce27bd42932c7$var$__assign = Object.assign || function(t) {
+        for(var s, i = 1, n = arguments.length; i < n; i++){
+            s = arguments[i];
+            for(var p in s)if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return $a8dce27bd42932c7$var$__assign.apply(this, arguments);
+};
+function $a8dce27bd42932c7$var$useSetState(data) {
+    var _a = $8M2gN$react.useState(data), state = _a[0], setState = _a[1];
+    function update(newData) {
+        setState(function(prevDate) {
+            var _$data = typeof newData === "function" ? newData(prevDate) : newData;
+            return $a8dce27bd42932c7$var$__assign($a8dce27bd42932c7$var$__assign({}, state), _$data);
+        });
+    }
+    return [
+        state,
+        update
+    ];
+}
+var $a8dce27bd42932c7$export$2e2bcd8739ae039 = $a8dce27bd42932c7$var$useSetState;
+
+
 var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useMap: $80e8dff17c106379$export$2e2bcd8739ae039,
     useSet: $d0040752fbf3c017$export$2e2bcd8739ae039,
@@ -520,7 +551,8 @@ var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useScroll: $ef2b4bda0936676f$export$2e2bcd8739ae039,
     useCountDown: $15242d4563fbadf0$export$2e2bcd8739ae039,
     useAdd: $d8b411e60558e886$export$2e2bcd8739ae039,
-    useRandom: $96e0015d93f0bcde$export$2e2bcd8739ae039
+    useRandom: $96e0015d93f0bcde$export$2e2bcd8739ae039,
+    useSetState: $a8dce27bd42932c7$exports.default
 };
 
 

@@ -13,6 +13,7 @@ import useScroll from "./hooks/useScroll";
 import useCountDown from "./hooks/useCountDown";
 import useAdd from "./hooks/useAdd";
 import useRandom from "./hooks/useRandom";
+import useSetState from "./hooks/useSetState";
 
 export default {
   useMap,
@@ -30,6 +31,7 @@ export default {
   useCountDown,
   useAdd,
   useRandom,
+  useSetState,
 };
 export {
   useMap,
@@ -47,4 +49,5 @@ export {
   useCountDown,
   useAdd,
   useRandom,
+  useSetState,
 };

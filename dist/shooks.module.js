@@ -1,5 +1,8 @@
 import {useMemo as $c7J86$useMemo, useState as $c7J86$useState, useEffect as $c7J86$useEffect, useRef as $c7J86$useRef} from "react";
 
+function $parcel$export(e, n, v, s) {
+  Object.defineProperty(e, n, {get: v, set: s, enumerable: true, configurable: true});
+}
 
 function $37148af75344f418$var$useMap(init) {
     var intiData = $c7J86$useMemo(function() {
@@ -479,6 +482,36 @@ function $0fe741a2572793a0$var$useRandom() {
 var $0fe741a2572793a0$export$2e2bcd8739ae039 = $0fe741a2572793a0$var$useRandom;
 
 
+var $10cbba22aa9fb3e8$exports = {};
+
+$parcel$export($10cbba22aa9fb3e8$exports, "default", function () { return $10cbba22aa9fb3e8$export$2e2bcd8739ae039; }, function (v) { return $10cbba22aa9fb3e8$export$2e2bcd8739ae039 = v; });
+
+var $10cbba22aa9fb3e8$var$__assign = undefined && undefined.__assign || function() {
+    $10cbba22aa9fb3e8$var$__assign = Object.assign || function(t) {
+        for(var s, i = 1, n = arguments.length; i < n; i++){
+            s = arguments[i];
+            for(var p in s)if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return $10cbba22aa9fb3e8$var$__assign.apply(this, arguments);
+};
+function $10cbba22aa9fb3e8$var$useSetState(data1) {
+    var _a = $c7J86$useState(data1), state = _a[0], setState = _a[1];
+    function update(newData) {
+        setState(function(prevDate) {
+            var data = typeof newData === "function" ? newData(prevDate) : newData;
+            return $10cbba22aa9fb3e8$var$__assign($10cbba22aa9fb3e8$var$__assign({}, state), data);
+        });
+    }
+    return [
+        state,
+        update
+    ];
+}
+var $10cbba22aa9fb3e8$export$2e2bcd8739ae039 = $10cbba22aa9fb3e8$var$useSetState;
+
+
 var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useMap: $37148af75344f418$export$2e2bcd8739ae039,
     useSet: $b0c9ddc93a9d9080$export$2e2bcd8739ae039,
@@ -494,9 +527,10 @@ var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useScroll: $9b8a6b4a37073e24$export$2e2bcd8739ae039,
     useCountDown: $8b344e2b60a44e70$export$2e2bcd8739ae039,
     useAdd: $2faca32e6971e721$export$2e2bcd8739ae039,
-    useRandom: $0fe741a2572793a0$export$2e2bcd8739ae039
+    useRandom: $0fe741a2572793a0$export$2e2bcd8739ae039,
+    useSetState: $10cbba22aa9fb3e8$exports.default
 };
 
 
-export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce, $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039 as useDebounceValue, $b3cada967fbdc80a$export$2e2bcd8739ae039 as useThrottle, $ed974ba9f6cef09e$export$2e2bcd8739ae039 as useThrottleValue, $837ea68df79e1827$export$2e2bcd8739ae039 as useTitle, $a59b9f750e292331$export$2e2bcd8739ae039 as useSize, $9b8a6b4a37073e24$export$2e2bcd8739ae039 as useScroll, $8b344e2b60a44e70$export$2e2bcd8739ae039 as useCountDown, $2faca32e6971e721$export$2e2bcd8739ae039 as useAdd, $0fe741a2572793a0$export$2e2bcd8739ae039 as useRandom};
+export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce, $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039 as useDebounceValue, $b3cada967fbdc80a$export$2e2bcd8739ae039 as useThrottle, $ed974ba9f6cef09e$export$2e2bcd8739ae039 as useThrottleValue, $837ea68df79e1827$export$2e2bcd8739ae039 as useTitle, $a59b9f750e292331$export$2e2bcd8739ae039 as useSize, $9b8a6b4a37073e24$export$2e2bcd8739ae039 as useScroll, $8b344e2b60a44e70$export$2e2bcd8739ae039 as useCountDown, $2faca32e6971e721$export$2e2bcd8739ae039 as useAdd, $0fe741a2572793a0$export$2e2bcd8739ae039 as useRandom, $10cbba22aa9fb3e8$export$2e2bcd8739ae039 as useSetState};
 //# sourceMappingURL=shooks.module.js.map
