@@ -1,6 +1,6 @@
 {
   "name": "shooks",
-  "version": "0.0.4-beta",
+  "version": "0.0.5",
   "description": "",
   "source": "src/index.ts",
   "main": "dist/shooks.main.js",

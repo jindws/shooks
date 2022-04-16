@@ -105,11 +105,47 @@ function $b0c9ddc93a9d9080$var$useSet(init) {
 var $b0c9ddc93a9d9080$export$2e2bcd8739ae039 = $b0c9ddc93a9d9080$var$useSet;
 
 
+
+function $994ff314909f83f5$var$useBoolean(init) {
+    var intiData = $c7J86$useMemo(function() {
+        return !!init;
+    }, []);
+    var _a = $c7J86$useState(intiData), state = _a[0], setState = _a[1];
+    var actions = $c7J86$useMemo(function() {
+        var setTrue = function() {
+            return setState(true);
+        };
+        var setFalse = function() {
+            return setState(false);
+        };
+        var toggle = function() {
+            return setState(function(prevState) {
+                return !prevState;
+            });
+        };
+        return {
+            toggle: toggle,
+            set: function(val) {
+                return setState(!!val);
+            },
+            setTrue: setTrue,
+            setFalse: setFalse
+        };
+    }, []);
+    return [
+        state,
+        actions, 
+    ];
+}
+var $994ff314909f83f5$export$2e2bcd8739ae039 = $994ff314909f83f5$var$useBoolean;
+
+
 var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useMap: $37148af75344f418$export$2e2bcd8739ae039,
-    useSet: $b0c9ddc93a9d9080$export$2e2bcd8739ae039
+    useSet: $b0c9ddc93a9d9080$export$2e2bcd8739ae039,
+    useBoolean: $994ff314909f83f5$export$2e2bcd8739ae039
 };
 
 
-export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default};
+export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean};
 //# sourceMappingURL=shooks.module.js.map

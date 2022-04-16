@@ -10,6 +10,9 @@ function $parcel$export(e, n, v, s) {
 $parcel$defineInteropFlag(module.exports);
 
 $parcel$export(module.exports, "default", function () { return $fa170128f8c97660$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useMap", function () { return $80e8dff17c106379$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useSet", function () { return $d0040752fbf3c017$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useBoolean", function () { return $a58f74a897fd5b17$export$2e2bcd8739ae039; });
 
 function $80e8dff17c106379$var$useMap(init) {
     var intiData = $8M2gN$react.useMemo(function() {
@@ -115,9 +118,45 @@ function $d0040752fbf3c017$var$useSet(init) {
 var $d0040752fbf3c017$export$2e2bcd8739ae039 = $d0040752fbf3c017$var$useSet;
 
 
+
+function $a58f74a897fd5b17$var$useBoolean(init) {
+    var intiData = $8M2gN$react.useMemo(function() {
+        return !!init;
+    }, []);
+    var _a = $8M2gN$react.useState(intiData), state = _a[0], setState = _a[1];
+    var actions = $8M2gN$react.useMemo(function() {
+        var setTrue = function setTrue() {
+            return setState(true);
+        };
+        var setFalse = function setFalse() {
+            return setState(false);
+        };
+        var toggle = function toggle() {
+            return setState(function(prevState) {
+                return !prevState;
+            });
+        };
+        return {
+            toggle: toggle,
+            set: function set(val) {
+                return setState(!!val);
+            },
+            setTrue: setTrue,
+            setFalse: setFalse
+        };
+    }, []);
+    return [
+        state,
+        actions, 
+    ];
+}
+var $a58f74a897fd5b17$export$2e2bcd8739ae039 = $a58f74a897fd5b17$var$useBoolean;
+
+
 var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useMap: $80e8dff17c106379$export$2e2bcd8739ae039,
-    useSet: $d0040752fbf3c017$export$2e2bcd8739ae039
+    useSet: $d0040752fbf3c017$export$2e2bcd8739ae039,
+    useBoolean: $a58f74a897fd5b17$export$2e2bcd8739ae039
 };
 
 
