@@ -1,4 +1,4 @@
-import {useMemo as $c7J86$useMemo, useState as $c7J86$useState} from "react";
+import {useMemo as $c7J86$useMemo, useState as $c7J86$useState, useEffect as $c7J86$useEffect} from "react";
 
 
 function $37148af75344f418$var$useMap(init) {
@@ -140,12 +140,52 @@ function $994ff314909f83f5$var$useBoolean(init) {
 var $994ff314909f83f5$export$2e2bcd8739ae039 = $994ff314909f83f5$var$useBoolean;
 
 
+
+function $717fd9294a8176d4$var$useLocalStorage(key, options) {
+    var init = $c7J86$useMemo(function() {
+        var localData = localStorage[key];
+        var _a = options || {}, force = _a.force, defaultValue = _a.defaultValue;
+        if (defaultValue !== undefined) {
+            if (localData && !force) return JSON.parse(localStorage[key]);
+            localStorage[key] = JSON.stringify(defaultValue);
+            return defaultValue;
+        }
+        if (force || !localData) return '';
+        return JSON.parse(localStorage[key]);
+    }, []);
+    var _a1 = $c7J86$useState(init), state = _a1[0], setState = _a1[1];
+    $c7J86$useEffect(function() {
+        localStorage[key] = JSON.stringify(state);
+    }, [
+        state
+    ]);
+    var actions = $c7J86$useMemo(function() {
+        var reset = function() {
+            return setState(init);
+        };
+        var set = function(value) {
+            return setState(value);
+        };
+        return {
+            reset: reset,
+            set: set
+        };
+    }, []);
+    return [
+        state,
+        actions, 
+    ];
+}
+var $717fd9294a8176d4$export$2e2bcd8739ae039 = $717fd9294a8176d4$var$useLocalStorage;
+
+
 var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useMap: $37148af75344f418$export$2e2bcd8739ae039,
     useSet: $b0c9ddc93a9d9080$export$2e2bcd8739ae039,
-    useBoolean: $994ff314909f83f5$export$2e2bcd8739ae039
+    useBoolean: $994ff314909f83f5$export$2e2bcd8739ae039,
+    useLocalStorage: $717fd9294a8176d4$export$2e2bcd8739ae039
 };
 
 
-export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean};
+export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage};
 //# sourceMappingURL=shooks.module.js.map

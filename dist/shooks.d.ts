@@ -24,10 +24,20 @@ interface Actions {
 }
 export function useBoolean(init?: boolean): [boolean, Actions];
 export default useBoolean;
+interface _Actions1 {
+    reset: () => void;
+    set: (value: unknown) => void;
+}
+export function useLocalStorage(key: string, options?: {
+    defaultValue?: unknown;
+    force?: boolean;
+}): [any, _Actions1];
+export default useLocalStorage;
 declare const _default: {
     useMap: typeof useMap;
     useSet: typeof useSet;
     useBoolean: typeof useBoolean;
+    useLocalStorage: typeof useLocalStorage;
 };
 export default _default;
 

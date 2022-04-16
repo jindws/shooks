@@ -1,4 +1,36 @@
 ## ZHooks
+
+### useLocalStorage
+- 参数
+  - key:string 必填 
+  - options 选填
+    - defaultValue:初始值 选填
+    - force:boolean;覆盖老数据,如果没有defaultValue,则设置local为'''
+```typescript
+const [data,{set,reset}] = useLocalStorage('store',{
+    defaultValue:{
+        age:10,
+    },
+    force:true
+})
+const [name,upName] = useLocalStorage('reset',{
+    force:true
+})
+
+function add(){
+    set({
+        age:data.age+1
+    })
+    upName.set('reset')
+}
+
+
+return <>
+    <div onClick={add}>{data.age}</div>
+    <div onClick={reset}>{name}</div>
+    </>
+```
+
 ### useMap
 ```
 import { useMap } from 'shooks'

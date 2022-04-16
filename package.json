@@ -1,16 +1,18 @@
 {
   "name": "shooks",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "",
   "source": "src/index.ts",
   "main": "dist/shooks.main.js",
   "module": "dist/shooks.module.js",
   "types": "dist/shooks.d.ts",
   "scripts": {
-    "watch": "parcel watch",
     "build": "parcel build src/index.ts",
     "check": "tsc --noEmit"
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jindws/zhooks.git"
