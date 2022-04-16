@@ -404,6 +404,45 @@ function $8b344e2b60a44e70$var$useCountDown(time, options) {
 var $8b344e2b60a44e70$export$2e2bcd8739ae039 = $8b344e2b60a44e70$var$useCountDown;
 
 
+/**
+ * @desc 大数相加
+ */ function $2faca32e6971e721$var$useAdd() {
+    var nums = [];
+    for(var _i = 0; _i < arguments.length; _i++)nums[_i] = arguments[_i];
+    if (nums.length <= 1) return nums[0] || 0;
+    var arr = [];
+    var maxL = 0;
+    nums.forEach(function(itm) {
+        itm = String(itm);
+        arr.push(itm.split("").reverse());
+        if (itm.length > maxL) maxL = itm.length;
+    });
+    var result = new Array(maxL + 1).fill(0).map(function() {
+        return [
+            0
+        ];
+    });
+    for(var i = 0; i < maxL; i++){
+        for(var _a = 0, arr_1 = arr; _a < arr_1.length; _a++){
+            var itm1 = arr_1[_a];
+            result[i].push(itm1[i] || 0);
+        }
+        result[i] = result[i].reduce(function(a, b) {
+            return +a + +b;
+        });
+        result[i + 1] = [
+            Math.floor(result[i] / 10)
+        ];
+        result[i] = result[i] % 10;
+    }
+    result[maxL] = result[maxL].reduce(function(a, b) {
+        return +a + +b;
+    });
+    return result.reverse().join("").replace(/^0*/g, "");
+}
+var $2faca32e6971e721$export$2e2bcd8739ae039 = $2faca32e6971e721$var$useAdd;
+
+
 var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useMap: $37148af75344f418$export$2e2bcd8739ae039,
     useSet: $b0c9ddc93a9d9080$export$2e2bcd8739ae039,
@@ -417,9 +456,10 @@ var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useTitle: $837ea68df79e1827$export$2e2bcd8739ae039,
     useSize: $a59b9f750e292331$export$2e2bcd8739ae039,
     useScroll: $9b8a6b4a37073e24$export$2e2bcd8739ae039,
-    useCountDown: $8b344e2b60a44e70$export$2e2bcd8739ae039
+    useCountDown: $8b344e2b60a44e70$export$2e2bcd8739ae039,
+    useAdd: $2faca32e6971e721$export$2e2bcd8739ae039
 };
 
 
-export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce, $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039 as useDebounceValue, $b3cada967fbdc80a$export$2e2bcd8739ae039 as useThrottle, $ed974ba9f6cef09e$export$2e2bcd8739ae039 as useThrottleValue, $837ea68df79e1827$export$2e2bcd8739ae039 as useTitle, $a59b9f750e292331$export$2e2bcd8739ae039 as useSize, $9b8a6b4a37073e24$export$2e2bcd8739ae039 as useScroll, $8b344e2b60a44e70$export$2e2bcd8739ae039 as useCountDown};
+export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce, $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039 as useDebounceValue, $b3cada967fbdc80a$export$2e2bcd8739ae039 as useThrottle, $ed974ba9f6cef09e$export$2e2bcd8739ae039 as useThrottleValue, $837ea68df79e1827$export$2e2bcd8739ae039 as useTitle, $a59b9f750e292331$export$2e2bcd8739ae039 as useSize, $9b8a6b4a37073e24$export$2e2bcd8739ae039 as useScroll, $8b344e2b60a44e70$export$2e2bcd8739ae039 as useCountDown, $2faca32e6971e721$export$2e2bcd8739ae039 as useAdd};
 //# sourceMappingURL=shooks.module.js.map

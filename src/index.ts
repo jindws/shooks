@@ -11,6 +11,7 @@ import useTitle from "./hooks/useTitle";
 import useSize from "./hooks/useSize";
 import useScroll from "./hooks/useScroll";
 import useCountDown from "./hooks/useCountDown";
+import useAdd from "./hooks/useAdd";
 
 export default {
   useMap,
@@ -26,6 +27,7 @@ export default {
   useSize,
   useScroll,
   useCountDown,
+  useAdd,
 };
 export {
   useMap,
@@ -41,4 +43,5 @@ export {
   useSize,
   useScroll,
   useCountDown,
+  useAdd,
 };

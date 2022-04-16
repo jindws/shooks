@@ -23,6 +23,7 @@ $parcel$export(module.exports, "useTitle", function () { return $16e370a6f136a2f
 $parcel$export(module.exports, "useSize", function () { return $bd20d58749bb379c$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useScroll", function () { return $ef2b4bda0936676f$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useCountDown", function () { return $15242d4563fbadf0$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useAdd", function () { return $d8b411e60558e886$export$2e2bcd8739ae039; });
 
 function $80e8dff17c106379$var$useMap(init) {
     var intiData = $8M2gN$react.useMemo(function() {
@@ -427,6 +428,46 @@ function $15242d4563fbadf0$var$useCountDown(time, options) {
 var $15242d4563fbadf0$export$2e2bcd8739ae039 = $15242d4563fbadf0$var$useCountDown;
 
 
+/**
+ * @desc 大数相加
+ */ function $d8b411e60558e886$var$useAdd() {
+    var _loop = function(i) {
+        for(var _a = 0, arr_1 = arr; _a < arr_1.length; _a++){
+            var itm = arr_1[_a];
+            result[i].push(itm[i] || 0);
+        }
+        result[i] = result[i].reduce(function(a, b) {
+            return +a + +b;
+        });
+        result[i + 1] = [
+            Math.floor(result[i] / 10)
+        ];
+        result[i] = result[i] % 10;
+    };
+    var nums = [];
+    for(var _i = 0; _i < arguments.length; _i++)nums[_i] = arguments[_i];
+    if (nums.length <= 1) return nums[0] || 0;
+    var arr = [];
+    var maxL = 0;
+    nums.forEach(function(itm) {
+        itm = String(itm);
+        arr.push(itm.split("").reverse());
+        if (itm.length > maxL) maxL = itm.length;
+    });
+    var result = new Array(maxL + 1).fill(0).map(function() {
+        return [
+            0
+        ];
+    });
+    for(var i = 0; i < maxL; i++)_loop(i);
+    result[maxL] = result[maxL].reduce(function(a, b) {
+        return +a + +b;
+    });
+    return result.reverse().join("").replace(/^0*/g, "");
+}
+var $d8b411e60558e886$export$2e2bcd8739ae039 = $d8b411e60558e886$var$useAdd;
+
+
 var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useMap: $80e8dff17c106379$export$2e2bcd8739ae039,
     useSet: $d0040752fbf3c017$export$2e2bcd8739ae039,
@@ -440,7 +481,8 @@ var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useTitle: $16e370a6f136a2fd$export$2e2bcd8739ae039,
     useSize: $bd20d58749bb379c$export$2e2bcd8739ae039,
     useScroll: $ef2b4bda0936676f$export$2e2bcd8739ae039,
-    useCountDown: $15242d4563fbadf0$export$2e2bcd8739ae039
+    useCountDown: $15242d4563fbadf0$export$2e2bcd8739ae039,
+    useAdd: $d8b411e60558e886$export$2e2bcd8739ae039
 };
 
 

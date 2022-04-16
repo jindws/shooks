@@ -1,6 +1,16 @@
 ## SHooks
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
+
+### useAdd 大数相加
+- 参数 [...nums]
+  - 数字/字符串表示的数字
+- @return 结果
+```tsx
+const data = useAdd('99999999999999999999999999999','9999999999999999999999999999999999','9999999999999999999999999999999999')
+//20000099999999999999999999999999997
+```
+
 ### useCountDown 标准时间倒计时
 - 以秒为单位的倒计时
 - 参数 [time,options:{interval,callback}]
@@ -14,7 +24,7 @@
     - wait 暂停
     - start 开始/继续
 
-```typescript
+```tsx
  const [remain,{
       stop,
       wait,
@@ -48,7 +58,7 @@
   - ref/Element
 - @return
   - [width,height]
-```typescript
+```tsx
 const ref = useRef()
 const [width,height] = useSize(ref)//正常的ref
 
@@ -67,7 +77,7 @@ return <>
 ```
 ### useTitle
 - 修改title
-```typescript
+```tsx
 useTitle('shooks')
 ```
 
@@ -79,7 +89,7 @@ useTitle('shooks')
 - @return
   - value:最新的值
 
-```typescript
+```tsx
   const [num,setNum] = useState(1)
   const value = useDebounceValue(num)
 
@@ -101,7 +111,7 @@ useTitle('shooks')
   - value:最新的值
     - fn:设置最新的结果
       - fn(value)
-```typescript
+```tsx
   const [num,setNum] = useDebounce(1)
   const [age,setAge] = useDebounce(1,10)
   function add(){
@@ -122,7 +132,7 @@ useTitle('shooks')
   - options 选填
     - defaultValue:初始值 选填
     - force:boolean;覆盖老数据,如果没有defaultValue,则设置local为'''
-```typescript
+```tsx
 const [data,{set,reset}] = useLocalStorage('store',{
     defaultValue:{
         age:10,
@@ -169,6 +179,6 @@ const [value, { set, remove, clear, reset, has, size }] = useSet(1);
 - toggle:切换
 - setTrue:设为true
 - setFalse:设为false
-```typescript
+```tsx
 const [data, {toggle,setTrue,setFalse}] = useBoolean(true)
 ```
