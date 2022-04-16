@@ -5,14 +5,14 @@ export interface Actions {
   set: (value: unknown) => void;
 }
 
-function useLocalStorage(
+function useSessionStorage(
   key: string,
   options?: {
     defaultValue?: unknown;
     force?: boolean;
   }
 ): [any, Actions] {
-  return useStorage(localStorage, key, options);
+  return useStorage(sessionStorage, key, options);
 }
 
-export default useLocalStorage;
+export default useSessionStorage;

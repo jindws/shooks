@@ -7,27 +7,24 @@ export interface Actions {
   toggle: () => void;
 }
 
-function useBoolean(init?: boolean):[boolean,Actions] {
+function useBoolean(init?: boolean): [boolean, Actions] {
   const intiData = useMemo(() => {
-    return !!init
+    return !!init;
   }, []);
   const [state, setState] = useState(intiData);
   const actions: Actions = useMemo(() => {
     const setTrue = () => setState(true);
     const setFalse = () => setState(false);
-    const toggle = () => setState(prevState=>!prevState);
+    const toggle = () => setState((prevState) => !prevState);
     return {
       toggle,
-      set: (val?:boolean) => setState(!!val),
+      set: (val?: boolean) => setState(!!val),
       setTrue,
       setFalse,
     };
   }, []);
 
-  return [
-    state,
-    actions,
-  ];
+  return [state, actions];
 }
 
 export default useBoolean;

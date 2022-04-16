@@ -33,11 +33,21 @@ export function useLocalStorage(key: string, options?: {
     force?: boolean;
 }): [any, _Actions1];
 export default useLocalStorage;
+interface _Actions2 {
+    reset: () => void;
+    set: (value: unknown) => void;
+}
+export function useSessionStorage(key: string, options?: {
+    defaultValue?: unknown;
+    force?: boolean;
+}): [any, _Actions2];
+export default useSessionStorage;
 declare const _default: {
     useMap: typeof useMap;
     useSet: typeof useSet;
     useBoolean: typeof useBoolean;
     useLocalStorage: typeof useLocalStorage;
+    useSessionStorage: typeof useSessionStorage;
 };
 export default _default;
 

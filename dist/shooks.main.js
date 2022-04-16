@@ -14,6 +14,7 @@ $parcel$export(module.exports, "useMap", function () { return $80e8dff17c106379$
 $parcel$export(module.exports, "useSet", function () { return $d0040752fbf3c017$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useBoolean", function () { return $a58f74a897fd5b17$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useLocalStorage", function () { return $2047587efc98bb27$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useSessionStorage", function () { return $33b1bdcef4bd88f3$export$2e2bcd8739ae039; });
 
 function $80e8dff17c106379$var$useMap(init) {
     var intiData = $8M2gN$react.useMemo(function() {
@@ -148,28 +149,28 @@ function $a58f74a897fd5b17$var$useBoolean(init) {
     }, []);
     return [
         state,
-        actions, 
+        actions
     ];
 }
 var $a58f74a897fd5b17$export$2e2bcd8739ae039 = $a58f74a897fd5b17$var$useBoolean;
 
 
 
-function $2047587efc98bb27$var$useLocalStorage(key, options) {
+function $bd0b3e1cb8ea5209$var$useStorage(type, key, options) {
     var init = $8M2gN$react.useMemo(function() {
-        var localData = localStorage[key];
+        var localData = type[key];
         var _a = options || {}, force = _a.force, defaultValue = _a.defaultValue;
         if (defaultValue !== undefined) {
-            if (localData && !force) return JSON.parse(localStorage[key]);
-            localStorage[key] = JSON.stringify(defaultValue);
+            if (localData && !force) return JSON.parse(type[key]);
+            type[key] = JSON.stringify(defaultValue);
             return defaultValue;
         }
-        if (force || !localData) return '';
-        return JSON.parse(localStorage[key]);
+        if (force || !localData) return "";
+        return JSON.parse(type[key]);
     }, []);
     var _a1 = $8M2gN$react.useState(init), state = _a1[0], setState = _a1[1];
     $8M2gN$react.useEffect(function() {
-        localStorage[key] = JSON.stringify(state);
+        type[key] = JSON.stringify(state);
     }, [
         state
     ]);
@@ -187,17 +188,31 @@ function $2047587efc98bb27$var$useLocalStorage(key, options) {
     }, []);
     return [
         state,
-        actions, 
+        actions
     ];
 }
+var $bd0b3e1cb8ea5209$export$2e2bcd8739ae039 = $bd0b3e1cb8ea5209$var$useStorage;
+
+
+function $2047587efc98bb27$var$useLocalStorage(key, options) {
+    return $bd0b3e1cb8ea5209$export$2e2bcd8739ae039(localStorage, key, options);
+}
 var $2047587efc98bb27$export$2e2bcd8739ae039 = $2047587efc98bb27$var$useLocalStorage;
+
+
+
+function $33b1bdcef4bd88f3$var$useSessionStorage(key, options) {
+    return $bd0b3e1cb8ea5209$export$2e2bcd8739ae039(sessionStorage, key, options);
+}
+var $33b1bdcef4bd88f3$export$2e2bcd8739ae039 = $33b1bdcef4bd88f3$var$useSessionStorage;
 
 
 var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useMap: $80e8dff17c106379$export$2e2bcd8739ae039,
     useSet: $d0040752fbf3c017$export$2e2bcd8739ae039,
     useBoolean: $a58f74a897fd5b17$export$2e2bcd8739ae039,
-    useLocalStorage: $2047587efc98bb27$export$2e2bcd8739ae039
+    useLocalStorage: $2047587efc98bb27$export$2e2bcd8739ae039,
+    useSessionStorage: $33b1bdcef4bd88f3$export$2e2bcd8739ae039
 };
 
 

@@ -134,28 +134,28 @@ function $994ff314909f83f5$var$useBoolean(init) {
     }, []);
     return [
         state,
-        actions, 
+        actions
     ];
 }
 var $994ff314909f83f5$export$2e2bcd8739ae039 = $994ff314909f83f5$var$useBoolean;
 
 
 
-function $717fd9294a8176d4$var$useLocalStorage(key, options) {
+function $8c8dfaefed926d3a$var$useStorage(type, key, options) {
     var init = $c7J86$useMemo(function() {
-        var localData = localStorage[key];
+        var localData = type[key];
         var _a = options || {}, force = _a.force, defaultValue = _a.defaultValue;
         if (defaultValue !== undefined) {
-            if (localData && !force) return JSON.parse(localStorage[key]);
-            localStorage[key] = JSON.stringify(defaultValue);
+            if (localData && !force) return JSON.parse(type[key]);
+            type[key] = JSON.stringify(defaultValue);
             return defaultValue;
         }
-        if (force || !localData) return '';
-        return JSON.parse(localStorage[key]);
+        if (force || !localData) return "";
+        return JSON.parse(type[key]);
     }, []);
     var _a1 = $c7J86$useState(init), state = _a1[0], setState = _a1[1];
     $c7J86$useEffect(function() {
-        localStorage[key] = JSON.stringify(state);
+        type[key] = JSON.stringify(state);
     }, [
         state
     ]);
@@ -173,19 +173,33 @@ function $717fd9294a8176d4$var$useLocalStorage(key, options) {
     }, []);
     return [
         state,
-        actions, 
+        actions
     ];
 }
+var $8c8dfaefed926d3a$export$2e2bcd8739ae039 = $8c8dfaefed926d3a$var$useStorage;
+
+
+function $717fd9294a8176d4$var$useLocalStorage(key, options) {
+    return $8c8dfaefed926d3a$export$2e2bcd8739ae039(localStorage, key, options);
+}
 var $717fd9294a8176d4$export$2e2bcd8739ae039 = $717fd9294a8176d4$var$useLocalStorage;
+
+
+
+function $9571cf3dfe01e6c0$var$useSessionStorage(key, options) {
+    return $8c8dfaefed926d3a$export$2e2bcd8739ae039(sessionStorage, key, options);
+}
+var $9571cf3dfe01e6c0$export$2e2bcd8739ae039 = $9571cf3dfe01e6c0$var$useSessionStorage;
 
 
 var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useMap: $37148af75344f418$export$2e2bcd8739ae039,
     useSet: $b0c9ddc93a9d9080$export$2e2bcd8739ae039,
     useBoolean: $994ff314909f83f5$export$2e2bcd8739ae039,
-    useLocalStorage: $717fd9294a8176d4$export$2e2bcd8739ae039
+    useLocalStorage: $717fd9294a8176d4$export$2e2bcd8739ae039,
+    useSessionStorage: $9571cf3dfe01e6c0$export$2e2bcd8739ae039
 };
 
 
-export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage};
+export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage};
 //# sourceMappingURL=shooks.module.js.map

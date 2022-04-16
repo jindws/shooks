@@ -30,6 +30,8 @@ return <>
     <div onClick={reset}>{name}</div>
     </>
 ```
+### useSessionStorage
+> 同 `useLocalStorage`
 
 ### useMap
 ```
