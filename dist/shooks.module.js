@@ -192,14 +192,36 @@ function $9571cf3dfe01e6c0$var$useSessionStorage(key, options) {
 var $9571cf3dfe01e6c0$export$2e2bcd8739ae039 = $9571cf3dfe01e6c0$var$useSessionStorage;
 
 
+
+function $80a4feb8db8b4d99$var$useDebounce(init, wait) {
+    if (wait === void 0) wait = 1000;
+    var _a = $c7J86$useState(init), value = _a[0], setValue = _a[1];
+    var update = $c7J86$useMemo(function() {
+        var last;
+        return function(newValue) {
+            clearTimeout(last);
+            last = setTimeout(function() {
+                return setValue(newValue);
+            }, wait);
+        };
+    }, []);
+    return [
+        value,
+        update
+    ];
+}
+var $80a4feb8db8b4d99$export$2e2bcd8739ae039 = $80a4feb8db8b4d99$var$useDebounce;
+
+
 var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useMap: $37148af75344f418$export$2e2bcd8739ae039,
     useSet: $b0c9ddc93a9d9080$export$2e2bcd8739ae039,
     useBoolean: $994ff314909f83f5$export$2e2bcd8739ae039,
     useLocalStorage: $717fd9294a8176d4$export$2e2bcd8739ae039,
-    useSessionStorage: $9571cf3dfe01e6c0$export$2e2bcd8739ae039
+    useSessionStorage: $9571cf3dfe01e6c0$export$2e2bcd8739ae039,
+    useDebounce: $80a4feb8db8b4d99$export$2e2bcd8739ae039
 };
 
 
-export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage};
+export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce};
 //# sourceMappingURL=shooks.module.js.map

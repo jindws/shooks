@@ -1,5 +1,26 @@
 ## ZHooks
 
+### useDebounce 防抖
+- 初始化参数
+  - 初始化的值
+  - timeout:number,防抖数值 默认1000ms
+- @return
+  - value:最新的值
+    - fn:设置最新的结果
+      - fn(value)
+```typescript
+  const [num,setNum] = useDebounce(1)
+  const [age,setAge] = useDebounce(1,10)
+  function add(){
+      setNum(num+1)
+      setAge(age+1)
+  }
+  return <>
+      <div onClick={add}>{num}</div>
+      <div>{age}</div>
+  </>
+```
+
 ### useLocalStorage
 - 参数
   - key:string 必填 

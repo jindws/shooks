@@ -42,12 +42,15 @@ export function useSessionStorage(key: string, options?: {
     force?: boolean;
 }): [any, _Actions2];
 export default useSessionStorage;
+export function useDebounce<T>(init: T | undefined, wait?: number): [T | undefined, (value: T) => void];
+export default useDebounce;
 declare const _default: {
     useMap: typeof useMap;
     useSet: typeof useSet;
     useBoolean: typeof useBoolean;
     useLocalStorage: typeof useLocalStorage;
     useSessionStorage: typeof useSessionStorage;
+    useDebounce: typeof useDebounce;
 };
 export default _default;
 
