@@ -1,6 +1,6 @@
 {
   "name": "shooks",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "react 自定义hooks",
   "source": "src/index.ts",
   "main": "dist/shooks.main.js",

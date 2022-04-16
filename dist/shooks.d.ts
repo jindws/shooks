@@ -67,11 +67,10 @@ export function useCountDown(time: number, options?: {
     callback?: Function;
 }): [number, IAction];
 export default useCountDown;
-/**
- * @desc 大数相加
- */
-export function useAdd(...nums: (number | string)[]): string | number;
+export function useAdd(...nums: (number | string)[]): [string | number, (num: number | string) => void];
 export default useAdd;
+export function useRandom(...data: unknown[]): [unknown, () => void];
+export default useRandom;
 declare const _default: {
     useMap: typeof useMap;
     useSet: typeof useSet;
@@ -87,6 +86,7 @@ declare const _default: {
     useScroll: typeof useScroll;
     useCountDown: typeof useCountDown;
     useAdd: typeof useAdd;
+    useRandom: typeof useRandom;
 };
 export default _default;
 

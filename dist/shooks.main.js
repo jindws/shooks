@@ -24,6 +24,7 @@ $parcel$export(module.exports, "useSize", function () { return $bd20d58749bb379c
 $parcel$export(module.exports, "useScroll", function () { return $ef2b4bda0936676f$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useCountDown", function () { return $15242d4563fbadf0$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useAdd", function () { return $d8b411e60558e886$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useRandom", function () { return $96e0015d93f0bcde$export$2e2bcd8739ae039; });
 
 function $80e8dff17c106379$var$useMap(init) {
     var intiData = $8M2gN$react.useMemo(function() {
@@ -428,44 +429,80 @@ function $15242d4563fbadf0$var$useCountDown(time, options) {
 var $15242d4563fbadf0$export$2e2bcd8739ae039 = $15242d4563fbadf0$var$useCountDown;
 
 
-/**
- * @desc 大数相加
- */ function $d8b411e60558e886$var$useAdd() {
-    var _loop = function(i) {
-        for(var _a = 0, arr_1 = arr; _a < arr_1.length; _a++){
-            var itm = arr_1[_a];
-            result[i].push(itm[i] || 0);
-        }
-        result[i] = result[i].reduce(function(a, b) {
+
+function $d8b411e60558e886$var$useAdd() {
+    var nums1 = [];
+    for(var _i1 = 0; _i1 < arguments.length; _i1++)nums1[_i1] = arguments[_i1];
+    var _a1 = $8M2gN$react.useState(nums1[0] || 0), result1 = _a1[0], setResult = _a1[1];
+    function addNow() {
+        var _loop = function(i) {
+            for(var _a = 0, arr_1 = arr; _a < arr_1.length; _a++){
+                var itm = arr_1[_a];
+                result[i].push(itm[i] || 0);
+            }
+            result[i] = result[i].reduce(function(a, b) {
+                return +a + +b;
+            });
+            result[i + 1] = [
+                Math.floor(result[i] / 10)
+            ];
+            result[i] = result[i] % 10;
+        };
+        var nums = [];
+        for(var _i = 0; _i < arguments.length; _i++)nums[_i] = arguments[_i];
+        if (nums.length <= 1) return;
+        var arr = [];
+        var maxL = 0;
+        nums.forEach(function(itm) {
+            itm = String(itm);
+            arr.push(itm.split("").reverse());
+            if (itm.length > maxL) maxL = itm.length;
+        });
+        var result = new Array(maxL + 1).fill(0).map(function() {
+            return [
+                0
+            ];
+        });
+        for(var i = 0; i < maxL; i++)_loop(i);
+        result[maxL] = result[maxL].reduce(function(a, b) {
             return +a + +b;
         });
-        result[i + 1] = [
-            Math.floor(result[i] / 10)
-        ];
-        result[i] = result[i] % 10;
-    };
-    var nums = [];
-    for(var _i = 0; _i < arguments.length; _i++)nums[_i] = arguments[_i];
-    if (nums.length <= 1) return nums[0] || 0;
-    var arr = [];
-    var maxL = 0;
-    nums.forEach(function(itm) {
-        itm = String(itm);
-        arr.push(itm.split("").reverse());
-        if (itm.length > maxL) maxL = itm.length;
-    });
-    var result = new Array(maxL + 1).fill(0).map(function() {
-        return [
-            0
-        ];
-    });
-    for(var i = 0; i < maxL; i++)_loop(i);
-    result[maxL] = result[maxL].reduce(function(a, b) {
-        return +a + +b;
-    });
-    return result.reverse().join("").replace(/^0*/g, "");
+        setResult(result.reverse().join("").replace(/^0*/g, ""));
+    }
+    $8M2gN$react.useEffect(function() {
+        return addNow.apply(void 0, nums1);
+    }, []);
+    function add(num) {
+        addNow(result1, num);
+    }
+    return [
+        result1,
+        add
+    ];
 }
 var $d8b411e60558e886$export$2e2bcd8739ae039 = $d8b411e60558e886$var$useAdd;
+
+
+
+function $96e0015d93f0bcde$var$useRandom() {
+    var data = [];
+    for(var _i = 0; _i < arguments.length; _i++)data[_i] = arguments[_i];
+    var length = $8M2gN$react.useMemo(function() {
+        return data.length;
+    }, [
+        data
+    ]);
+    var _a = $8M2gN$react.useState(data[Math.floor(Math.random() * length)]), result = _a[0], upResult = _a[1];
+    function update() {
+        var it = data[Math.floor(Math.random() * length)];
+        upResult(it);
+    }
+    return [
+        result,
+        update
+    ];
+}
+var $96e0015d93f0bcde$export$2e2bcd8739ae039 = $96e0015d93f0bcde$var$useRandom;
 
 
 var $fa170128f8c97660$export$2e2bcd8739ae039 = {
@@ -482,7 +519,8 @@ var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useSize: $bd20d58749bb379c$export$2e2bcd8739ae039,
     useScroll: $ef2b4bda0936676f$export$2e2bcd8739ae039,
     useCountDown: $15242d4563fbadf0$export$2e2bcd8739ae039,
-    useAdd: $d8b411e60558e886$export$2e2bcd8739ae039
+    useAdd: $d8b411e60558e886$export$2e2bcd8739ae039,
+    useRandom: $96e0015d93f0bcde$export$2e2bcd8739ae039
 };
 
 
