@@ -96,8 +96,17 @@ interface IOption {
     baseFontSize: number;
     maxWidth: number;
 }
-export function useRem(options?: IOption): number;
+export function useRem(options?: Partial<IOption>): number;
 export default useRem;
+export function useCookie(key: string, options?: {
+    defaultValue?: string | number;
+    expires?: Date | number;
+    path?: string;
+    domain?: string;
+    secure?: boolean;
+    sameSite?: "strict" | "lax" | "none";
+}): [string, (val: string | number) => void];
+export default useCookie;
 declare const _default: {
     useMap: typeof useMap;
     useSet: typeof useSet;
@@ -121,6 +130,7 @@ declare const _default: {
     useFullScreen: typeof useFullScreen;
     useUUID: typeof useUUID;
     useRem: typeof useRem;
+    useCookie: typeof useCookie;
 };
 export default _default;
 

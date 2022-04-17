@@ -20,6 +20,7 @@ import useParams from "./hooks/useParams";
 import useFullScreen from "./hooks/useFullScreen";
 import useUUID from "./hooks/useUUID";
 import useRem from "./hooks/useRem";
+import useCookie from "./hooks/useCookie";
 
 export default {
   useMap,
@@ -44,6 +45,7 @@ export default {
   useFullScreen,
   useUUID,
   useRem,
+  useCookie,
 };
 export {
   useMap,
@@ -68,4 +70,5 @@ export {
   useFullScreen,
   useUUID,
   useRem,
+  useCookie,
 };

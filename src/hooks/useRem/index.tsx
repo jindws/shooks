@@ -8,7 +8,7 @@ interface IOption {
   baseFontSize: number;
   maxWidth: number;
 }
-function useRem(options?: IOption): number {
+function useRem(options?: Partial<IOption>): number {
   const {
     baseWidth = 375,
     baseFontSize = 16,

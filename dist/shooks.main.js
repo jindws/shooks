@@ -32,6 +32,7 @@ $parcel$export(module.exports, "useParams", function () { return $7da77ae9ae21e4
 $parcel$export(module.exports, "useFullScreen", function () { return $47ef470e3e03b4ce$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useUUID", function () { return $0fc1ee9d319f37bf$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useRem", function () { return $82541effc73c2a67$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useCookie", function () { return $f9894971bea60777$export$2e2bcd8739ae039; });
 
 function $80e8dff17c106379$var$useMap(init) {
     var intiData = $8M2gN$react.useMemo(function() {
@@ -689,7 +690,7 @@ var $0fc1ee9d319f37bf$export$2e2bcd8739ae039 = $0fc1ee9d319f37bf$var$useUUID;
 
 
 function $82541effc73c2a67$var$useRem(options) {
-    var _a = options || {}, _b = _a.baseWidth, baseWidth = _b === void 0 ? 375 : _b, _c = _a.baseFontSize, baseFontSize = _c === void 0 ? 16 : _c, _d = _a.maxWidth, maxWidth = _d === void 0 ? 800 : _d;
+    var _a = options || {}, _b = _a.baseWidth, baseWidth = _b === void 0 ? 375 : _b, _c = _a.baseFontSize, baseFontSize = _c === void 0 ? 16 : _c, _d = _a.maxWidth, maxWidth = _d === void 0 ? innerWidth : _d;
     var _e = $8M2gN$react.useState(0), data = _e[0], setData = _e[1];
     var resize = $8M2gN$react.useCallback(function() {
         var size = Math.min(innerWidth, maxWidth) / baseWidth * baseFontSize;
@@ -706,6 +707,63 @@ function $82541effc73c2a67$var$useRem(options) {
     return data;
 }
 var $82541effc73c2a67$export$2e2bcd8739ae039 = $82541effc73c2a67$var$useRem;
+
+
+
+function $5e6b23e993c5946f$export$2e2bcd8739ae039(params) {
+    var arr = params.match(/[^?&]+\=[^&]*/g) || [];
+    var result = {};
+    for(var _i = 0, arr_1 = arr; _i < arr_1.length; _i++){
+        var itm = arr_1[_i];
+        var _a = itm.split("="), k = _a[0], v = _a[1];
+        if (k in result) {
+            if (Array.isArray(result[k])) result[k].push(v);
+            else result[k] = [
+                result[k],
+                v
+            ];
+        } else result[k] = v;
+    }
+    return result;
+}
+
+
+function $f9894971bea60777$var$useCookie(key, options) {
+    var _a = options || {}, _b = _a.defaultValue, defaultValue = _b === void 0 ? "" : _b, expires = _a.expires, path = _a.path, domain = _a.domain, secure = _a.secure, sameSite = _a.sameSite;
+    var _c = $8M2gN$react.useState(String(defaultValue)), value1 = _c[0], setValue = _c[1];
+    $8M2gN$react.useEffect(function() {
+        if (options === null || options === void 0 ? void 0 : options.defaultValue) update(defaultValue);
+        else {
+            var cookie = $5e6b23e993c5946f$export$2e2bcd8739ae039(document.cookie);
+            var value_1 = cookie[key];
+            if (Array.isArray(value_1)) value_1 = value_1[0];
+            setValue(value_1);
+        }
+    }, []);
+    var cook1 = $8M2gN$react.useMemo(function() {
+        var cook = "";
+        if (expires) {
+            if (typeof expires === "number") expires = Date.now() + expires;
+            cook += "expires=".concat(new Date(expires), ";");
+        }
+        if (path) cook += "path=".concat(path, ";");
+        if (domain) cook += "domain=".concat(domain, ";");
+        if (secure) cook += "secure;";
+        if (sameSite) cook += "sameSite=".concat(sameSite, ";");
+        return cook;
+    }, [
+        options
+    ]);
+    var update = $8M2gN$react.useCallback(function(value) {
+        document.cookie = "".concat(key, "=").concat(value, ";") + cook1;
+        setValue(value);
+    }, []);
+    return [
+        value1,
+        update
+    ];
+}
+var $f9894971bea60777$export$2e2bcd8739ae039 = $f9894971bea60777$var$useCookie;
 
 
 var $fa170128f8c97660$export$2e2bcd8739ae039 = {
@@ -730,7 +788,8 @@ var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useParams: $7da77ae9ae21e4da$export$2e2bcd8739ae039,
     useFullScreen: $47ef470e3e03b4ce$export$2e2bcd8739ae039,
     useUUID: $0fc1ee9d319f37bf$export$2e2bcd8739ae039,
-    useRem: $82541effc73c2a67$export$2e2bcd8739ae039
+    useRem: $82541effc73c2a67$export$2e2bcd8739ae039,
+    useCookie: $f9894971bea60777$export$2e2bcd8739ae039
 };
 
 

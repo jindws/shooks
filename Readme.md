@@ -17,6 +17,30 @@
 // const fontSize = useRem({maxWidth:800})
 const fontSize = useRem()
 ```
+### useCookie 设置/获取cookie
+- 参数:{key,options}
+  - key:cookie的键
+  - options 可选
+    - defaultValue?: string | number; 默认值
+    - expires?: Date | number;过期时间/有效时长(ms)
+    - path?: string;可用的路径
+    - domain?: string;可用的域
+    - secure?: boolean;https 安全协议
+    - ameSite?: "strict" | "lax" | "none";跨域请求
+- @return [data,update]
+  - data:string 取出的值
+  - update:(value:string)=>void 更新
+```tsx
+  const [data,update] =useCookie('a',{
+      // defaultValue:210,
+      path:'/',
+      // expires:new Date(2023,0,1),
+      expires:1000*60,
+      domain:'localhost',
+      secure:true,
+      sameSite:'strict'
+  });
+```
 ### useUUID 获取随机uuid
 - 支持自定义长度
 - 默认为 [8, 4, 4, 4, 12] // 如 `902e95e8-5101-0c54-374e-dfd89dc98523`
