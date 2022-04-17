@@ -78,6 +78,8 @@ export function useFavicon(init: string): [string, (newUrl: string) => void];
 export default useFavicon;
 export function useUpdate(): () => void;
 export default useUpdate;
+export function useParams(params?: string): Record<string, string | string[]>;
+export default useParams;
 declare const _default: {
     useMap: typeof useMap;
     useSet: typeof useSet;
@@ -97,6 +99,7 @@ declare const _default: {
     useSetState: typeof useSetState;
     useFavicon: typeof useFavicon;
     useUpdate: typeof useUpdate;
+    useParams: typeof useParams;
 };
 export default _default;
 

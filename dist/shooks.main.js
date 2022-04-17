@@ -28,6 +28,7 @@ $parcel$export(module.exports, "useRandom", function () { return $96e0015d93f0bc
 $parcel$export(module.exports, "useSetState", function () { return $a8dce27bd42932c7$exports.default; });
 $parcel$export(module.exports, "useFavicon", function () { return $fcf0725ff67b042d$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useUpdate", function () { return $43508a669d32ab6f$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useParams", function () { return $7da77ae9ae21e4da$export$2e2bcd8739ae039; });
 
 function $80e8dff17c106379$var$useMap(init) {
     var intiData = $8M2gN$react.useMemo(function() {
@@ -571,6 +572,31 @@ function $43508a669d32ab6f$var$useUpdate() {
 var $43508a669d32ab6f$export$2e2bcd8739ae039 = $43508a669d32ab6f$var$useUpdate;
 
 
+
+function $7da77ae9ae21e4da$var$useParams(params) {
+    if (params === void 0) params = location.search;
+    return $8M2gN$react.useMemo(function() {
+        var arr = params.match(/[^?&]+\=[^&]*/g) || [];
+        var result = {};
+        for(var _i = 0, arr_1 = arr; _i < arr_1.length; _i++){
+            var itm = arr_1[_i];
+            var _a = itm.split("="), k = _a[0], v = _a[1];
+            if (k in result) {
+                if (Array.isArray(result[k])) result[k].push(v);
+                else result[k] = [
+                    result[k],
+                    v
+                ];
+            } else result[k] = v;
+        }
+        return result;
+    }, [
+        params
+    ]);
+}
+var $7da77ae9ae21e4da$export$2e2bcd8739ae039 = $7da77ae9ae21e4da$var$useParams;
+
+
 var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useMap: $80e8dff17c106379$export$2e2bcd8739ae039,
     useSet: $d0040752fbf3c017$export$2e2bcd8739ae039,
@@ -589,7 +615,8 @@ var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useRandom: $96e0015d93f0bcde$export$2e2bcd8739ae039,
     useSetState: $a8dce27bd42932c7$exports.default,
     useFavicon: $fcf0725ff67b042d$export$2e2bcd8739ae039,
-    useUpdate: $43508a669d32ab6f$export$2e2bcd8739ae039
+    useUpdate: $43508a669d32ab6f$export$2e2bcd8739ae039,
+    useParams: $7da77ae9ae21e4da$export$2e2bcd8739ae039
 };
 
 

@@ -1,6 +1,21 @@
 ## SHooks
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
+
+### useParams 解析params
+- 解析params或location.search
+- 支持重复key
+- 参数 (params)
+  - params:string 选填,默认为location.search
+- @return {}: Record<string, string | string[]>
+  - 返回对象,如果key重复,返回数组
+```tsx
+const [params,setParams] = useState(undefined as string)//init use location.search
+const data= useParams(params)
+return <>
+    <div onClick={()=>setParams('a=1&a=2&a=1')}>update</div>
+</>
+```
 ### useSetState `setState`
 - 参数 object
 - @return [state,setState]

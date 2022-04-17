@@ -16,6 +16,7 @@ import useRandom from "./hooks/useRandom";
 import useSetState from "./hooks/useSetState";
 import useFavicon from "./hooks/useFavicon";
 import useUpdate from "./hooks/useUpdate";
+import useParams from "./hooks/useParams";
 
 export default {
   useMap,
@@ -36,6 +37,7 @@ export default {
   useSetState,
   useFavicon,
   useUpdate,
+  useParams,
 };
 export {
   useMap,
@@ -56,4 +58,5 @@ export {
   useSetState,
   useFavicon,
   useUpdate,
+  useParams,
 };

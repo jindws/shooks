@@ -1,13 +1,13 @@
 {
   "name": "shooks",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "react 自定义hooks",
   "source": "src/index.ts",
   "main": "dist/shooks.main.js",
   "module": "dist/shooks.module.js",
   "types": "dist/shooks.d.ts",
   "scripts": {
-    "build": "parcel build  src/index.ts",
+    "build": "parcel build src/index.ts",
     "check": "tsc --noEmit"
   },
   "files": [
