@@ -14,6 +14,7 @@ import useCountDown from "./hooks/useCountDown";
 import useAdd from "./hooks/useAdd";
 import useRandom from "./hooks/useRandom";
 import useSetState from "./hooks/useSetState";
+import useFavicon from "./hooks/useFavicon";
 
 export default {
   useMap,
@@ -32,6 +33,7 @@ export default {
   useAdd,
   useRandom,
   useSetState,
+  useFavicon,
 };
 export {
   useMap,
@@ -50,4 +52,5 @@ export {
   useAdd,
   useRandom,
   useSetState,
+  useFavicon,
 };

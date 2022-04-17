@@ -26,6 +26,7 @@ $parcel$export(module.exports, "useCountDown", function () { return $15242d4563f
 $parcel$export(module.exports, "useAdd", function () { return $d8b411e60558e886$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useRandom", function () { return $96e0015d93f0bcde$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useSetState", function () { return $a8dce27bd42932c7$exports.default; });
+$parcel$export(module.exports, "useFavicon", function () { return $fcf0725ff67b042d$export$2e2bcd8739ae039; });
 
 function $80e8dff17c106379$var$useMap(init) {
     var intiData = $8M2gN$react.useMemo(function() {
@@ -536,6 +537,29 @@ function $a8dce27bd42932c7$var$useSetState(data) {
 var $a8dce27bd42932c7$export$2e2bcd8739ae039 = $a8dce27bd42932c7$var$useSetState;
 
 
+
+function $fcf0725ff67b042d$var$useFavicon(init) {
+    var _a = $8M2gN$react.useState(init), url = _a[0], setUrl = _a[1];
+    $8M2gN$react.useEffect(function() {
+        if (!url) return;
+        var link = document.querySelector("link[rel*='icon']") || document.createElement("link");
+        link.rel = "shortcut icon";
+        link.href = url;
+        document.head.append(link);
+    }, [
+        url
+    ]);
+    function update(newUrl) {
+        if (newUrl) setUrl(newUrl);
+    }
+    return [
+        url,
+        update
+    ];
+}
+var $fcf0725ff67b042d$export$2e2bcd8739ae039 = $fcf0725ff67b042d$var$useFavicon;
+
+
 var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useMap: $80e8dff17c106379$export$2e2bcd8739ae039,
     useSet: $d0040752fbf3c017$export$2e2bcd8739ae039,
@@ -552,7 +576,8 @@ var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useCountDown: $15242d4563fbadf0$export$2e2bcd8739ae039,
     useAdd: $d8b411e60558e886$export$2e2bcd8739ae039,
     useRandom: $96e0015d93f0bcde$export$2e2bcd8739ae039,
-    useSetState: $a8dce27bd42932c7$exports.default
+    useSetState: $a8dce27bd42932c7$exports.default,
+    useFavicon: $fcf0725ff67b042d$export$2e2bcd8739ae039
 };
 
 

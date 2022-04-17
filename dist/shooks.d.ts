@@ -74,6 +74,8 @@ export default useRandom;
 type TData<T> = ((data: T) => T) | Record<string, unknown>;
 export function useSetState<T extends Record<string, unknown>>(data: Partial<T>): [Partial<T>, (newData: TData<Partial<T>>) => void];
 export default useSetState;
+export function useFavicon(init: string): [string, (newUrl: string) => void];
+export default useFavicon;
 declare const _default: {
     useMap: typeof useMap;
     useSet: typeof useSet;
@@ -91,6 +93,7 @@ declare const _default: {
     useAdd: typeof useAdd;
     useRandom: typeof useRandom;
     useSetState: typeof useSetState;
+    useFavicon: typeof useFavicon;
 };
 export default _default;
 

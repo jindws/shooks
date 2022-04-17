@@ -1,7 +1,7 @@
 ## SHooks
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
-### useSetState useState
+### useSetState `setState`
 - 参数 object
 - @return [state,setState]
   - state 最新的对象
@@ -99,8 +99,19 @@ return <>
     <div>{nullApp}</div>
 </>
 ```
-### useTitle
-- 修改title
+### useFavicon 更改网站的favicon
+- 参数
+  - url:string 初始化favicon
+- @return
+  - url:string 现在的favicon
+  - update:(newUrl:string)=>void 更新
+```tsx
+const [url,update] = useFavicon('xx')
+  return <>
+      <div onClick={update.bind(null,'xxx')}>update</div>
+  </>
+```
+### useTitle 修改修改title
 ```tsx
 useTitle('shooks')
 ```

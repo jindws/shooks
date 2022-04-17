@@ -512,6 +512,29 @@ function $10cbba22aa9fb3e8$var$useSetState(data1) {
 var $10cbba22aa9fb3e8$export$2e2bcd8739ae039 = $10cbba22aa9fb3e8$var$useSetState;
 
 
+
+function $5430c68feba12b5f$var$useFavicon(init) {
+    var _a = $c7J86$useState(init), url = _a[0], setUrl = _a[1];
+    $c7J86$useEffect(function() {
+        if (!url) return;
+        var link = document.querySelector("link[rel*='icon']") || document.createElement("link");
+        link.rel = "shortcut icon";
+        link.href = url;
+        document.head.append(link);
+    }, [
+        url
+    ]);
+    function update(newUrl) {
+        if (newUrl) setUrl(newUrl);
+    }
+    return [
+        url,
+        update
+    ];
+}
+var $5430c68feba12b5f$export$2e2bcd8739ae039 = $5430c68feba12b5f$var$useFavicon;
+
+
 var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useMap: $37148af75344f418$export$2e2bcd8739ae039,
     useSet: $b0c9ddc93a9d9080$export$2e2bcd8739ae039,
@@ -528,9 +551,10 @@ var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useCountDown: $8b344e2b60a44e70$export$2e2bcd8739ae039,
     useAdd: $2faca32e6971e721$export$2e2bcd8739ae039,
     useRandom: $0fe741a2572793a0$export$2e2bcd8739ae039,
-    useSetState: $10cbba22aa9fb3e8$exports.default
+    useSetState: $10cbba22aa9fb3e8$exports.default,
+    useFavicon: $5430c68feba12b5f$export$2e2bcd8739ae039
 };
 
 
-export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce, $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039 as useDebounceValue, $b3cada967fbdc80a$export$2e2bcd8739ae039 as useThrottle, $ed974ba9f6cef09e$export$2e2bcd8739ae039 as useThrottleValue, $837ea68df79e1827$export$2e2bcd8739ae039 as useTitle, $a59b9f750e292331$export$2e2bcd8739ae039 as useSize, $9b8a6b4a37073e24$export$2e2bcd8739ae039 as useScroll, $8b344e2b60a44e70$export$2e2bcd8739ae039 as useCountDown, $2faca32e6971e721$export$2e2bcd8739ae039 as useAdd, $0fe741a2572793a0$export$2e2bcd8739ae039 as useRandom, $10cbba22aa9fb3e8$export$2e2bcd8739ae039 as useSetState};
+export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce, $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039 as useDebounceValue, $b3cada967fbdc80a$export$2e2bcd8739ae039 as useThrottle, $ed974ba9f6cef09e$export$2e2bcd8739ae039 as useThrottleValue, $837ea68df79e1827$export$2e2bcd8739ae039 as useTitle, $a59b9f750e292331$export$2e2bcd8739ae039 as useSize, $9b8a6b4a37073e24$export$2e2bcd8739ae039 as useScroll, $8b344e2b60a44e70$export$2e2bcd8739ae039 as useCountDown, $2faca32e6971e721$export$2e2bcd8739ae039 as useAdd, $0fe741a2572793a0$export$2e2bcd8739ae039 as useRandom, $10cbba22aa9fb3e8$export$2e2bcd8739ae039 as useSetState, $5430c68feba12b5f$export$2e2bcd8739ae039 as useFavicon};
 //# sourceMappingURL=shooks.module.js.map
