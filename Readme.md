@@ -99,6 +99,13 @@ return <>
     <div>{nullApp}</div>
 </>
 ```
+### useUpdate 强制刷新
+```tsx
+const update= useUpdate()
+return <>
+    <div onClick={update}>update</div>
+</>
+```
 ### useFavicon 更改网站的favicon
 - 参数
   - url:string 初始化favicon

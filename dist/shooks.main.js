@@ -27,6 +27,7 @@ $parcel$export(module.exports, "useAdd", function () { return $d8b411e60558e886$
 $parcel$export(module.exports, "useRandom", function () { return $96e0015d93f0bcde$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useSetState", function () { return $a8dce27bd42932c7$exports.default; });
 $parcel$export(module.exports, "useFavicon", function () { return $fcf0725ff67b042d$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useUpdate", function () { return $43508a669d32ab6f$export$2e2bcd8739ae039; });
 
 function $80e8dff17c106379$var$useMap(init) {
     var intiData = $8M2gN$react.useMemo(function() {
@@ -560,6 +561,16 @@ function $fcf0725ff67b042d$var$useFavicon(init) {
 var $fcf0725ff67b042d$export$2e2bcd8739ae039 = $fcf0725ff67b042d$var$useFavicon;
 
 
+
+function $43508a669d32ab6f$var$useUpdate() {
+    var _a = $8M2gN$react.useState({}), upData = _a[1];
+    return $8M2gN$react.useCallback(function() {
+        upData({});
+    }, []);
+}
+var $43508a669d32ab6f$export$2e2bcd8739ae039 = $43508a669d32ab6f$var$useUpdate;
+
+
 var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useMap: $80e8dff17c106379$export$2e2bcd8739ae039,
     useSet: $d0040752fbf3c017$export$2e2bcd8739ae039,
@@ -577,7 +588,8 @@ var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useAdd: $d8b411e60558e886$export$2e2bcd8739ae039,
     useRandom: $96e0015d93f0bcde$export$2e2bcd8739ae039,
     useSetState: $a8dce27bd42932c7$exports.default,
-    useFavicon: $fcf0725ff67b042d$export$2e2bcd8739ae039
+    useFavicon: $fcf0725ff67b042d$export$2e2bcd8739ae039,
+    useUpdate: $43508a669d32ab6f$export$2e2bcd8739ae039
 };
 
 
