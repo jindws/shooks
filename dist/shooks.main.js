@@ -577,23 +577,28 @@ var $43508a669d32ab6f$export$2e2bcd8739ae039 = $43508a669d32ab6f$var$useUpdate;
 
 
 
+function $5e6b23e993c5946f$export$2e2bcd8739ae039(params) {
+    var arr = decodeURIComponent(params).match(/[^?&]+\=[^&]*/g) || [];
+    var result = {};
+    for(var _i = 0, arr_1 = arr; _i < arr_1.length; _i++){
+        var itm = arr_1[_i];
+        var _a = itm.split("="), k = _a[0], v = _a[1];
+        if (k in result) {
+            if (Array.isArray(result[k])) result[k].push(v);
+            else result[k] = [
+                result[k],
+                v
+            ];
+        } else result[k] = v;
+    }
+    return result;
+}
+
+
 function $7da77ae9ae21e4da$var$useParams(params) {
     if (params === void 0) params = location.search;
     return $8M2gN$react.useMemo(function() {
-        var arr = params.match(/[^?&]+\=[^&]*/g) || [];
-        var result = {};
-        for(var _i = 0, arr_1 = arr; _i < arr_1.length; _i++){
-            var itm = arr_1[_i];
-            var _a = itm.split("="), k = _a[0], v = _a[1];
-            if (k in result) {
-                if (Array.isArray(result[k])) result[k].push(v);
-                else result[k] = [
-                    result[k],
-                    v
-                ];
-            } else result[k] = v;
-        }
-        return result;
+        return $5e6b23e993c5946f$export$2e2bcd8739ae039(params);
     }, [
         params
     ]);
@@ -710,23 +715,6 @@ var $82541effc73c2a67$export$2e2bcd8739ae039 = $82541effc73c2a67$var$useRem;
 
 
 
-function $5e6b23e993c5946f$export$2e2bcd8739ae039(params) {
-    var arr = params.match(/[^?&]+\=[^&]*/g) || [];
-    var result = {};
-    for(var _i = 0, arr_1 = arr; _i < arr_1.length; _i++){
-        var itm = arr_1[_i];
-        var _a = itm.split("="), k = _a[0], v = _a[1];
-        if (k in result) {
-            if (Array.isArray(result[k])) result[k].push(v);
-            else result[k] = [
-                result[k],
-                v
-            ];
-        } else result[k] = v;
-    }
-    return result;
-}
-
 
 function $f9894971bea60777$var$useCookie(key, options) {
     var _a = options || {}, _b = _a.defaultValue, defaultValue = _b === void 0 ? "" : _b, expires = _a.expires, path = _a.path, domain = _a.domain, secure = _a.secure, sameSite = _a.sameSite;
@@ -734,7 +722,7 @@ function $f9894971bea60777$var$useCookie(key, options) {
     $8M2gN$react.useEffect(function() {
         if (options === null || options === void 0 ? void 0 : options.defaultValue) update(defaultValue);
         else {
-            var cookie = $5e6b23e993c5946f$export$2e2bcd8739ae039(document.cookie);
+            var cookie = $5e6b23e993c5946f$export$2e2bcd8739ae039(document.cookie.replace(/; */g, "&"));
             var value_1 = cookie[key];
             if (Array.isArray(value_1)) value_1 = value_1[0];
             setValue(value_1);

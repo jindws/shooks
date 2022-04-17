@@ -25,7 +25,7 @@ function useCookie(
     if (options?.defaultValue) {
       update(defaultValue);
     } else {
-      const cookie = Params(document.cookie);
+      const cookie = Params(document.cookie.replace(/; */g, "&"));
       let value = cookie[key];
       if (Array.isArray(value)) value = value[0];
       setValue(value);

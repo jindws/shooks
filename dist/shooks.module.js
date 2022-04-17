@@ -546,23 +546,28 @@ var $312d6d560e9b855f$export$2e2bcd8739ae039 = $312d6d560e9b855f$var$useUpdate;
 
 
 
+function $914212aeea39541c$export$2e2bcd8739ae039(params) {
+    var arr = decodeURIComponent(params).match(/[^?&]+\=[^&]*/g) || [];
+    var result = {};
+    for(var _i = 0, arr_1 = arr; _i < arr_1.length; _i++){
+        var itm = arr_1[_i];
+        var _a = itm.split("="), k = _a[0], v = _a[1];
+        if (k in result) {
+            if (Array.isArray(result[k])) result[k].push(v);
+            else result[k] = [
+                result[k],
+                v
+            ];
+        } else result[k] = v;
+    }
+    return result;
+}
+
+
 function $f5caf647e245fe9f$var$useParams(params) {
     if (params === void 0) params = location.search;
     return $c7J86$useMemo(function() {
-        var arr = params.match(/[^?&]+\=[^&]*/g) || [];
-        var result = {};
-        for(var _i = 0, arr_1 = arr; _i < arr_1.length; _i++){
-            var itm = arr_1[_i];
-            var _a = itm.split("="), k = _a[0], v = _a[1];
-            if (k in result) {
-                if (Array.isArray(result[k])) result[k].push(v);
-                else result[k] = [
-                    result[k],
-                    v
-                ];
-            } else result[k] = v;
-        }
-        return result;
+        return $914212aeea39541c$export$2e2bcd8739ae039(params);
     }, [
         params
     ]);
@@ -679,23 +684,6 @@ var $b9ebf171b827362e$export$2e2bcd8739ae039 = $b9ebf171b827362e$var$useRem;
 
 
 
-function $914212aeea39541c$export$2e2bcd8739ae039(params) {
-    var arr = params.match(/[^?&]+\=[^&]*/g) || [];
-    var result = {};
-    for(var _i = 0, arr_1 = arr; _i < arr_1.length; _i++){
-        var itm = arr_1[_i];
-        var _a = itm.split("="), k = _a[0], v = _a[1];
-        if (k in result) {
-            if (Array.isArray(result[k])) result[k].push(v);
-            else result[k] = [
-                result[k],
-                v
-            ];
-        } else result[k] = v;
-    }
-    return result;
-}
-
 
 function $991aba64de2bb6b0$var$useCookie(key, options) {
     var _a = options || {}, _b = _a.defaultValue, defaultValue = _b === void 0 ? "" : _b, expires = _a.expires, path = _a.path, domain = _a.domain, secure = _a.secure, sameSite = _a.sameSite;
@@ -703,7 +691,7 @@ function $991aba64de2bb6b0$var$useCookie(key, options) {
     $c7J86$useEffect(function() {
         if (options === null || options === void 0 ? void 0 : options.defaultValue) update(defaultValue);
         else {
-            var cookie = $914212aeea39541c$export$2e2bcd8739ae039(document.cookie);
+            var cookie = $914212aeea39541c$export$2e2bcd8739ae039(document.cookie.replace(/; */g, "&"));
             var value_1 = cookie[key];
             if (Array.isArray(value_1)) value_1 = value_1[0];
             setValue(value_1);

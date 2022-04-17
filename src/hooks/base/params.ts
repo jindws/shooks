@@ -1,5 +1,5 @@
 export default function Params(params: string) {
-  const arr = params.match(/[^?&]+\=[^&]*/g) || [];
+  const arr = decodeURIComponent(params).match(/[^?&]+\=[^&]*/g) || [];
   const result: Record<string, string | string[]> = {};
   for (let itm of arr) {
     const [k, v] = itm.split("=");
