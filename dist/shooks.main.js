@@ -29,6 +29,7 @@ $parcel$export(module.exports, "useSetState", function () { return $a8dce27bd429
 $parcel$export(module.exports, "useFavicon", function () { return $fcf0725ff67b042d$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useUpdate", function () { return $43508a669d32ab6f$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useParams", function () { return $7da77ae9ae21e4da$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useFullScreen", function () { return $47ef470e3e03b4ce$export$2e2bcd8739ae039; });
 
 function $80e8dff17c106379$var$useMap(init) {
     var intiData = $8M2gN$react.useMemo(function() {
@@ -597,6 +598,53 @@ function $7da77ae9ae21e4da$var$useParams(params) {
 var $7da77ae9ae21e4da$export$2e2bcd8739ae039 = $7da77ae9ae21e4da$var$useParams;
 
 
+
+function $47ef470e3e03b4ce$var$useFullScreen(ele) {
+    var _a = $8M2gN$react.useState(!!document.fullscreenElement), isFullScreen = _a[0], upIsFullScreen = _a[1];
+    var isEnabled = $8M2gN$react.useMemo(function() {
+        return document.fullscreenEnabled;
+    }, []);
+    $8M2gN$react.useEffect(function() {
+        document.onfullscreenchange = function() {
+            upIsFullScreen(!!document.fullscreenElement);
+        };
+        return function() {
+            return document.onfullscreenchange = null;
+        };
+    }, []);
+    var action = $8M2gN$react.useMemo(function() {
+        var enterFullscreen = function enterFullscreen() {
+            var element = document.documentElement;
+            if (typeof ele === "function") element = ele();
+            else if (ele) {
+                if ("current" in ele) element = ele.current;
+                else element = ele;
+            }
+            element && element.requestFullscreen({
+            });
+        };
+        var exitFullscreen = function exitFullscreen() {
+            if (document.fullscreenElement) return document.exitFullscreen();
+        };
+        var toggleFullscreen = function toggleFullscreen() {
+            if (document.fullscreenElement) return exitFullscreen();
+            else return enterFullscreen();
+        };
+        return {
+            enterFullscreen: enterFullscreen,
+            exitFullscreen: exitFullscreen,
+            toggleFullscreen: toggleFullscreen,
+            isEnabled: isEnabled
+        };
+    }, []);
+    return [
+        isFullScreen,
+        action
+    ];
+}
+var $47ef470e3e03b4ce$export$2e2bcd8739ae039 = $47ef470e3e03b4ce$var$useFullScreen;
+
+
 var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useMap: $80e8dff17c106379$export$2e2bcd8739ae039,
     useSet: $d0040752fbf3c017$export$2e2bcd8739ae039,
@@ -616,7 +664,8 @@ var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useSetState: $a8dce27bd42932c7$exports.default,
     useFavicon: $fcf0725ff67b042d$export$2e2bcd8739ae039,
     useUpdate: $43508a669d32ab6f$export$2e2bcd8739ae039,
-    useParams: $7da77ae9ae21e4da$export$2e2bcd8739ae039
+    useParams: $7da77ae9ae21e4da$export$2e2bcd8739ae039,
+    useFullScreen: $47ef470e3e03b4ce$export$2e2bcd8739ae039
 };
 
 

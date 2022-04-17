@@ -80,6 +80,15 @@ export function useUpdate(): () => void;
 export default useUpdate;
 export function useParams(params?: string): Record<string, string | string[]>;
 export default useParams;
+interface _IAction1 {
+    enterFullscreen: () => void;
+    exitFullscreen: () => void;
+    toggleFullscreen: () => void;
+    isEnabled: boolean;
+}
+type func = () => Element;
+export function useFullScreen(ele?: func | MutableRefObject<undefined | HTMLElement>): [boolean, _IAction1];
+export default useFullScreen;
 declare const _default: {
     useMap: typeof useMap;
     useSet: typeof useSet;
@@ -100,6 +109,7 @@ declare const _default: {
     useFavicon: typeof useFavicon;
     useUpdate: typeof useUpdate;
     useParams: typeof useParams;
+    useFullScreen: typeof useFullScreen;
 };
 export default _default;
 

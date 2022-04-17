@@ -114,6 +114,32 @@ return <>
     <div>{nullApp}</div>
 </>
 ```
+
+### useFullScreen 全屏
+- 支持全屏的浏览器才有效果
+- 参数 element
+  - element:ref,()=>dom 非必填,默认document
+- 返回 [isFullScreen, {enterFullscreen, exitFullscreen, toggleFullscreen,isEnabled}]
+  - isFullScreen 现在是否是全屏
+  - enterFullscreen 进入全屏
+  - exitFullscreen 退出全屏
+  - toggleFullscreen 切换全屏
+  - isEnabled 是否支持全屏
+```tsx
+const ref = useRef()
+const [isFullScreen, {
+    enterFullscreen, exitFullscreen, toggleFullscreen,isEnabled
+// }] = useFullScreen(ref)
+}] = useFullScreen(()=>document.querySelector('img'))
+
+return <>
+    {`${isFullScreen}`}
+    <img ref={ref} src="https://www.baidu.com/favicon.ico" alt=""/>
+    <div onClick={enterFullscreen}>enterFullscreen</div>
+    <div onClick={exitFullscreen}>exitFullscreen</div>
+    <div onClick={toggleFullscreen}>toggleFullscreen</div>
+</>
+```
 ### useUpdate 强制刷新
 ```tsx
 const update= useUpdate()
