@@ -30,6 +30,7 @@ $parcel$export(module.exports, "useFavicon", function () { return $fcf0725ff67b0
 $parcel$export(module.exports, "useUpdate", function () { return $43508a669d32ab6f$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useParams", function () { return $7da77ae9ae21e4da$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useFullScreen", function () { return $47ef470e3e03b4ce$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useUUID", function () { return $0fc1ee9d319f37bf$export$2e2bcd8739ae039; });
 
 function $80e8dff17c106379$var$useMap(init) {
     var intiData = $8M2gN$react.useMemo(function() {
@@ -645,6 +646,46 @@ function $47ef470e3e03b4ce$var$useFullScreen(ele) {
 var $47ef470e3e03b4ce$export$2e2bcd8739ae039 = $47ef470e3e03b4ce$var$useFullScreen;
 
 
+
+function $0fc1ee9d319f37bf$var$useUUID(len1) {
+    if (len1 === void 0) len1 = [
+        8,
+        4,
+        4,
+        4,
+        12
+    ];
+    var _a = $8M2gN$react.useState(""), value = _a[0], setValue = _a[1];
+    var getRandom = $8M2gN$react.useCallback(function(len) {
+        if (len === void 0) len = 0;
+        var result = "";
+        while(len > 0){
+            result += Math.random().toString(16).substr(2, Math.min(10, len));
+            len -= 10;
+        }
+        return result;
+    }, []);
+    $8M2gN$react.useEffect(function() {
+        refresh();
+    }, []);
+    var refresh = $8M2gN$react.useCallback(function() {
+        if (Array.isArray(len1)) {
+            var result = [];
+            for(var _i = 0, len_1 = len1; _i < len_1.length; _i++){
+                var itm = len_1[_i];
+                result.push(getRandom(itm));
+            }
+            setValue(result.join("-"));
+        } else setValue(getRandom(len1));
+    }, []);
+    return [
+        value,
+        refresh
+    ];
+}
+var $0fc1ee9d319f37bf$export$2e2bcd8739ae039 = $0fc1ee9d319f37bf$var$useUUID;
+
+
 var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useMap: $80e8dff17c106379$export$2e2bcd8739ae039,
     useSet: $d0040752fbf3c017$export$2e2bcd8739ae039,
@@ -665,7 +706,8 @@ var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useFavicon: $fcf0725ff67b042d$export$2e2bcd8739ae039,
     useUpdate: $43508a669d32ab6f$export$2e2bcd8739ae039,
     useParams: $7da77ae9ae21e4da$export$2e2bcd8739ae039,
-    useFullScreen: $47ef470e3e03b4ce$export$2e2bcd8739ae039
+    useFullScreen: $47ef470e3e03b4ce$export$2e2bcd8739ae039,
+    useUUID: $0fc1ee9d319f37bf$export$2e2bcd8739ae039
 };
 
 

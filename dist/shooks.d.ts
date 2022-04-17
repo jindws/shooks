@@ -89,6 +89,8 @@ interface _IAction1 {
 type func = () => Element;
 export function useFullScreen(ele?: func | MutableRefObject<undefined | HTMLElement>): [boolean, _IAction1];
 export default useFullScreen;
+export function useUUID(len?: number | number[]): [string, () => void];
+export default useUUID;
 declare const _default: {
     useMap: typeof useMap;
     useSet: typeof useSet;
@@ -110,6 +112,7 @@ declare const _default: {
     useUpdate: typeof useUpdate;
     useParams: typeof useParams;
     useFullScreen: typeof useFullScreen;
+    useUUID: typeof useUUID;
 };
 export default _default;
 

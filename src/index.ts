@@ -18,6 +18,7 @@ import useFavicon from "./hooks/useFavicon";
 import useUpdate from "./hooks/useUpdate";
 import useParams from "./hooks/useParams";
 import useFullScreen from "./hooks/useFullScreen";
+import useUUID from "./hooks/useUUID";
 
 export default {
   useMap,
@@ -40,6 +41,7 @@ export default {
   useUpdate,
   useParams,
   useFullScreen,
+  useUUID,
 };
 export {
   useMap,
@@ -62,4 +64,5 @@ export {
   useUpdate,
   useParams,
   useFullScreen,
+  useUUID,
 };

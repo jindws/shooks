@@ -1,7 +1,22 @@
 ## SHooks
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
-
+### useUUID 获取随机uuid
+- 支持自定义长度
+- 默认为 [8, 4, 4, 4, 12] // 如 `902e95e8-5101-0c54-374e-dfd89dc98523`
+- 参数:
+  - len?:number | number[] 选填,纯数字或数字数组,用数组会用-隔开
+- @return  [uuid, refresh]
+  - uuid 结果
+  - refresh 更新
+```tsx
+const [uuid, refresh] = useUUID()
+// const [uuid, refresh] = useUUID(80)
+// const [uuid, refresh] = useUUID([1,2,3,4])
+return <>
+    <div onClick={refresh}>{uuid}</div>
+</>
+```
 ### useParams 解析params
 - 解析params或location.search
 - 支持重复key

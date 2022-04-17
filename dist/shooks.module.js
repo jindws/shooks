@@ -617,6 +617,46 @@ function $15ce3fa6bca20fe4$var$useFullScreen(ele) {
 var $15ce3fa6bca20fe4$export$2e2bcd8739ae039 = $15ce3fa6bca20fe4$var$useFullScreen;
 
 
+
+function $dc5932531c359c7c$var$useUUID(len1) {
+    if (len1 === void 0) len1 = [
+        8,
+        4,
+        4,
+        4,
+        12
+    ];
+    var _a = $c7J86$useState(""), value = _a[0], setValue = _a[1];
+    var getRandom = $c7J86$useCallback(function(len) {
+        if (len === void 0) len = 0;
+        var result = "";
+        while(len > 0){
+            result += Math.random().toString(16).substr(2, Math.min(10, len));
+            len -= 10;
+        }
+        return result;
+    }, []);
+    $c7J86$useEffect(function() {
+        refresh();
+    }, []);
+    var refresh = $c7J86$useCallback(function() {
+        if (Array.isArray(len1)) {
+            var result = [];
+            for(var _i = 0, len_1 = len1; _i < len_1.length; _i++){
+                var itm = len_1[_i];
+                result.push(getRandom(itm));
+            }
+            setValue(result.join("-"));
+        } else setValue(getRandom(len1));
+    }, []);
+    return [
+        value,
+        refresh
+    ];
+}
+var $dc5932531c359c7c$export$2e2bcd8739ae039 = $dc5932531c359c7c$var$useUUID;
+
+
 var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useMap: $37148af75344f418$export$2e2bcd8739ae039,
     useSet: $b0c9ddc93a9d9080$export$2e2bcd8739ae039,
@@ -637,9 +677,10 @@ var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useFavicon: $5430c68feba12b5f$export$2e2bcd8739ae039,
     useUpdate: $312d6d560e9b855f$export$2e2bcd8739ae039,
     useParams: $f5caf647e245fe9f$export$2e2bcd8739ae039,
-    useFullScreen: $15ce3fa6bca20fe4$export$2e2bcd8739ae039
+    useFullScreen: $15ce3fa6bca20fe4$export$2e2bcd8739ae039,
+    useUUID: $dc5932531c359c7c$export$2e2bcd8739ae039
 };
 
 
-export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce, $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039 as useDebounceValue, $b3cada967fbdc80a$export$2e2bcd8739ae039 as useThrottle, $ed974ba9f6cef09e$export$2e2bcd8739ae039 as useThrottleValue, $837ea68df79e1827$export$2e2bcd8739ae039 as useTitle, $a59b9f750e292331$export$2e2bcd8739ae039 as useSize, $9b8a6b4a37073e24$export$2e2bcd8739ae039 as useScroll, $8b344e2b60a44e70$export$2e2bcd8739ae039 as useCountDown, $2faca32e6971e721$export$2e2bcd8739ae039 as useAdd, $0fe741a2572793a0$export$2e2bcd8739ae039 as useRandom, $10cbba22aa9fb3e8$export$2e2bcd8739ae039 as useSetState, $5430c68feba12b5f$export$2e2bcd8739ae039 as useFavicon, $312d6d560e9b855f$export$2e2bcd8739ae039 as useUpdate, $f5caf647e245fe9f$export$2e2bcd8739ae039 as useParams, $15ce3fa6bca20fe4$export$2e2bcd8739ae039 as useFullScreen};
+export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce, $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039 as useDebounceValue, $b3cada967fbdc80a$export$2e2bcd8739ae039 as useThrottle, $ed974ba9f6cef09e$export$2e2bcd8739ae039 as useThrottleValue, $837ea68df79e1827$export$2e2bcd8739ae039 as useTitle, $a59b9f750e292331$export$2e2bcd8739ae039 as useSize, $9b8a6b4a37073e24$export$2e2bcd8739ae039 as useScroll, $8b344e2b60a44e70$export$2e2bcd8739ae039 as useCountDown, $2faca32e6971e721$export$2e2bcd8739ae039 as useAdd, $0fe741a2572793a0$export$2e2bcd8739ae039 as useRandom, $10cbba22aa9fb3e8$export$2e2bcd8739ae039 as useSetState, $5430c68feba12b5f$export$2e2bcd8739ae039 as useFavicon, $312d6d560e9b855f$export$2e2bcd8739ae039 as useUpdate, $f5caf647e245fe9f$export$2e2bcd8739ae039 as useParams, $15ce3fa6bca20fe4$export$2e2bcd8739ae039 as useFullScreen, $dc5932531c359c7c$export$2e2bcd8739ae039 as useUUID};
 //# sourceMappingURL=shooks.module.js.map
