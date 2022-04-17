@@ -31,6 +31,7 @@ $parcel$export(module.exports, "useUpdate", function () { return $43508a669d32ab
 $parcel$export(module.exports, "useParams", function () { return $7da77ae9ae21e4da$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useFullScreen", function () { return $47ef470e3e03b4ce$export$2e2bcd8739ae039; });
 $parcel$export(module.exports, "useUUID", function () { return $0fc1ee9d319f37bf$export$2e2bcd8739ae039; });
+$parcel$export(module.exports, "useRem", function () { return $82541effc73c2a67$export$2e2bcd8739ae039; });
 
 function $80e8dff17c106379$var$useMap(init) {
     var intiData = $8M2gN$react.useMemo(function() {
@@ -686,6 +687,27 @@ function $0fc1ee9d319f37bf$var$useUUID(len1) {
 var $0fc1ee9d319f37bf$export$2e2bcd8739ae039 = $0fc1ee9d319f37bf$var$useUUID;
 
 
+
+function $82541effc73c2a67$var$useRem(options) {
+    var _a = options || {}, _b = _a.baseWidth, baseWidth = _b === void 0 ? 375 : _b, _c = _a.baseFontSize, baseFontSize = _c === void 0 ? 16 : _c, _d = _a.maxWidth, maxWidth = _d === void 0 ? 800 : _d;
+    var _e = $8M2gN$react.useState(0), data = _e[0], setData = _e[1];
+    var resize = $8M2gN$react.useCallback(function() {
+        var size = Math.min(innerWidth, maxWidth) / baseWidth * baseFontSize;
+        setData(size);
+        document.documentElement.style.fontSize = "".concat(size, "px");
+    }, []);
+    $8M2gN$react.useEffect(function() {
+        resize();
+        addEventListener("resize", resize);
+        return function() {
+            return removeEventListener("resize", resize);
+        };
+    }, []);
+    return data;
+}
+var $82541effc73c2a67$export$2e2bcd8739ae039 = $82541effc73c2a67$var$useRem;
+
+
 var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useMap: $80e8dff17c106379$export$2e2bcd8739ae039,
     useSet: $d0040752fbf3c017$export$2e2bcd8739ae039,
@@ -707,7 +729,8 @@ var $fa170128f8c97660$export$2e2bcd8739ae039 = {
     useUpdate: $43508a669d32ab6f$export$2e2bcd8739ae039,
     useParams: $7da77ae9ae21e4da$export$2e2bcd8739ae039,
     useFullScreen: $47ef470e3e03b4ce$export$2e2bcd8739ae039,
-    useUUID: $0fc1ee9d319f37bf$export$2e2bcd8739ae039
+    useUUID: $0fc1ee9d319f37bf$export$2e2bcd8739ae039,
+    useRem: $82541effc73c2a67$export$2e2bcd8739ae039
 };
 
 

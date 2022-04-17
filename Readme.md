@@ -1,6 +1,22 @@
 ## SHooks
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
+
+### useRem 辅助使用rem
+- 不是使用rem
+- 动态修改html的font-size
+- 监听onResize
+- 参数 options? 配置 选填;每baseWidth-->baseFontSize
+  - baseWidth: number; 选填 默认为375
+  - baseFontSize: number;选填 默认为16px
+  - maxWidth: number;选填 默认无
+- @return fontSize:number
+  - fontSize:number,返回font-size
+
+```tsx
+// const fontSize = useRem({maxWidth:800})
+const fontSize = useRem()
+```
 ### useUUID 获取随机uuid
 - 支持自定义长度
 - 默认为 [8, 4, 4, 4, 12] // 如 `902e95e8-5101-0c54-374e-dfd89dc98523`

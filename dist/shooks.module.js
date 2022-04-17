@@ -657,6 +657,27 @@ function $dc5932531c359c7c$var$useUUID(len1) {
 var $dc5932531c359c7c$export$2e2bcd8739ae039 = $dc5932531c359c7c$var$useUUID;
 
 
+
+function $b9ebf171b827362e$var$useRem(options) {
+    var _a = options || {}, _b = _a.baseWidth, baseWidth = _b === void 0 ? 375 : _b, _c = _a.baseFontSize, baseFontSize = _c === void 0 ? 16 : _c, _d = _a.maxWidth, maxWidth = _d === void 0 ? 800 : _d;
+    var _e = $c7J86$useState(0), data = _e[0], setData = _e[1];
+    var resize = $c7J86$useCallback(function() {
+        var size = Math.min(innerWidth, maxWidth) / baseWidth * baseFontSize;
+        setData(size);
+        document.documentElement.style.fontSize = "".concat(size, "px");
+    }, []);
+    $c7J86$useEffect(function() {
+        resize();
+        addEventListener("resize", resize);
+        return function() {
+            return removeEventListener("resize", resize);
+        };
+    }, []);
+    return data;
+}
+var $b9ebf171b827362e$export$2e2bcd8739ae039 = $b9ebf171b827362e$var$useRem;
+
+
 var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useMap: $37148af75344f418$export$2e2bcd8739ae039,
     useSet: $b0c9ddc93a9d9080$export$2e2bcd8739ae039,
@@ -678,9 +699,10 @@ var $a85bc9c6e2eb9625$export$2e2bcd8739ae039 = {
     useUpdate: $312d6d560e9b855f$export$2e2bcd8739ae039,
     useParams: $f5caf647e245fe9f$export$2e2bcd8739ae039,
     useFullScreen: $15ce3fa6bca20fe4$export$2e2bcd8739ae039,
-    useUUID: $dc5932531c359c7c$export$2e2bcd8739ae039
+    useUUID: $dc5932531c359c7c$export$2e2bcd8739ae039,
+    useRem: $b9ebf171b827362e$export$2e2bcd8739ae039
 };
 
 
-export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce, $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039 as useDebounceValue, $b3cada967fbdc80a$export$2e2bcd8739ae039 as useThrottle, $ed974ba9f6cef09e$export$2e2bcd8739ae039 as useThrottleValue, $837ea68df79e1827$export$2e2bcd8739ae039 as useTitle, $a59b9f750e292331$export$2e2bcd8739ae039 as useSize, $9b8a6b4a37073e24$export$2e2bcd8739ae039 as useScroll, $8b344e2b60a44e70$export$2e2bcd8739ae039 as useCountDown, $2faca32e6971e721$export$2e2bcd8739ae039 as useAdd, $0fe741a2572793a0$export$2e2bcd8739ae039 as useRandom, $10cbba22aa9fb3e8$export$2e2bcd8739ae039 as useSetState, $5430c68feba12b5f$export$2e2bcd8739ae039 as useFavicon, $312d6d560e9b855f$export$2e2bcd8739ae039 as useUpdate, $f5caf647e245fe9f$export$2e2bcd8739ae039 as useParams, $15ce3fa6bca20fe4$export$2e2bcd8739ae039 as useFullScreen, $dc5932531c359c7c$export$2e2bcd8739ae039 as useUUID};
+export {$a85bc9c6e2eb9625$export$2e2bcd8739ae039 as default, $37148af75344f418$export$2e2bcd8739ae039 as useMap, $b0c9ddc93a9d9080$export$2e2bcd8739ae039 as useSet, $994ff314909f83f5$export$2e2bcd8739ae039 as useBoolean, $717fd9294a8176d4$export$2e2bcd8739ae039 as useLocalStorage, $9571cf3dfe01e6c0$export$2e2bcd8739ae039 as useSessionStorage, $80a4feb8db8b4d99$export$2e2bcd8739ae039 as useDebounce, $f92ff3bc9f1f5c1f$export$2e2bcd8739ae039 as useDebounceValue, $b3cada967fbdc80a$export$2e2bcd8739ae039 as useThrottle, $ed974ba9f6cef09e$export$2e2bcd8739ae039 as useThrottleValue, $837ea68df79e1827$export$2e2bcd8739ae039 as useTitle, $a59b9f750e292331$export$2e2bcd8739ae039 as useSize, $9b8a6b4a37073e24$export$2e2bcd8739ae039 as useScroll, $8b344e2b60a44e70$export$2e2bcd8739ae039 as useCountDown, $2faca32e6971e721$export$2e2bcd8739ae039 as useAdd, $0fe741a2572793a0$export$2e2bcd8739ae039 as useRandom, $10cbba22aa9fb3e8$export$2e2bcd8739ae039 as useSetState, $5430c68feba12b5f$export$2e2bcd8739ae039 as useFavicon, $312d6d560e9b855f$export$2e2bcd8739ae039 as useUpdate, $f5caf647e245fe9f$export$2e2bcd8739ae039 as useParams, $15ce3fa6bca20fe4$export$2e2bcd8739ae039 as useFullScreen, $dc5932531c359c7c$export$2e2bcd8739ae039 as useUUID, $b9ebf171b827362e$export$2e2bcd8739ae039 as useRem};
 //# sourceMappingURL=shooks.module.js.map

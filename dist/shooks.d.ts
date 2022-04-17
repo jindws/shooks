@@ -91,6 +91,13 @@ export function useFullScreen(ele?: func | MutableRefObject<undefined | HTMLElem
 export default useFullScreen;
 export function useUUID(len?: number | number[]): [string, () => void];
 export default useUUID;
+interface IOption {
+    baseWidth: number;
+    baseFontSize: number;
+    maxWidth: number;
+}
+export function useRem(options?: IOption): number;
+export default useRem;
 declare const _default: {
     useMap: typeof useMap;
     useSet: typeof useSet;
@@ -113,6 +120,7 @@ declare const _default: {
     useParams: typeof useParams;
     useFullScreen: typeof useFullScreen;
     useUUID: typeof useUUID;
+    useRem: typeof useRem;
 };
 export default _default;
 

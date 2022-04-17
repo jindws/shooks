@@ -19,6 +19,7 @@ import useUpdate from "./hooks/useUpdate";
 import useParams from "./hooks/useParams";
 import useFullScreen from "./hooks/useFullScreen";
 import useUUID from "./hooks/useUUID";
+import useRem from "./hooks/useRem";
 
 export default {
   useMap,
@@ -42,6 +43,7 @@ export default {
   useParams,
   useFullScreen,
   useUUID,
+  useRem,
 };
 export {
   useMap,
@@ -65,4 +67,5 @@ export {
   useParams,
   useFullScreen,
   useUUID,
+  useRem,
 };
