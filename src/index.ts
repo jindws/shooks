@@ -23,6 +23,7 @@ import useRem from "./hooks/useRem";
 import useCookie from "./hooks/useCookie";
 import useThrottleFn from "./hooks/useThrottleFn";
 import useLatest from "./hooks/useLatest";
+import useHover from "./hooks/useHover";
 
 export default {
   useMap,
@@ -50,6 +51,7 @@ export default {
   useCookie,
   useThrottleFn,
   useLatest,
+  useHover,
 };
 export {
   useMap,
@@ -77,4 +79,5 @@ export {
   useCookie,
   useThrottleFn,
   useLatest,
+  useHover,
 };

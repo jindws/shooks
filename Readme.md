@@ -302,7 +302,23 @@ useEffect(()=>{
 },[])
 return <div>{value}</div>
 ```
-
+### useHover 监听鼠标是否在指定dom元素上
+- 参数 (dom,options)
+  - dom:ref或者document
+  - options 选填,回调事件
+    - onHover? 鼠标进入dom时触发
+    - onLeave? 鼠标离开dom时触发
+- @return hover
+  - hover:boolean 现在鼠标是否在dom内
+```tsx
+const ref = useRef(null);
+const isHovering = useHover(ref,{
+    onHover:()=>console.log('enter'),
+    onLeave:()=>console.log('leave')
+});
+// const isHovering = useHover(document);
+return <div ref={ref}>{isHovering ? 'hover' : 'leaveHover'}</div>;
+```
 ### useLocalStorage
 - 参数
   - key:string 必填 
