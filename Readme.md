@@ -2,6 +2,14 @@
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
 
+### useStayTimeFn 监听停留时间
+- 同页面跳转生效
+- 参数 callback
+  - callback?: (time?: number) => void 选填,跳转/关闭时执行,不可包裹延迟任务
+- @return {stayTime,reset}
+  - stayTime : () => number 获取停留时间
+  - reset : () => void 重新开始计数
+
 ### useRem 辅助使用rem
 - 不是使用rem
 - 动态修改html的font-size

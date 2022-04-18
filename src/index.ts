@@ -24,6 +24,7 @@ import useCookie from "./hooks/useCookie";
 import useThrottleFn from "./hooks/useThrottleFn";
 import useLatest from "./hooks/useLatest";
 import useHover from "./hooks/useHover";
+import useStayTimeFn from "./hooks/useStayTimeFn";
 
 export default {
   useMap,
@@ -52,6 +53,7 @@ export default {
   useThrottleFn,
   useLatest,
   useHover,
+  useStayTimeFn,
 };
 export {
   useMap,
@@ -80,4 +82,5 @@ export {
   useThrottleFn,
   useLatest,
   useHover,
+  useStayTimeFn,
 };
