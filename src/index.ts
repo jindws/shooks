@@ -21,6 +21,8 @@ import useFullScreen from "./hooks/useFullScreen";
 import useUUID from "./hooks/useUUID";
 import useRem from "./hooks/useRem";
 import useCookie from "./hooks/useCookie";
+import useThrottleFn from "./hooks/useThrottleFn";
+import useLatest from "./hooks/useLatest";
 
 export default {
   useMap,
@@ -46,6 +48,8 @@ export default {
   useUUID,
   useRem,
   useCookie,
+  useThrottleFn,
+  useLatest,
 };
 export {
   useMap,
@@ -71,4 +75,6 @@ export {
   useUUID,
   useRem,
   useCookie,
+  useThrottleFn,
+  useLatest,
 };

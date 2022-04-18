@@ -263,6 +263,45 @@ useTitle('shooks')
 ```
 ### useThrottle 节流
 > 用法同useDebounce,获得节流效果
+### useThrottleFn 处理函数节流
+- 参数 (fn: (...args: unknown[]) => void, wait?: number)
+  - fn:函数
+  - wait:延迟时间,选填 默认1000(ms)
+- @return () => void
+  - 执行函数
+```tsx
+const [value, setValue] = useState(0);
+const run = useThrottleFn(
+    () => {
+        setValue(value + 1);
+    },
+    500,
+);
+
+return (
+    <div>
+        <p> count: {value} </p>
+        <button type="button" onClick={run}>
+            Click fast!
+        </button>
+    </div>
+);
+```
+### useLatest 返回最新值,处理闭包问题
+- 参数 value/fn
+- @return ref
+  - ref.current
+```tsx
+const [value,setValue] = useState(1)
+const ref = useLatest(value)
+useEffect(()=>{
+    setInterval(()=>{
+        // setValue(value+1)
+        setValue(ref.current+1)
+    },1000)
+},[])
+return <div>{value}</div>
+```
 
 ### useLocalStorage
 - 参数

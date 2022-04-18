@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
+import useLatest from "../useLatest";
 
 interface IAction {
   start: () => void;
@@ -14,15 +15,12 @@ function useCountDown(
   } = {}
 ): [number, IAction] {
   const [remain, setRemain] = useState(Math.max(time, 0));
-  const _remain = useRef(remain);
   const _interval = useMemo(
     () => Math.min(Math.max(1, Math.floor(options.interval || 1)), time),
     []
   );
 
-  useEffect(() => {
-    _remain.current = remain;
-  }, [remain]);
+  const ref = useLatest(remain);
 
   const [running, setRunning] = useState(false);
 
@@ -35,7 +33,7 @@ function useCountDown(
     return (function () {
       const start = function () {
         if (running) return;
-        if (!_remain.current) setRemain(time);
+        if (!ref.current) setRemain(time);
         si = setInterval(() => {
           setRemain((prevState) => {
             const result = prevState - _interval;
@@ -46,7 +44,7 @@ function useCountDown(
             }
             return result;
           });
-        }, Math.min(_interval, _remain.current || 1) * 1000);
+        }, Math.min(_interval, ref.current || 1) * 1000);
       };
       const wait = function () {
         clearInterval(si);
