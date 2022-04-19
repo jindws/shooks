@@ -27,6 +27,7 @@ import useHover from "./hooks/useHover";
 import useStayTimeFn from "./hooks/useStayTimeFn";
 import useFetch from "./hooks/useFetch";
 import useRequest from "./hooks/useRequest";
+import useWan from "./hooks/useWan";
 
 export default {
   useMap,
@@ -58,6 +59,7 @@ export default {
   useStayTimeFn,
   useFetch,
   useRequest,
+  useWan,
 };
 export {
   useMap,
@@ -89,4 +91,5 @@ export {
   useStayTimeFn,
   useFetch,
   useRequest,
+  useWan,
 };

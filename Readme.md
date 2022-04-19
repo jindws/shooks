@@ -1,6 +1,24 @@
 ## SHooks
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
+### useWan 转换数字,默认为万
+- 支持正负数
+- 支持小数
+- 不支持转换返回原数值
+- 参数 (num, step)
+  - num: number | string 必填,需要转换的数字
+  - step: number = 4,选填,小数点前移的数量,默认为4位,即/10000
+- @return [result,changed]
+  - result:string 结果
+  - changed:boolean 是否转换成功
+```tsx
+// const [num,upNum] = useState(-99999.9)//-9.9万
+// const [num,upNum] = useState(100000.12)//10.0万
+const [num,upNum] = useState(10.1)//10.1元
+// const [result,hadChange] = useWan(num,2)
+const [result,hadChange] = useWan(num)
+return <div onClick={upNum.bind(null,2000000)}>{result}{hadChange?'万':'元'}</div>;
+```
 
 ### useStayTimeFn 监听停留时间
 - 同页面跳转生效
@@ -20,6 +38,7 @@
   return <div onClick={getTime}>time</div>;
 ```
 ### useFetch 调用fetch
+- 请求失败则使用上次数据
 - 参数 (url: string, options?: RequestInit)
   - url:请求链接
   - options:选填,fetch的参数
