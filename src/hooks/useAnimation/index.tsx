@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
-function useAnimation(init: string): [string, (newUrl: string) => void] {}
+function useAnimation() {}
 
 export default useAnimation;

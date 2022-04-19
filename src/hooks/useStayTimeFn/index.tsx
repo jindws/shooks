@@ -17,7 +17,7 @@ function useStayTimeFn(callback?: (time?: number) => void): {
 
   const stayTime = useCallback(() => {
     return Date.now() - initTime;
-  }, []);
+  }, [initTime]);
 
   const reset = useCallback(() => {
     upInitTime(Date.now());

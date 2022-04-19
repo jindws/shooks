@@ -9,7 +9,40 @@
 - @return {stayTime,reset}
   - stayTime : () => number 获取停留时间
   - reset : () => void 重新开始计数
+```tsx
+ const {stayTime,reset} = useStayTimeFn((time)=>{
+      localStorage.a=time
+  });
+  function getTime(){
+      console.log(stayTime())
+      reset()
+  }
+  return <div onClick={getTime}>time</div>;
+```
+### useFetch 调用fetch
+- 参数 (url: string, options?: RequestInit)
+  - url:请求链接
+  - options:选填,fetch的参数
+- @return [data,{request;loading}]
+  - data:结果,在没返回结果前是undefined
+  - request: () => void;更新
+  - loading: boolean;更新数据中
+```tsx
+const [value,{
+    loading,
+    request
+}] = useFetch('xxx')
+return <div onClick={request}>{!loading&&JSON.stringify(value)}</div>;
+```
+### useRequest
+- 参数 fn
+  - fn:请求的方法
+- @return [data]
+  - data:结果
+```tsx
+  const [data] = useRequest(fn);
 
+```
 ### useRem 辅助使用rem
 - 不是使用rem
 - 动态修改html的font-size
