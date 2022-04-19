@@ -1,3 +1,5 @@
-function useAnimation() {}
+function useAnimation() {
+  return;
+}
 
 export default useAnimation;

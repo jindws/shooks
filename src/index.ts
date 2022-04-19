@@ -28,6 +28,7 @@ import useStayTimeFn from "./hooks/useStayTimeFn";
 import useFetch from "./hooks/useFetch";
 import useRequest from "./hooks/useRequest";
 import useWan from "./hooks/useWan";
+import useJSONP from "./hooks/useJSONP";
 
 export default {
   useMap,
@@ -60,6 +61,7 @@ export default {
   useFetch,
   useRequest,
   useWan,
+  useJSONP,
 };
 export {
   useMap,
@@ -92,4 +94,5 @@ export {
   useFetch,
   useRequest,
   useWan,
+  useJSONP,
 };
