@@ -2,6 +2,27 @@
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
 
+### useAnimation 使用部分animate动画效果
+- 参数 (name,options)
+  - name: "fadeIn"| "fadeOut"| "zoomIn"| "zoomOut"| "pulse"| "fadeInDownBig"| "bounce" animate名称,必填
+  - options?: 配置,选填
+    - duration?: number; 选填,持续时长 默认为2s
+    - count?: number | "infinite"; 选填,重复次数,默认1次,infinite表示无限
+    - timing?: "linear" | "ease" | "ease-in" | "ease-out" | "ease-in-out"; 选填,播放速度模式,默认匀速(linear)
+    - fillMode?: "none" | "forwards" | "backwards" | "both";选填,结果后的位置(填充模式),默认为forwards:保留最后一帧
+    - delay?: number;选填,延迟加载时长 s或ms
+    - alternate?: boolean;选填,是否轮流反向播放,默认false
+- @return [styles,togglePause]
+  - styles:css属性
+  - togglePause:()=>void 暂停/开始
+```tsx
+const [styles,togglePause] = useAnimation('fadeIn',{
+    alternate:true,
+    count:'infinite'
+})
+return <div onClick={togglePause} style={{...styles}}>animation</div>
+```
+
 ### useStayTimeFn 监听停留时间
 - 同页面跳转生效
 - 参数 callback

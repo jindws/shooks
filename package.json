@@ -1,6 +1,6 @@
 {
   "name": "shooks",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "description": "react 自定义hooks",
   "source": "src/index.ts",
   "main": "dist/shooks.main.js",
@@ -37,6 +37,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.0",
     "@parcel/packager-ts": "2.4.1",
+    "@parcel/transformer-sass": "2.4.1",
     "@parcel/transformer-typescript-tsc": "^2.4.1",
     "@parcel/transformer-typescript-types": "2.4.1",
     "@types/react": "^18.0.5",

@@ -29,6 +29,7 @@ import useFetch from "./hooks/useFetch";
 import useRequest from "./hooks/useRequest";
 import useWan from "./hooks/useWan";
 import useJSONP from "./hooks/useJSONP";
+import useAnimation from "./hooks/useAnimation";
 
 export default {
   useMap,
@@ -62,6 +63,7 @@ export default {
   useRequest,
   useWan,
   useJSONP,
+  useAnimation,
 };
 export {
   useMap,
@@ -95,4 +97,5 @@ export {
   useRequest,
   useWan,
   useJSONP,
+  useAnimation,
 };
