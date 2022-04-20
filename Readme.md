@@ -2,11 +2,24 @@
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
 
+### useDeepClone 深拷贝
+- 入参 data
+  - data?:T 选填,任意参数
+- @return
+  - result 结果
+```tsx
+const data = [1,{s:[]}]
+data[2] = data
+const result = useDeepClone(data)
+result[1].s.push(1)
+console.log(data)
+```
+
 ### useAnimation 使用部分animate动画效果
 - 参数 (name,options)
   - name: "fadeIn"| "fadeOut"| "zoomIn"| "zoomOut"| "pulse"| "fadeInDownBig"| "bounce" animate名称,必填
   - options?: 配置,选填
-    - duration?: number; 选填,持续时长 默认为2s
+    - duration?: number; 选填,持续时长,单位秒 默认为2s
     - count?: number | "infinite"; 选填,重复次数,默认1次,infinite表示无限
     - timing?: "linear" | "ease" | "ease-in" | "ease-out" | "ease-in-out"; 选填,播放速度模式,默认匀速(linear)
     - fillMode?: "none" | "forwards" | "backwards" | "both";选填,结果后的位置(填充模式),默认为forwards:保留最后一帧
