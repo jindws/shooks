@@ -3,22 +3,31 @@ import useUUID from "../useUUID";
 
 function useJSONP(
   url: string,
-  fn?: (...args: unknown[]) => void,
-  callback: string = "callback"
+  options: {
+    callback?: (...args: unknown[]) => void;
+    reqName?: string;
+    backName?: string;
+  } = {}
 ) {
+  const { callback, reqName = "callback", backName } = options;
   const [random]: [string, () => void] = useUUID(10);
   useEffect(() => {
-    random && run(random.replace(/^\d*/, ""));
+    if (backName) {
+      run(backName);
+    } else {
+      random && run(random.replace(/^\d*/, ""));
+    }
+
     return () => {
-      Reflect.deleteProperty(window, random);
+      Reflect.deleteProperty(window, backName || random);
     };
-  }, [random]);
+  }, [backName || random]);
   const run = useCallback((random: string) => {
     const script = document.createElement("script");
-    if (fn) {
+    if (callback) {
       url += url.includes("?") ? "&" : "?";
-      url += `${callback}=${random}`;
-      Object.assign(window, { [random]: fn });
+      url += `${reqName}=${random}`;
+      Object.assign(window, { [random]: callback });
     }
     script.src = url;
     document.body.append(script);

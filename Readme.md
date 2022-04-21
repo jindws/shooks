@@ -1,6 +1,28 @@
 ## SHooks
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
+### useIP 获取ip地址
+- 基于taobao的接口
+- 参数 无
+- @return ip
+  - ip:string 返回ip结果
+```tsx
+const ip = useIP()
+```
+### useJSONP 使用jsonp⚠
+- ️参数[url,options]
+  - url:string 请求链接
+  - options? 选填 配置
+    - callback? 选填回调函数
+    - reqName?:string 请求的cb名称,默认为callback
+    - backName?:string 调用本地window的方法名称,默认随机生成
+- @return void
+```tsx
+ useJSONP("https://www.taobao.com/help/getip.php", {
+  callback: getData,
+  backName: "ipCallback",
+});
+```
 
 ### useDeepClone 深拷贝
 - 入参 data
@@ -52,15 +74,6 @@ return <div onClick={togglePause} style={{...styles}}>animation</div>
       reset()
   }
   return <div onClick={getTime}>time</div>;
-```
-### useJSONP 使用jsonp⚠
-- ️参数[url,fn,callback]
-  - url:string 请求链接
-  - fn? 选填回调函数 
-  - callback?:string cb名称
-- @return void
-```tsx
-useJSONP('https://www.runoob.com/try/ajax/jsonp.php',(data)=>{console.log(data)},'jsoncallback')
 ```
 ### useFetch 调用fetch
 - 请求失败则使用上次数据

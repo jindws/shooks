@@ -31,6 +31,7 @@ import useWan from "./hooks/useWan";
 import useJSONP from "./hooks/useJSONP";
 import useAnimation from "./hooks/useAnimation";
 import useDeepClone from "./hooks/useDeepClone";
+import useIP from "./hooks/useIP";
 
 export default {
   useMap,
@@ -66,6 +67,7 @@ export default {
   useJSONP,
   useAnimation,
   useDeepClone,
+  useIP,
 };
 export {
   useMap,
@@ -101,4 +103,5 @@ export {
   useJSONP,
   useAnimation,
   useDeepClone,
+  useIP,
 };
