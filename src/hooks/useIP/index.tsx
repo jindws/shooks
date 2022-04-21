@@ -1,12 +1,12 @@
 /**
  * @desc 获取ip
  */
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import useJSONP from "../useJSONP";
 
 function useIP() {
   const [ip, setIp] = useState("");
-  const getData = useCallback((data: any) => {
+  const getData = useCallback((data: { ip: string }) => {
     setIp(data.ip);
   }, []);
   useJSONP("https://www.taobao.com/help/getip.php", {

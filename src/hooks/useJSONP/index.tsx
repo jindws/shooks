@@ -4,7 +4,7 @@ import useUUID from "../useUUID";
 function useJSONP(
   url: string,
   options: {
-    callback?: (...args: unknown[]) => void;
+    callback?: (...args: any[]) => void;
     reqName?: string;
     backName?: string;
   } = {}
