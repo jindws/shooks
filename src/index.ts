@@ -34,6 +34,7 @@ import useDeepClone from "./hooks/useDeepClone";
 import useIP from "./hooks/useIP";
 import useTable from "./hooks/useTable";
 import useLegacyState from "./hooks/useLegacyState";
+import useOnlyUpdateEffect from "./hooks/useOnlyUpdateEffect";
 
 export default {
   useMap,
@@ -72,6 +73,7 @@ export default {
   useIP,
   useTable,
   useLegacyState,
+  useOnlyUpdateEffect,
 };
 export {
   useMap,
@@ -110,4 +112,5 @@ export {
   useIP,
   useTable,
   useLegacyState,
+  useOnlyUpdateEffect,
 };

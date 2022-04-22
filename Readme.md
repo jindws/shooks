@@ -6,12 +6,21 @@
 - @return [data,setData]
   - data 最新的对象
   - setData 更新,传入新的对象
-
 ```tsx
 const [data,setData] = useLegacyState({a:1,b:2})
 return <div onClick={()=>setData({a:data.a+1,c:data.a})}>{JSON.stringify(data)}</div>
 ```
-
+### useOnlyUpdateEffect
+- 同useEffect,但忽略初始化的执行
+- api同useEffect
+- deps使用[]会无法执行
+```tsx
+const [num,setNum] = useState(1)
+useOnlyUpdateEffect(()=>{
+    return ()=>console.log('off')
+},[num])
+return <div onClick={setNum.bind(this,num+1)}>update{num}</div>
+```
 ### useIP 获取ip地址
 - 基于taobao的接口
 - 参数 无
