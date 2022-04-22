@@ -32,6 +32,8 @@ import useJSONP from "./hooks/useJSONP";
 import useAnimation from "./hooks/useAnimation";
 import useDeepClone from "./hooks/useDeepClone";
 import useIP from "./hooks/useIP";
+import useTable from "./hooks/useTable";
+import useLegacyState from "./hooks/useLegacyState";
 
 export default {
   useMap,
@@ -68,6 +70,8 @@ export default {
   useAnimation,
   useDeepClone,
   useIP,
+  useTable,
+  useLegacyState,
 };
 export {
   useMap,
@@ -104,4 +108,6 @@ export {
   useAnimation,
   useDeepClone,
   useIP,
+  useTable,
+  useLegacyState,
 };

@@ -1,6 +1,17 @@
 ## SHooks
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
+### useLegacyState 来合并对象 state 的更新
+- 参数 初始化对象
+- @return [data,setData]
+  - data 最新的对象
+  - setData 更新,传入新的对象
+
+```tsx
+const [data,setData] = useLegacyState({a:1,b:2})
+return <div onClick={()=>setData({a:data.a+1,c:data.a})}>{JSON.stringify(data)}</div>
+```
+
 ### useIP 获取ip地址
 - 基于taobao的接口
 - 参数 无
