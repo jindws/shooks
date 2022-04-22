@@ -23,6 +23,7 @@ return <div onClick={setNum.bind(this,num+1)}>update{num}</div>
 ```
 ### useIP 获取ip地址
 - 基于taobao的接口
+- 多次请求,只在最后一次返回结果
 - 参数 无
 - @return ip
   - ip:string 返回ip结果
@@ -35,7 +36,7 @@ const ip = useIP()
   - options? 选填 配置
     - callback? 选填回调函数
     - reqName?:string 请求的cb名称,默认为callback
-    - backName?:string 调用本地window的方法名称,默认随机生成
+    - backName?:string 调用本地window的方法名称,默认随机生成 无需求建议不填
 - @return void
 ```tsx
  useJSONP("https://www.taobao.com/help/getip.php", {

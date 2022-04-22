@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import useUUID from "../useUUID";
 
 function useJSONP(
@@ -18,18 +18,23 @@ function useJSONP(
       random && run(random.replace(/^\d*/, ""));
     }
 
-    return () => {
-      Reflect.deleteProperty(window, backName || random);
-    };
-  }, [backName || random]);
-  const run = useCallback((random: string) => {
+    // return () => {
+    //   Reflect.deleteProperty(window, backName || random);
+    // };
+  }, []);
+  const run = useCallback((cbName: string) => {
     const script = document.createElement("script");
     if (callback) {
       url += url.includes("?") ? "&" : "?";
       url += `${reqName}=${random}`;
-      Object.assign(window, { [random]: callback });
+      Object.assign(window, { [cbName]: callback });
     }
     script.src = url;
+    script.async = true;
+    script.onload = () => {
+      // Reflect.deleteProperty(window, cbName);
+      document.body.removeChild(script);
+    };
     document.body.append(script);
   }, []);
 }
