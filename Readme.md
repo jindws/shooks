@@ -1,6 +1,25 @@
 ## SHooks
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
+
+### useFixed
+- toFixed满足4舍6入,5根据上个数据判断
+  - 1.35.toFixed(1) //1.4
+  - 1.45.toFixed(1)//1.4
+- 入参 num, fixed
+  - num: string | number 需要转换的数字
+  - fixed?: number  选填,小数位数,默认1
+- @return result:string
+```tsx
+const fixed = useFixed(1.115,2)
+const toFixed = (1.115).toFixed(2)
+return <>
+    <div>useFixed:{fixed}</div>
+    <div>toFixed:{toFixed}</div>
+</>
+```
+
+
 ### useLegacyState 来合并对象 state 的更新
 - 参数 初始化对象
 - @return [data,setData]

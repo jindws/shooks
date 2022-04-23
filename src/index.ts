@@ -35,6 +35,7 @@ import useIP from "./hooks/useIP";
 import useTable from "./hooks/useTable";
 import useLegacyState from "./hooks/useLegacyState";
 import useOnlyUpdateEffect from "./hooks/useOnlyUpdateEffect";
+import useFixed from "./hooks/useFixed";
 
 export default {
   useMap,
@@ -74,6 +75,7 @@ export default {
   useTable,
   useLegacyState,
   useOnlyUpdateEffect,
+  useFixed,
 };
 export {
   useMap,
@@ -113,4 +115,5 @@ export {
   useTable,
   useLegacyState,
   useOnlyUpdateEffect,
+  useFixed,
 };
