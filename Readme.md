@@ -2,7 +2,7 @@
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
 
-### useFixed
+### useFixed 四舍五入的toFixed
 - toFixed满足4舍6入,5根据上个数据判断
   - 1.35.toFixed(1) //1.4
   - 1.45.toFixed(1)//1.4
@@ -19,7 +19,6 @@ return <>
 </>
 ```
 
-
 ### useLegacyState 来合并对象 state 的更新
 - 参数 初始化对象
 - @return [data,setData]
@@ -29,7 +28,7 @@ return <>
 const [data,setData] = useLegacyState({a:1,b:2})
 return <div onClick={()=>setData({a:data.a+1,c:data.a})}>{JSON.stringify(data)}</div>
 ```
-### useOnlyUpdateEffect
+### useOnlyUpdateEffect 忽略初始化的useEffect
 - 同useEffect,但忽略初始化的执行
 - api同useEffect
 - deps使用[]会无法执行
