@@ -9,7 +9,11 @@ function useAnimation(
     | "zoomOut"
     | "pulse"
     | "fadeInDownBig"
-    | "bounce",
+    | "bounce"
+    | "shakeX"
+    | "shakeY"
+    | "rubberBand"
+    | "flash",
   options?: {
     duration?: number;
     count?: number | "infinite";

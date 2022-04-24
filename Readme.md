@@ -78,7 +78,7 @@ console.log(data)
 
 ### useAnimation 使用部分animate动画效果
 - 参数 (name,options)
-  - name: "fadeIn"| "fadeOut"| "zoomIn"| "zoomOut"| "pulse"| "fadeInDownBig"| "bounce" animate名称,必填
+  - name: "fadeIn"| "fadeOut"| "zoomIn"| "zoomOut"| "pulse"|"fadeInDownBig"| "bounce" |"flash"|"rubberBand"|"shakeX"|"shakeY"  animate名称,必填
   - options?: 配置,选填
     - duration?: number; 选填,持续时长,单位秒 默认为2s
     - count?: number | "infinite"; 选填,重复次数,默认1次,infinite表示无限
