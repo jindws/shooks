@@ -36,6 +36,7 @@ import useTable from "./hooks/useTable";
 import useLegacyState from "./hooks/useLegacyState";
 import useOnlyUpdateEffect from "./hooks/useOnlyUpdateEffect";
 import useFixed from "./hooks/useFixed";
+import useBattery from "./hooks/useBattery";
 
 export default {
   useMap,
@@ -76,6 +77,7 @@ export default {
   useLegacyState,
   useOnlyUpdateEffect,
   useFixed,
+  useBattery,
 };
 export {
   useMap,
@@ -116,4 +118,5 @@ export {
   useLegacyState,
   useOnlyUpdateEffect,
   useFixed,
+  useBattery,
 };

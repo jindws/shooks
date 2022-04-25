@@ -2,6 +2,19 @@
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
 
+### useBattery [use Battery Status API]
+- 支持部分浏览器
+  - Firefox：43+
+  - Chrome：38+
+  - Opera：25+
+- @return { charging,level,chargingTime,dischargingTime}
+  - charging:boolean 正在充电
+  - level:number 电量百分比
+  - chargingTime:number 充电时间 可能获取失败,返回0
+  - dischargingTime:number 未充电时间 可能获取失败,返回Infinity
+```tsx
+const data = useBattery()
+```
 ### useFixed 四舍五入的toFixed
 - toFixed满足4舍6入,5根据上个数据判断
   - 1.35.toFixed(1) //1.4
