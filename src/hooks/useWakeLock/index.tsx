@@ -10,7 +10,9 @@ function useWakeLock(time: number = 1): boolean {
 
     useEffect(() => {
       if (!lock) return;
-      const st = setTimeout(lock.release, time * 60 * 1000);
+      const st = setTimeout(() => {
+        lock.release();
+      }, time * 60 * 1000);
       return () => {
         clearTimeout(st);
       };
