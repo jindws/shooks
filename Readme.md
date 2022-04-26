@@ -15,6 +15,15 @@
 ```tsx
 const data = useBattery()
 ```
+### useWakeLock 屏幕唤醒锁定
+- 实验中的功能
+- 仅支持localhost和https
+- chrome84+
+- 入参 time: number = 1 锁定时间,默认1分钟
+- 出参 operate:boolean 操作成功
+```tsx
+useWakeLock()
+```
 ### useFixed 四舍五入的toFixed
 - toFixed满足4舍6入,5根据上个数据判断
   - 1.35.toFixed(1) //1.4

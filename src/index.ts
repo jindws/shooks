@@ -37,6 +37,7 @@ import useLegacyState from "./hooks/useLegacyState";
 import useOnlyUpdateEffect from "./hooks/useOnlyUpdateEffect";
 import useFixed from "./hooks/useFixed";
 import useBattery from "./hooks/useBattery";
+import useWakeLock from "./hooks/useWakeLock";
 
 export default {
   useMap,
@@ -78,6 +79,7 @@ export default {
   useOnlyUpdateEffect,
   useFixed,
   useBattery,
+  useWakeLock,
 };
 export {
   useMap,
@@ -119,4 +121,5 @@ export {
   useOnlyUpdateEffect,
   useFixed,
   useBattery,
+  useWakeLock,
 };

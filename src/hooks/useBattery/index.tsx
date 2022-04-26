@@ -6,6 +6,15 @@ import { useLegacyState } from "../../index";
  * Chrome：38+
  * Opera：25+
  */
+export interface IBattery {
+  charging: number;
+  level: number;
+  chargingTime: number;
+  dischargingTime: number;
+  addEventListener: (name: string, fun: Function) => void;
+  removeEventListener: (name: string, fun: Function) => void;
+}
+
 function useBattery() {
   const [state, setState] = useLegacyState({});
 
@@ -14,13 +23,13 @@ function useBattery() {
   }, []);
 
   useEffect(() => {
-    let _battery: any;
+    let _battery: IBattery;
 
     let chargingChange = () => {};
     let levelChange = () => {};
     let chargingTimeChange = () => {};
     let dischargingTimeChange = () => {};
-    navigator.getBattery().then((battery) => {
+    (navigator as any).getBattery().then((battery: IBattery) => {
       _battery = battery;
       update({
         charging: battery.charging,

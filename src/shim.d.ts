@@ -4,7 +4,7 @@ interface Navigator {
     level: number;
     chargingTime: number;
     dischargingTime: number;
-    addEventListener: (name: string, Function) => void;
-    removeEventListener: (name: string, Function) => void;
+    addEventListener: (name: string, fun: Function) => void;
+    removeEventListener: (name: string, fun: Function) => void;
   }>;
 }
