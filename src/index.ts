@@ -38,6 +38,7 @@ import useOnlyUpdateEffect from "./hooks/useOnlyUpdateEffect";
 import useFixed from "./hooks/useFixed";
 import useBattery from "./hooks/useBattery";
 import useWakeLock from "./hooks/useWakeLock";
+import useNotification from "./hooks/useNotification";
 
 export default {
   useMap,
@@ -80,6 +81,7 @@ export default {
   useFixed,
   useBattery,
   useWakeLock,
+  useNotification,
 };
 export {
   useMap,
@@ -122,4 +124,5 @@ export {
   useFixed,
   useBattery,
   useWakeLock,
+  useNotification,
 };

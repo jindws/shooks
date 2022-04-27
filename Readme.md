@@ -2,6 +2,23 @@
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
 
+### useNotification 调用系统通知
+- 浏览器未开启无效
+- 睡眠/勿扰模式等无效
+- 用户拒绝后无效 tacitly
+- 入参 tacitly
+  - tacitly:boolean 选填,是否初始化,询问是否打开通知,如果用户已选择不会触发
+- @return [canSend, message]
+  - canSend:boolean|'' true 用户已同意,可直接发消息 false 用户拒绝 '' 用户未选择
+  - message(name:string,options?)
+    - name:string title 
+    - options: 选填
+      - name:string 选填 通知中额外显示的字符串
+      - dir:"auto" | "ltr" | "rtl"  选填 文字的方向 auto（自动）, ltr（从左到右）, or rtl（从右到左）
+      - icon:string 选填 一个图片的URL，将被用于显示通知的图标
+      - lang: string 选填 指定通知中所使用的语言
+      - tag: string 选填 给通知打id,不会重复发送同tag的信息,刷新也不行
+
 ### useBattery [use Battery Status API]
 - 支持部分浏览器
   - Firefox：43+
