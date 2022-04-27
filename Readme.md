@@ -18,7 +18,12 @@
       - icon:string 选填 一个图片的URL，将被用于显示通知的图标
       - lang: string 选填 指定通知中所使用的语言
       - tag: string 选填 给通知打id,不会重复发送同tag的信息,刷新也不行
-
+```tsx
+const [canSend, message] = useNotification(true)
+    message('test',{
+        tag:'3'
+    })
+```
 ### useBattery [use Battery Status API]
 - 支持部分浏览器
   - Firefox：43+
