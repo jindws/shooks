@@ -19,7 +19,7 @@
       image:true
   })
 ```
-![img.png](image/useConsole.png)
+![useConsole](https://jindw.xyz/upload/2022/04/useConsole-f66b02dd8d4b44d384c5e0c9926e2fbe.png)
 ### useNotification 调用系统通知
 - 浏览器未开启无效
 - 睡眠/勿扰模式等无效
