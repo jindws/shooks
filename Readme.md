@@ -2,10 +2,28 @@
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
 
+### useConsole console.log打印图文
+- 入参 text options
+  - text:string 必填 输入内容,文字或图片链接
+  - options 选填(下同) 配置 
+    - image?: boolean; text是否是图片 默认false
+    - fontSize?: string; text 生效,字体大小 默认20px
+    - color?: string; text 生效,文案颜色 输入http链接可能失效 默认 "#ff5600"
+    - fontWeight?: number | string; text 生效,文本的粗细 默认500
+    - fontStyle?: string;  text 生效,字体的风格
+    - imageWidth?: string; image 生效 图片的宽度 默认100px
+    - imageHeight?: string; image 生效 图片的高度 默认100px
+```tsx
+  useConsole('shooks')
+  useConsole('https://avatars.githubusercontent.com/u/18043679',{
+      image:true
+  })
+```
+![img.png](useConsole/img.png)
 ### useNotification 调用系统通知
 - 浏览器未开启无效
 - 睡眠/勿扰模式等无效
-- 用户拒绝后无效 tacitly
+- 用户拒绝后无效
 - 入参 tacitly
   - tacitly:boolean 选填,是否初始化,询问是否打开通知,如果用户已选择不会触发
 - @return [canSend, message]
