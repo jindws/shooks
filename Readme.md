@@ -19,7 +19,7 @@
       image:true
   })
 ```
-![img.png](useConsole/img.png)
+![img.png](image/useConsole.png)
 ### useNotification 调用系统通知
 - 浏览器未开启无效
 - 睡眠/勿扰模式等无效
