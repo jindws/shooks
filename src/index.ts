@@ -40,6 +40,7 @@ import useBattery from "./hooks/useBattery";
 import useWakeLock from "./hooks/useWakeLock";
 import useNotification from "./hooks/useNotification";
 import useConsole from "./hooks/useConsole";
+import useIPPlace from "./hooks/useIPPlace";
 
 export default {
   useMap,
@@ -84,6 +85,7 @@ export default {
   useWakeLock,
   useNotification,
   useConsole,
+  useIPPlace,
 };
 export {
   useMap,
@@ -128,4 +130,5 @@ export {
   useWakeLock,
   useNotification,
   useConsole,
+  useIPPlace,
 };

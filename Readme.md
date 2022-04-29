@@ -2,6 +2,25 @@
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
 
+### useIPPlace
+- 基于pconline 接口
+- 参数 无
+- @return [province,city]
+  - province:string 省
+  - city:string 市
+```tsx
+const [province,city] = useIPPlace()
+```
+### useIP 获取ip地址
+- 基于taobao的接口
+- 多次请求,只在最后一次返回结果
+- 参数 无
+- @return ip
+  - ip:string 返回ip结果
+```tsx
+const ip = useIP()
+```
+
 ### useConsole console.log打印图文
 - 入参 text options
   - text:string 必填 输入内容,文字或图片链接
@@ -19,7 +38,7 @@
       image:true
   })
 ```
-![useConsole](https://jindw.xyz/upload/2022/04/useConsole-f66b02dd8d4b44d384c5e0c9926e2fbe.png)
+![useConsole](https://camo.githubusercontent.com/ad065447b059926b805dbfd9b20a0c27dcfa945f260e0dc0b2eb01b9c37338f5/68747470733a2f2f6a696e64772e78797a2f75706c6f61642f323032322f30342f757365436f6e736f6c652d66363662303264643864346234346433383463356530633939323665326662652e706e67)
 ### useNotification 调用系统通知
 - 浏览器未开启无效
 - 睡眠/勿扰模式等无效
@@ -101,15 +120,7 @@ useOnlyUpdateEffect(()=>{
 },[num])
 return <div onClick={setNum.bind(this,num+1)}>update{num}</div>
 ```
-### useIP 获取ip地址
-- 基于taobao的接口
-- 多次请求,只在最后一次返回结果
-- 参数 无
-- @return ip
-  - ip:string 返回ip结果
-```tsx
-const ip = useIP()
-```
+
 ### useJSONP 使用jsonp⚠
 - ️参数[url,options]
   - url:string 请求链接
