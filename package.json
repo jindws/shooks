@@ -7,8 +7,7 @@
   "module": "dist/shooks.module.js",
   "types": "dist/shooks.d.ts",
   "scripts": {
-    "build": "parcel build src/index.ts",
-    "check": "tsc --noEmit"
+    "build": "parcel build src/index.ts"
   },
   "files": [
     "dist"
