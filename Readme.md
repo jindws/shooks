@@ -2,6 +2,26 @@
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
 
+### usePrint 打印部分模块
+- 参数 ele?
+  - ele?: MutableRefObject<HTMLElement> 选填,默认为document.body
+    - 不支持则默认document.body
+- @return print
+  - print:function 打印
+```tsx
+  const ref = useRef()
+  const printAll = usePrint() // 打印整体
+  const printImg = usePrint(ref) // 打印img
+
+
+  return <>
+      <div onClick={printAll} >
+          print
+      </div>
+      <img ref={ref} onClick={printImg} src="https://avatars.githubusercontent.com/u/18043679" alt=""/>
+  </>
+```
+
 ### useIPPlace
 - 基于pconline 接口
 - 参数 无

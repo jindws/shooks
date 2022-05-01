@@ -41,6 +41,7 @@ import useWakeLock from "./hooks/useWakeLock";
 import useNotification from "./hooks/useNotification";
 import useConsole from "./hooks/useConsole";
 import useIPPlace from "./hooks/useIPPlace";
+import usePrint from "./hooks/usePrint";
 
 export default {
   useMap,
@@ -86,6 +87,7 @@ export default {
   useNotification,
   useConsole,
   useIPPlace,
+  usePrint,
 };
 export {
   useMap,
@@ -131,4 +133,5 @@ export {
   useNotification,
   useConsole,
   useIPPlace,
+  usePrint,
 };
