@@ -1,9 +1,6 @@
 import { useEffect, useRef } from "react";
 
-function useOnlyUpdateEffect(
-  callback: () => (() => void) | void,
-  deps?: [any]
-): void {
+function useDidUpdate(callback: () => (() => void) | void, deps?: [any]): void {
   const ref = useRef(false);
   const back: any = useRef(null);
   useEffect(() => {
@@ -16,4 +13,4 @@ function useOnlyUpdateEffect(
   }, [deps]);
 }
 
-export default useOnlyUpdateEffect;
+export default useDidUpdate;

@@ -34,7 +34,7 @@ import useDeepClone from "./hooks/useDeepClone";
 import useIP from "./hooks/useIP";
 import useTable from "./hooks/useTable";
 import useLegacyState from "./hooks/useLegacyState";
-import useOnlyUpdateEffect from "./hooks/useOnlyUpdateEffect";
+import useDidUpdate from "./hooks/useDidUpdate";
 import useFixed from "./hooks/useFixed";
 import useBattery from "./hooks/useBattery";
 import useWakeLock from "./hooks/useWakeLock";
@@ -42,6 +42,8 @@ import useNotification from "./hooks/useNotification";
 import useConsole from "./hooks/useConsole";
 import useIPPlace from "./hooks/useIPPlace";
 import usePrint from "./hooks/usePrint";
+import useDidMount from "./hooks/useDidMount";
+import useWillUnmount from "./hooks/useWillUnmount";
 
 export default {
   useMap,
@@ -80,7 +82,7 @@ export default {
   useIP,
   useTable,
   useLegacyState,
-  useOnlyUpdateEffect,
+  useDidUpdate,
   useFixed,
   useBattery,
   useWakeLock,
@@ -88,6 +90,8 @@ export default {
   useConsole,
   useIPPlace,
   usePrint,
+  useDidMount,
+  useWillUnmount,
 };
 export {
   useMap,
@@ -126,7 +130,7 @@ export {
   useIP,
   useTable,
   useLegacyState,
-  useOnlyUpdateEffect,
+  useDidUpdate,
   useFixed,
   useBattery,
   useWakeLock,
@@ -134,4 +138,6 @@ export {
   useConsole,
   useIPPlace,
   usePrint,
+  useDidMount,
+  useWillUnmount,
 };

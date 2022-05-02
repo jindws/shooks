@@ -129,18 +129,44 @@ return <>
 const [data,setData] = useLegacyState({a:1,b:2})
 return <div onClick={()=>setData({a:data.a+1,c:data.a})}>{JSON.stringify(data)}</div>
 ```
-### useOnlyUpdateEffect 忽略初始化的useEffect
+### useWillUnmount 销毁前执行回调
+- componentWillUnmount
+- 入参 callback
+  - callback:function
+```tsx
+function Test(){
+  const [data,setData] = useState(1)
+  useWillUnmount(()=>console.log(data))
+  return <div onClick={setData.bind(null,data+1)}>data:{data}</div>
+}
+
+function App() {
+  const [show,setShow] = useState(true);
+  return <>
+    <div onClick={setShow.bind(null,false)}>change</div>
+    {show&&<Test/>}
+  </>
+}
+```
+### useDidUpdate 忽略初始化的useEffect
+- componentDidUpdate
 - 同useEffect,但忽略初始化的执行
 - api同useEffect
 - deps使用[]会无法执行
 ```tsx
 const [num,setNum] = useState(1)
-useOnlyUpdateEffect(()=>{
+useDidUpdate(()=>{
     return ()=>console.log('off')
 },[num])
 return <div onClick={setNum.bind(this,num+1)}>update{num}</div>
 ```
-
+### useDidMount 初始化执行一次
+- componentDodMount
+- 参数 callback
+  - callback:function
+```tsx
+useDidMount(()=>console.log(1))
+```
 ### useJSONP 使用jsonp⚠
 - ️参数[url,options]
   - url:string 请求链接
