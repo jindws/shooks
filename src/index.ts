@@ -44,6 +44,7 @@ import useIPPlace from "./hooks/useIPPlace";
 import usePrint from "./hooks/usePrint";
 import useDidMount from "./hooks/useDidMount";
 import useWillUnmount from "./hooks/useWillUnmount";
+import useAsyncEffect from "./hooks/useAsyncEffect";
 
 export default {
   useMap,
@@ -92,6 +93,7 @@ export default {
   usePrint,
   useDidMount,
   useWillUnmount,
+  useAsyncEffect,
 };
 export {
   useMap,
@@ -140,4 +142,5 @@ export {
   usePrint,
   useDidMount,
   useWillUnmount,
+  useAsyncEffect,
 };

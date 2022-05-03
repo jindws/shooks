@@ -21,6 +21,23 @@
       <img ref={ref} onClick={printImg} src="https://avatars.githubusercontent.com/u/18043679" alt=""/>
   </>
 ```
+### useAsyncEffect 支持await的useEffect
+- 参数同useEffect
+```tsx
+const [data,setData]=useState<number>()
+
+const test = useCallback(():Promise<number>=>{
+    return new Promise(resolve => {
+        setTimeout(()=>resolve(555),1000)
+    })
+},[])
+useAsyncEffect(async()=>{
+    setData(await test())
+},[])
+return <>
+    {data}
+</>
+```
 
 ### useIPPlace
 - 基于pconline 接口
