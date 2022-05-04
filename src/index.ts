@@ -45,6 +45,8 @@ import usePrint from "./hooks/usePrint";
 import useDidMount from "./hooks/useDidMount";
 import useWillUnmount from "./hooks/useWillUnmount";
 import useAsyncEffect from "./hooks/useAsyncEffect";
+import useKebabCase from "./hooks/useKebabCase";
+import useCamelCase from "./hooks/useCamelCase";
 
 export default {
   useMap,
@@ -94,6 +96,8 @@ export default {
   useDidMount,
   useWillUnmount,
   useAsyncEffect,
+  useKebabCase,
+  useCamelCase,
 };
 export {
   useMap,
@@ -143,4 +147,6 @@ export {
   useDidMount,
   useWillUnmount,
   useAsyncEffect,
+  useKebabCase,
+  useCamelCase,
 };

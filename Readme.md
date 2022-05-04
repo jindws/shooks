@@ -2,6 +2,23 @@
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
 
+### useKebabCase 驼峰命名=>中横线命名
+- 入参 str,line
+  - str:string 必填 字符串
+  - line:string 选填 默认为-
+- @return result:string
+```tsx
+// const data = useKebabCase('AbCdEFG')//ab-cd-e-f-g
+const data = useKebabCase('AbCdEFG','*')//ab*cd*e*f*g
+const pre = useCamelCase(data,'*')//abCdEFG
+return <>
+    <div>{data}</div>
+    <div>{pre}</div>
+</>
+```
+### useCamelCase 中横线命名=>驼峰命名
+- 同useKebabCase,方向不同
+
 ### usePrint 打印部分模块
 - 参数 ele?
   - ele?: MutableRefObject<HTMLElement> 选填,默认为document.body
