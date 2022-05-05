@@ -47,6 +47,7 @@ import useWillUnmount from "./hooks/useWillUnmount";
 import useAsyncEffect from "./hooks/useAsyncEffect";
 import useKebabCase from "./hooks/useKebabCase";
 import useCamelCase from "./hooks/useCamelCase";
+import useRequestAny from "./hooks/useRequestAny";
 
 export default {
   useMap,
@@ -98,6 +99,7 @@ export default {
   useAsyncEffect,
   useKebabCase,
   useCamelCase,
+  useRequestAny,
 };
 export {
   useMap,
@@ -149,4 +151,5 @@ export {
   useAsyncEffect,
   useKebabCase,
   useCamelCase,
+  useRequestAny,
 };

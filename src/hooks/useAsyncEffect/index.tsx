@@ -3,7 +3,7 @@
  */
 import { useEffect } from "react";
 
-function useAsyncEffect(fn: Awaited<any> | Promise<void>, deps?: []) {
+function useAsyncEffect(fn: Awaited<any> | Promise<void>, deps?: any[]) {
   useEffect(() => {
     (async function fun() {
       await fn();

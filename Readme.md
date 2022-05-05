@@ -2,6 +2,22 @@
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
 
+### useRequestAny 请求多个链接,最快返回结果
+- 入参 url,options
+  - url: string | string[] 请求链接,url或数组
+  - options: RequestInit 选填,fetch的参数
+- @return [result, { loading; update}]
+  - result:any 返回结果
+  - loading:boolean 加载中
+  - update: () => void 再次请求
+```tsx
+const [data, {update}] = useRequestAny('https://devapi.qweather.com/v7/weather/now?location=119.8824799,29.95931271&key=ae9136fb06a04934bdd38d87b35ea563')//ab*cd*e*f*g
+const [data2,{loading}] = useRequestAny(['https://devapi.qweather.com/v7/weather/now?location=119.8824799,29.95931271&key=ae9136fb06a04934bdd38d87b35ea563','https://restapi.amap.com/v3/ip?key=b5dc101510c3172849a4fd74a4db8508'])//ab*cd*e*f*g
+console.log(data,data2)
+return <>
+    <div onClick={update}>update</div>
+</>
+```
 ### useKebabCase 驼峰命名=>中横线命名
 - 入参 str,line
   - str:string 必填 字符串

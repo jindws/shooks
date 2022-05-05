@@ -20,7 +20,7 @@
       "dom",
       "es5",
       "scripthost",
-      "es2016"
+      "es2021"
     ]
   }
 }
