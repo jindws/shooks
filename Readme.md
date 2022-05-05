@@ -11,8 +11,8 @@
   - loading:boolean 加载中
   - update: () => void 再次请求
 ```tsx
-const [data, {update}] = useRequestAny('https://devapi.qweather.com/v7/weather/now?location=119.8824799,29.95931271&key=ae9136fb06a04934bdd38d87b35ea563')//ab*cd*e*f*g
-const [data2,{loading}] = useRequestAny(['https://devapi.qweather.com/v7/weather/now?location=119.8824799,29.95931271&key=ae9136fb06a04934bdd38d87b35ea563','https://restapi.amap.com/v3/ip?key=b5dc101510c3172849a4fd74a4db8508'])//ab*cd*e*f*g
+const [data, {update}] = useRequestAny('https://devapi.qweather.com/v7/weather/now?location=119.8824799,29.95931271&key=ae9136fb06a04934bdd38d87b35ea563')
+const [data2,{loading}] = useRequestAny(['https://devapi.qweather.com/v7/weather/now?location=119.8824799,29.95931271&key=ae9136fb06a04934bdd38d87b35ea563','https://restapi.amap.com/v3/ip?key=b5dc101510c3172849a4fd74a4db8508'])
 console.log(data,data2)
 return <>
     <div onClick={update}>update</div>
