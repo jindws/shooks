@@ -1,7 +1,28 @@
 ## SHooks
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
+### usePictureInPicture 画中画API
+- 入参 video
+  - video: HTMLVideoElement | MutableRefObject<HTMLVideoElement>:视频ref/dom
+- @return [ show,action]
+  - show:boolean PictureInPicture启动中
+  - action
+    - open: () => void;打开
+    - close: () => void;关闭
+    - toggle: () => void;开关
+```tsx
+const ref:MutableRefObject<HTMLVideoElement|undefined> = useRef()
+const ref2:MutableRefObject<HTMLVideoElement|undefined> = useRef()
+const [show,{open,toggle}] = usePictureInPicture(ref)
+const [show2,option] = usePictureInPicture(ref2)
 
+return <>
+    <video onClick={toggle} ref={ref} src="https://www.w3school.com.cn/example/html5/mov_bbb.mp4"></video>
+    show:{show.toString()}
+    <video onClick={option.toggle} ref={ref2} src="https://mdn.github.io/dom-examples/picture-in-picture/assets/bigbuckbunny.mp4"></video>
+    show2:{show2.toString()}
+</>
+```
 ### useRequestAny 请求多个链接,最快返回结果
 - 入参 url,options
   - url: string | string[] 请求链接,url或数组

@@ -48,6 +48,7 @@ import useAsyncEffect from "./hooks/useAsyncEffect";
 import useKebabCase from "./hooks/useKebabCase";
 import useCamelCase from "./hooks/useCamelCase";
 import useRequestAny from "./hooks/useRequestAny";
+import usePictureInPicture from "./hooks/usePictureInPicture";
 
 export default {
   useMap,
@@ -100,6 +101,7 @@ export default {
   useKebabCase,
   useCamelCase,
   useRequestAny,
+  usePictureInPicture,
 };
 export {
   useMap,
@@ -152,4 +154,5 @@ export {
   useKebabCase,
   useCamelCase,
   useRequestAny,
+  usePictureInPicture,
 };
