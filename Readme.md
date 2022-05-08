@@ -23,6 +23,18 @@ return <>
     show2:{show2.toString()}
 </>
 ```
+### useEyeDropper 取色
+- 仅chrome内核支持
+- 入参 无
+- @return [color, getColor]
+  - color:string | undefined 最后一次成功获取的颜色
+  - getColor:()=>void 调用获取颜色的api
+```tsx
+  const [color,getColor] = useEyeDropper()
+  return <div onClick={getColor}>
+      color:{color}
+  </div>
+```
 ### useRequestAny 请求多个链接,最快返回结果
 - 入参 url,options
   - url: string | string[] 请求链接,url或数组

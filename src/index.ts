@@ -49,6 +49,7 @@ import useKebabCase from "./hooks/useKebabCase";
 import useCamelCase from "./hooks/useCamelCase";
 import useRequestAny from "./hooks/useRequestAny";
 import usePictureInPicture from "./hooks/usePictureInPicture";
+import useEyeDropper from "./hooks/useEyeDropper";
 
 export default {
   useMap,
@@ -102,6 +103,7 @@ export default {
   useCamelCase,
   useRequestAny,
   usePictureInPicture,
+  useEyeDropper,
 };
 export {
   useMap,
@@ -155,4 +157,5 @@ export {
   useCamelCase,
   useRequestAny,
   usePictureInPicture,
+  useEyeDropper,
 };
