@@ -50,6 +50,7 @@ import useCamelCase from "./hooks/useCamelCase";
 import useRequestAny from "./hooks/useRequestAny";
 import usePictureInPicture from "./hooks/usePictureInPicture";
 import useEyeDropper from "./hooks/useEyeDropper";
+import usePolling from "./hooks/usePolling";
 
 export default {
   useMap,
@@ -104,6 +105,7 @@ export default {
   useRequestAny,
   usePictureInPicture,
   useEyeDropper,
+  usePolling,
 };
 export {
   useMap,
@@ -158,4 +160,5 @@ export {
   useRequestAny,
   usePictureInPicture,
   useEyeDropper,
+  usePolling,
 };

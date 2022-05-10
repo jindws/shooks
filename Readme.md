@@ -1,6 +1,33 @@
 ## SHooks
 - yarn add shooks -S
 - import { useDebounce } from 'shooks'
+### usePolling 轮询
+- 入参 callback,options
+  - callback:Function 回调函数
+  - options 配置 选填
+    - interval?:number 触发间隔(ms) 默认为2000
+    - maxTime?:number 每次触发执行的次数,如果immediate为true,实际上会多执行一次
+    - initRun?:boolean 默认开启定时器
+    - immediate?:boolean 第一时间执行一次
+- @return [running,{start,stop}]
+  - running:boolean 现在是否在执行
+  - start:开始执行
+  - stop:停止执行
+```tsx
+const [data,setData] = useState(0)
+const [running,{
+    start,stop
+}] = usePolling(()=>{
+    setData(data+1)
+},{
+    interval:1000,
+    // immediate:true
+    maxTime:3,
+})
+return <div onClick={running?stop:start}>
+    {data}
+</div>
+```
 ### usePictureInPicture 画中画API
 - 入参 video
   - video: HTMLVideoElement | MutableRefObject<HTMLVideoElement>:视频ref/dom
