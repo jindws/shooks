@@ -32,6 +32,7 @@ function usePolling(
   useEffect(() => {
     immediate && reFun.current();
     initRun && start();
+    return () => clearInterval(reSi.current);
   }, []);
 
   const start = useCallback(() => {
