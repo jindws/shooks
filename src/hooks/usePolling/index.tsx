@@ -30,15 +30,11 @@ function usePolling(
   const reSi = useLatest(si);
 
   useEffect(() => {
-    if (immediate) {
-      reFun.current();
-    }
-    if (initRun) {
-      start(immediate);
-    }
+    immediate && reFun.current();
+    initRun && start();
   }, []);
 
-  const start = useCallback((immediate?: boolean) => {
+  const start = useCallback(() => {
     maxTime && setTime(maxTime);
     setSI(
       setInterval(() => {
