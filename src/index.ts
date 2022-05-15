@@ -51,6 +51,7 @@ import useRequestAny from "./hooks/useRequestAny";
 import usePictureInPicture from "./hooks/usePictureInPicture";
 import useEyeDropper from "./hooks/useEyeDropper";
 import usePolling from "./hooks/usePolling";
+import useFocus from "./hooks/useFocus";
 
 export default {
   useMap,
@@ -106,6 +107,7 @@ export default {
   usePictureInPicture,
   useEyeDropper,
   usePolling,
+  useFocus,
 };
 export {
   useMap,
@@ -161,4 +163,5 @@ export {
   usePictureInPicture,
   useEyeDropper,
   usePolling,
+  useFocus,
 };

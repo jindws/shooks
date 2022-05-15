@@ -28,6 +28,25 @@ return <div onClick={running?stop:start}>
     {data}
 </div>
 ```
+### useFocus input的focus事件
+- 入参 target,options
+  - target:MutableRefObject<HTMLInputElement | null> | HTMLInputElement input的ref
+  - options? 选填
+    - onFocus?: () => void; 选填 focus执行
+    - onBlur?: () => void; 选填  blur执行
+- @return focusIn
+  - focusIn:boolean 现在是否是focus的
+```tsx
+const ref:MutableRefObject<HTMLInputElement | null> = useRef(null)
+const focus = useFocus(ref,{
+    onFocus:()=>console.log('onFocus'),
+    onBlur:()=>console.log('onBlur')
+})
+
+return <div>
+    useFocus:<input ref={ref} type="text"/>{`${focus}`}
+</div>
+```
 ### usePictureInPicture 画中画API
 - 入参 video
   - video: HTMLVideoElement | MutableRefObject<HTMLVideoElement>:视频ref/dom
