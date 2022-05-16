@@ -52,6 +52,7 @@ import usePictureInPicture from "./hooks/usePictureInPicture";
 import useEyeDropper from "./hooks/useEyeDropper";
 import usePolling from "./hooks/usePolling";
 import useFocus from "./hooks/useFocus";
+import useTrims from "./hooks/useTrims";
 
 export default {
   useMap,
@@ -108,6 +109,7 @@ export default {
   useEyeDropper,
   usePolling,
   useFocus,
+  useTrims,
 };
 export {
   useMap,
@@ -164,4 +166,5 @@ export {
   useEyeDropper,
   usePolling,
   useFocus,
+  useTrims,
 };

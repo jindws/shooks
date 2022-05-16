@@ -28,6 +28,18 @@ return <div onClick={running?stop:start}>
     {data}
 </div>
 ```
+### useTrims 替换字符串所有的空格
+- 入参 str,rep,normalFirst
+  - str:string 输入的字符串
+  - rep?:string 空格替换成什么,默认为空
+  - normalFirst?:boolean 是否先去掉头尾的空格 默认为true
+- @return result:string
+```tsx
+const data = useTrims(' a b c d ','1',true)//a1b1c1d
+return <div>
+    {data}
+</div>
+```
 ### useFocus input的focus事件
 - 入参 target,options
   - target:MutableRefObject<HTMLInputElement | null> | HTMLInputElement input的ref
