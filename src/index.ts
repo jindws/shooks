@@ -54,6 +54,7 @@ import usePolling from "./hooks/usePolling";
 import useFocus from "./hooks/useFocus";
 import useTrims from "./hooks/useTrims";
 import useRGB2Hex from "./hooks/useRGB2Hex";
+import useHexToRgba from "./hooks/useRGB2Hex";
 
 export default {
   useMap,
@@ -112,6 +113,7 @@ export default {
   useFocus,
   useTrims,
   useRGB2Hex,
+  useHexToRgba,
 };
 export {
   useMap,
@@ -170,4 +172,5 @@ export {
   useFocus,
   useTrims,
   useRGB2Hex,
+  useHexToRgba,
 };

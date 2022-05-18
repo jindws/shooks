@@ -1,9 +1,23 @@
 import { useMemo } from "react";
 
-function useRGB2Hex(r: number, g: number, b: number): string {
+function useHexToRgba(
+  hex: string,
+  opacity: number = 1
+): [rgba: string, colors: { red: number; green: number; blue: number }] {
   return useMemo(() => {
-    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
-  }, [r, g, b]);
+    const [red, green, blue] = (hex.match(/\w{2}/g) || []).map(
+      (itm) => +`0x${itm}`
+    );
+
+    return [
+      `rgba(${red},${green},${blue},${opacity})`,
+      {
+        red,
+        green,
+        blue,
+      },
+    ];
+  }, [hex, opacity]);
 }
 
-export default useRGB2Hex;
+export default useHexToRgba;

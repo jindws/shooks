@@ -28,6 +28,22 @@ return <div onClick={running?stop:start}>
     {data}
 </div>
 ```
+### useHexToRgba hex->rgba
+- 入参 hex opacity
+  - hex: string 6位
+  - opacity:number 选填
+- @return [rgba,colors]
+  - rgba:string rgba
+  - colors
+    - red:number
+    - green:number
+    - blue:number
+```tsx
+const [rgba,{red,green,blue}] = useHexToRgba('#dddddd')
+return <div>
+    rgba:{rgba}
+</div>
+```
 ### useRGB2Hex rgb->hex
 - 入参 r,g,b
   - r:number
