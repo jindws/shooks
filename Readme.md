@@ -28,6 +28,16 @@ return <div onClick={running?stop:start}>
     {data}
 </div>
 ```
+### useRGB2Hex rgb->hex
+- 入参 r,g,b
+  - r:number
+  - g:number
+  - b:number
+- @return value
+  - value:string 返回结果
+```tsx
+const hex = useRGB2Hex(0,0,0)
+```
 ### useTrims 替换字符串所有的空格
 - 入参 str,rep,normalFirst
   - str:string 输入的字符串

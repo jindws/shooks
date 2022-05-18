@@ -53,6 +53,7 @@ import useEyeDropper from "./hooks/useEyeDropper";
 import usePolling from "./hooks/usePolling";
 import useFocus from "./hooks/useFocus";
 import useTrims from "./hooks/useTrims";
+import useRGB2Hex from "./hooks/useRGB2Hex";
 
 export default {
   useMap,
@@ -110,6 +111,7 @@ export default {
   usePolling,
   useFocus,
   useTrims,
+  useRGB2Hex,
 };
 export {
   useMap,
@@ -167,4 +169,5 @@ export {
   usePolling,
   useFocus,
   useTrims,
+  useRGB2Hex,
 };
