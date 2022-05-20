@@ -315,6 +315,14 @@ function App() {
   </>
 }
 ```
+### useDidMount 初始化执行一次
+- componentDodMount
+- 参数 callback
+  - callback:function
+```tsx
+useDidMount(()=>console.log(1))
+```
+
 ### useDidUpdate 忽略初始化的useEffect
 - componentDidUpdate
 - 同useEffect,但忽略初始化的执行
@@ -327,13 +335,8 @@ useDidUpdate(()=>{
 },[num])
 return <div onClick={setNum.bind(this,num+1)}>update{num}</div>
 ```
-### useDidMount 初始化执行一次
-- componentDodMount
-- 参数 callback
-  - callback:function
-```tsx
-useDidMount(()=>console.log(1))
-```
+### useUpdateLayoutEffect useLayoutEffect-只执行update
+- 同 useDidUpdate
 ### useJSONP 使用jsonp⚠
 - ️参数[url,options]
   - url:string 请求链接

@@ -1,6 +1,6 @@
-import { useEffect, useRef } from "react";
+import { DependencyList, EffectCallback, useEffect, useRef } from "react";
 
-function useDidUpdate(callback: () => (() => void) | void, deps?: [any]): void {
+function useDidUpdate(callback: EffectCallback, deps?: DependencyList): void {
   const ref = useRef(false);
   const back: any = useRef(null);
   useEffect(() => {
