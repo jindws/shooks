@@ -28,6 +28,19 @@ return <div onClick={running?stop:start}>
     {data}
 </div>
 ```
+### useCounter 管理计数器
+- 入参 
+  - initialValue:number 初始化的数字 超出options则返回边界值
+  - options
+    - min?: number 选填 最小值
+    - max?: number 选填 最大值 max<min则失效
+- @return [count,func]
+  - count:number 最新值
+  - func
+    - inc: 值+1
+    - dec: 值-1
+    - set: 设置指定值
+    - reset: 重置
 ### useHexToRgba hex->rgba
 - 入参 hex opacity
   - hex: string 6位

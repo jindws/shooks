@@ -55,6 +55,7 @@ import useFocus from "./hooks/useFocus";
 import useTrims from "./hooks/useTrims";
 import useRGB2Hex from "./hooks/useRGB2Hex";
 import useHexToRgba from "./hooks/useRGB2Hex";
+import useCounter from "./hooks/useCounter";
 
 export default {
   useMap,
@@ -114,6 +115,7 @@ export default {
   useTrims,
   useRGB2Hex,
   useHexToRgba,
+  useCounter,
 };
 export {
   useMap,
@@ -173,4 +175,5 @@ export {
   useTrims,
   useRGB2Hex,
   useHexToRgba,
+  useCounter,
 };

@@ -8,3 +8,5 @@ interface Navigator {
     removeEventListener: (name: string, fun: Function) => void;
   }>;
 }
+
+export type IFunc = () => void;
