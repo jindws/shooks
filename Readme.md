@@ -28,6 +28,48 @@ return <div onClick={running?stop:start}>
     {data}
 </div>
 ```
+### useInterval 处理setInterval的hook
+- 入参
+  - fn: () => void 要定时调用的函数
+  - delay?: number,间隔时间，不传或传0则无效
+  - immediate?:boolean,是否在首次渲染时立即执行
+- @return void
+```tsx
+const [count, setCount] = useState(0);
+const [interval, setInterval] = useState<number | undefined>(1000);
+
+useInterval(() => {
+    setCount(count + 1);
+}, interval);
+
+return (
+    <div>
+        <p> count: {count} </p>
+        <p style={{ marginTop: 16 }}> interval: {interval} </p>
+        <button
+            onClick={() => setInterval((t) => (!!t ? t + 1000 : 1000))}
+            style={{ marginRight: 8 }}
+        >
+            interval + 1000
+        </button>
+        <button
+            style={{ marginRight: 8 }}
+            onClick={() => {
+                setInterval(1000);
+            }}
+        >
+            reset interval
+        </button>
+        <button
+            onClick={() => {
+                setInterval(undefined);
+            }}
+        >
+            clear
+        </button>
+    </div>
+);
+```
 ### useCounter 管理计数器
 - 入参 
   - initialValue:number 初始化的数字 超出options则返回边界值
